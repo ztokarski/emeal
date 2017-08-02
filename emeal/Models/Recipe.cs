@@ -20,6 +20,7 @@ namespace emeal.Models
         public int EstimatedTime { get; set; }
         public int Popularity { get; set; }
         public int Rating { get; set; }
+
     }
 
     public enum Difficulty
@@ -28,4 +29,6 @@ namespace emeal.Models
         Medium,
         Hard
     }
+
+  
 }
