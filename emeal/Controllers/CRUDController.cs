@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using emeal.Models;
 
 namespace emeal.Controllers
 {
     public class CRUDController : Controller
     {
+
+        private RecipeDb db = new RecipeDb();
         // GET: CRUD
         public ActionResult Index()
         {
-            return View();
+            return View(db.Recipes.ToList());
         }
 
         // GET: CRUD/Details/5
