@@ -18,13 +18,22 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Difficulty)
+            @Html.DisplayNameFor(model => model.PathToImage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Time)
+            @Html.DisplayNameFor(model => model.DifficultyLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WhenAdded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstimatedTime)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Popularity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
         </th>
         <th></th>
     </tr>
@@ -38,13 +47,22 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Difficulty)
+            @Html.DisplayFor(modelItem => item.PathToImage)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Time)
+            @Html.DisplayFor(modelItem => item.DifficultyLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WhenAdded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstimatedTime)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Popularity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
