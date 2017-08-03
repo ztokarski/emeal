@@ -1,13 +1,10 @@
 using emeal.Models;
 using System.Collections.Generic;
-using ReceipeModel = emeal.Models.Recipe;
 
 namespace emeal.Migrations
 {
     using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<emeal.Models.RecipeDb>
     {
@@ -20,7 +17,7 @@ namespace emeal.Migrations
         {
        
             context.Recipes.AddOrUpdate(p => p.Name,
-                new ReceipeModel
+                new Recipe
                 {
                     Name = "Pierogi babci Ani",
                     Description = "przepis po babci, znaleziony na strychu. Moje dzieci go uwielbiaj¹",
