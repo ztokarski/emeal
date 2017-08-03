@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace emeal.Models
 {
@@ -11,7 +9,7 @@ namespace emeal.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public User Author { get; set; }
-        public virtual List<Ingredient> Ingredients { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
         public List<Step> Steps { get; set; }
         public string PathToImage { get; set; }
 
@@ -21,6 +19,38 @@ namespace emeal.Models
         public int Popularity { get; set; }
         public int Rating { get; set; }
 
+        public Recipe(int id, string name, string description, User author, List<Ingredient> ingredients, List<Step> steps, string pathToImage, Difficulty difficultyLevel, DateTime whenAdded, int estimatedTime, int popularity, int rating)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            Author = author;
+            Ingredients = ingredients;
+            Steps = steps;
+            PathToImage = pathToImage;
+            DifficultyLevel = difficultyLevel;
+            WhenAdded = whenAdded;
+            EstimatedTime = estimatedTime;
+            Popularity = popularity;
+            Rating = rating;
+        }
+
+        public Recipe(string name, string description, User author, List<Ingredient> ingredients, List<Step> steps, string pathToImage, Difficulty difficultyLevel, DateTime whenAdded, int estimatedTime, int popularity, int rating)
+        {
+            Name = name;
+            Description = description;
+            Author = author;
+            Ingredients = ingredients;
+            Steps = steps;
+            PathToImage = pathToImage;
+            DifficultyLevel = difficultyLevel;
+            WhenAdded = whenAdded;
+            EstimatedTime = estimatedTime;
+            Popularity = popularity;
+            Rating = rating;
+        }
+
+        public Recipe() { }
     }
 
     public enum Difficulty
@@ -29,6 +59,4 @@ namespace emeal.Models
         Medium,
         Hard
     }
-
-  
 }
