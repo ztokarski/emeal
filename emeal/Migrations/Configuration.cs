@@ -91,28 +91,23 @@ namespace emeal.Migrations
                 PathToImage = "path to image",
                 Timer = 20,
             };
-//            User user1 = new User()
-//            {
-//                Name = "Stanis³aw",
-//                PathToImage = "path to Stanis³aw's image"
-//            };
-//            User user2 = new User()
-//            {
-//                Name = "Claudia",
-//                PathToImage = "path to Claudia's image"
-//            };
+            User user1 = new User()
+            {
+                Name = "Stanislaw",
+                PathToImage = "path to Stanislaw's image"
+            };
+            User user2 = new User()
+            {
+                Name = "Claudia",
+                PathToImage = "path to Claudia's image"
+            };
 
             context.Recipes.AddOrUpdate(p => p.Name,
                 new RecipeModel
                 {
                     Name = "Pierogi babci Ani",
                     Description = "przepis po babci, znaleziony na strychu. Moje dzieci go uwielbiaj¹",
-                    Author = new User()
-                    {
-                        Name = "Piotr",
-                        PathToImage = "path to Piotr's image"
-                    },
-
+                    Author = user1,
                     Ingredients = new List<Ingredient>()
                     {
                         marchew1,
@@ -132,13 +127,9 @@ namespace emeal.Migrations
                 },
                 new RecipeModel
                 {
-                    Name = "Kapuœniak po œl¹sku",
+                    Name = "Kapusniak po slasku",
                     Description = "przepis po dziadku, znaleziony w gara¿u. Moje dzieci go nie cierpi¹",
-                    Author = new User()
-                    {
-                        Name = "Anna",
-                        PathToImage = "path to Anna's image"
-                    },
+                    Author = user2,
                     Ingredients = new List<Ingredient>()
                     {
                         pomidor1,
