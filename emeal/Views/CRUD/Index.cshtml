@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<emeal.Models.Recipe>
 
+
 @{
     ViewBag.Title = "Index";
 }
@@ -21,10 +22,10 @@
             @Html.DisplayNameFor(model => model.PathToImage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DifficultyLevel)
+            @Html.DisplayNameFor(model => model.Author)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WhenAdded)
+            @Html.DisplayNameFor(model => model.Ingredients)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EstimatedTime)
@@ -50,10 +51,17 @@
             @Html.DisplayFor(modelItem => item.PathToImage)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DifficultyLevel)
+            @Html.DisplayFor(modelItem => item.Author.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.WhenAdded)
+            <ul>
+            @foreach (var ingr in item.Ingredients)
+            {
+                <li>
+                    @Html.DisplayFor(modelItem => ingr.UnitType)
+                </li>
+            }
+            </ul>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EstimatedTime)

@@ -12,6 +12,7 @@
 <table class="table">
     <tr>
         <th>
+            <p>zmiany</p>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
@@ -21,11 +22,9 @@
             @Html.DisplayNameFor(model => model.Difficulty)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Time)
+            @Html.DisplayNameFor(model => model.Author)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Popularity)
-        </th>
+    
         <th></th>
     </tr>
 
@@ -41,11 +40,9 @@
             @Html.DisplayFor(modelItem => item.Difficulty)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Time)
+            @Html.DisplayFor(modelItem => item.Author.Name)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Popularity)
-        </td>
+     
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
