@@ -8,7 +8,7 @@ namespace emeal.Models
     public class Ingredient
     {
         public int Id { get; set; }
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
         public int Amount { get; set; }
         public Unit UnitType { get; set; }
     }

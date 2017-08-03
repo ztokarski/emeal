@@ -14,6 +14,7 @@ namespace emeal.Controllers
         // GET: CRUD
         public ActionResult Index()
         {
+            var a = db.Recipes.ToList();
             return View(db.Recipes.ToList());
         }
 

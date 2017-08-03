@@ -58,7 +58,7 @@
             @foreach (var ingr in item.Ingredients)
             {
                 <li>
-                    @Html.DisplayFor(modelItem => ingr.UnitType)
+                    @Html.DisplayFor(modelItem => ingr.Product.Name)
                 </li>
             }
             </ul>

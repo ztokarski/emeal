@@ -110,7 +110,7 @@ namespace emeal.Migrations
                     Author = new User()
                     {
                         Name = "Piotr",
-                        PathToImage = "path to Stanis³aw's image"
+                        PathToImage = "path to Piotr's image"
                     },
 
                     Ingredients = new List<Ingredient>()
