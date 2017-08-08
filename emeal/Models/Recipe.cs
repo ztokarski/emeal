@@ -8,9 +8,9 @@ namespace emeal.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public User Author { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
-        public List<Step> Steps { get; set; }
+        public virtual User Author { get; set; }
+        public virtual List<Ingredient> Ingredients { get; set; }
+        public virtual List<Step> Steps { get; set; }
         public string PathToImage { get; set; }
 
         public Difficulty DifficultyLevel { get; set; }

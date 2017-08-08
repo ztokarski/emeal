@@ -1,32 +1,30 @@
-using emeal.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using emeal.Models;
 
 namespace emeal.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<emeal.Models.RecipeDb>
+    internal sealed class Configuration : DbMigrationsConfiguration<RecipeDb>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(emeal.Models.RecipeDb context)
+        protected override void Seed(RecipeDb context)
         {
-       
             context.Recipes.AddOrUpdate(p => p.Name,
                 new Recipe
                 {
                     Name = "Pierogi babci Ani",
                     Description = "przepis po babci, znaleziony na strychu. Moje dzieci go uwielbiaj¹",
-                    Author = new User() { Name = "Stanis³aw"},
-                    Ingredients = new List<Ingredient>()
+                    Author = new User {Name = "Stanis³aw"},
+                    Ingredients = new List<Ingredient>
                     {
-                        new Ingredient()
+                        new Ingredient
                         {
-                            Product = new Product()
+                            Product = new Product
                             {
                                 Name = "pomidor",
                                 PathToImage = "path to image..."
@@ -35,9 +33,9 @@ namespace emeal.Migrations
                             UnitType = Unit.szt
                         }
                     },
-                    Steps = new List<Step>()
+                    Steps = new List<Step>
                     {
-                        new Step()
+                        new Step
                         {
                             Name = "Krok 1",
                             Order = 1,
@@ -52,19 +50,7 @@ namespace emeal.Migrations
                     Popularity = 3,
                     Rating = 4
                 }
-                );
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            );
         }
     }
 }

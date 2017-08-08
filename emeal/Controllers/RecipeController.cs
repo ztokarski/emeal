@@ -95,11 +95,12 @@ namespace emeal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id)
         {
             try
             {
                 var recipe = _db.Recipes.Find(id);
+                // ReSharper disable once InvertIf
                 if (recipe != null)
                 {
                     _db.Recipes.Remove(recipe);
