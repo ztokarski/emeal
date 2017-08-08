@@ -18,8 +18,8 @@ namespace emeal.Migrations
                 new Recipe
                 {
                     Name = "Pierogi babci Ani",
-                    Description = "przepis po babci, znaleziony na strychu. Moje dzieci go uwielbiaj¹",
-                    Author = new User {Name = "Stanis³aw"},
+                    Description = "przepis po babci, znaleziony na strychu. Moje dzieci go uwielbiajÄ…",
+                    Author = new User {Name = "Stanislaw"},
                     Ingredients = new List<Ingredient>
                     {
                         new Ingredient

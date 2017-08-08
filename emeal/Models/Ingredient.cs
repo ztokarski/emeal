@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace emeal.Models
+﻿namespace emeal.Models
 {
     public class Ingredient
     {
@@ -15,6 +10,11 @@ namespace emeal.Models
 
     public enum Unit
     {
-        szt, g, dag, kg, ml, l
+        szt,
+        g,
+        dag,
+        kg,
+        ml,
+        l
     }
 }

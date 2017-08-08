@@ -19,7 +19,9 @@ namespace emeal.Models
         public int Popularity { get; set; }
         public int Rating { get; set; }
 
-        public Recipe(int id, string name, string description, User author, List<Ingredient> ingredients, List<Step> steps, string pathToImage, Difficulty difficultyLevel, DateTime whenAdded, int estimatedTime, int popularity, int rating)
+        public Recipe(int id, string name, string description, User author, List<Ingredient> ingredients,
+            List<Step> steps, string pathToImage, Difficulty difficultyLevel, DateTime whenAdded, int estimatedTime,
+            int popularity, int rating)
         {
             Id = id;
             Name = name;
@@ -35,7 +37,9 @@ namespace emeal.Models
             Rating = rating;
         }
 
-        public Recipe(string name, string description, User author, List<Ingredient> ingredients, List<Step> steps, string pathToImage, Difficulty difficultyLevel, DateTime whenAdded, int estimatedTime, int popularity, int rating)
+        public Recipe(string name, string description, User author, List<Ingredient> ingredients, List<Step> steps,
+            string pathToImage, Difficulty difficultyLevel, DateTime whenAdded, int estimatedTime, int popularity,
+            int rating)
         {
             Name = name;
             Description = description;
@@ -50,7 +54,9 @@ namespace emeal.Models
             Rating = rating;
         }
 
-        public Recipe() { }
+        public Recipe()
+        {
+        }
     }
 
     public enum Difficulty
