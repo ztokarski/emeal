@@ -7,15 +7,15 @@ namespace emeal.Controllers
 {
     public class RecipeController : Controller
     {
-        internal RecipeDb db = new RecipeDb();
+        private readonly RecipeDb _db = new RecipeDb();
 
-        // GET: CRUD
+        [HttpGet]
         public ActionResult Index()
         {
-            return View(db.Recipes.ToList());
+            return View(_db.Recipes.ToList());
         }
 
-        // GET: CRUD/Details/5
+        [HttpGet]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -23,7 +23,7 @@ namespace emeal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var recipe = db.Recipes.Find(id);
+            var recipe = _db.Recipes.Find(id);
 
             if (recipe == null)
             {
@@ -32,13 +32,12 @@ namespace emeal.Controllers
             return View(recipe);
         }
 
-        // GET: CRUD/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CRUD/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(FormCollection collection)
@@ -55,16 +54,12 @@ namespace emeal.Controllers
             }
         }
 
-        // GET: CRUD/Edit/5
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            Recipe recipe = db.Recipes.Find(id);
-
+            var recipe = _db.Recipes.Find(id);
             if (recipe == null)
             {
                 return HttpNotFound();
@@ -72,7 +67,6 @@ namespace emeal.Controllers
             return View();
         }
 
-        // POST: CRUD/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, FormCollection collection)
@@ -89,27 +83,28 @@ namespace emeal.Controllers
             }
         }
 
-        // GET: CRUD/Delete/5
+        [HttpGet]
         public ActionResult Delete(int? id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Recipe recipe = db.Recipes.Find(id);
+            var recipe = _db.Recipes.Find(id);
             if (recipe == null) return HttpNotFound();
 
             return View(recipe);
         }
 
-        // POST: CRUD/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                Recipe recipe = db.Recipes.Find(id);
-                db.Recipes.Remove(recipe);
-                db.SaveChanges();
-
+                var recipe = _db.Recipes.Find(id);
+                if (recipe != null)
+                {
+                    _db.Recipes.Remove(recipe);
+                    _db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch
