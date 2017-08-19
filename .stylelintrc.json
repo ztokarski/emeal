@@ -1,9 +1,8 @@
 {
   "extends": "stylelint-config-recommended",
   "rules": {
-    "max-empty-lines": 4,
-    "string-quotes": "single",
-    "function-url-quotes": "single",
+    "max-empty-lines": 2,
+    "string-quotes": "double",
     "color-hex-length": "long",
     "media-feature-no-missing-punctuation": null,
     "declaration-colon-newline-after": null,
