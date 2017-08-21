@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using emeal.Models;
+using emeal.Models.Utils;
 
 namespace emeal.Controllers
 {
@@ -40,7 +42,20 @@ namespace emeal.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                // ReSharper disable once InvertIf
+                if (recipe.IsRequestValid() && recipe.Popularity.Equals(0)
+                    && !recipe.EstimatedTime.Equals(0) && recipe.Rating.Equals(0))
+                {
+                    recipe.Id = null;
+                    // TODO: Replace new User() with current one
+                    recipe.Author = new User();
+                    recipe.WhenAdded = DateTime.Today;
+                    recipe.Ingredients = new List<Ingredient>();
+                    recipe.Steps = new List<Step>();
+
+                    _db.Recipes.Add(recipe);
+                    _db.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }
@@ -67,11 +82,14 @@ namespace emeal.Controllers
         {
             try
             {
-                recipe.Id = id;
+                // ReSharper disable once InvertIf
+                if (recipe.IsRequestValid())
+                {
+                    recipe.Id = id;
 
-                _db.Recipes.AddOrUpdate(recipe);
-                _db.SaveChanges();
-
+                    _db.Recipes.AddOrUpdate(recipe);
+                    _db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch
