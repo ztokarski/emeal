@@ -47,7 +47,7 @@ namespace emeal.Controllers
                     && !recipe.EstimatedTime.Equals(0) && recipe.Rating.Equals(0))
                 {
                     recipe.Id = null;
-                    // TODO: Replace new User() with current one
+                    // TODO: Replace new User() with the one actually adding the recipe
                     recipe.Author = new User();
                     recipe.WhenAdded = DateTime.Today;
                     recipe.Ingredients = new List<Ingredient>();
