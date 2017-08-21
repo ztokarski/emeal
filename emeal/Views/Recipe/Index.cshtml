@@ -27,6 +27,12 @@
             @Html.DisplayNameFor(model => model.WhenAdded)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Ingredients)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Steps)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.EstimatedTime)
         </th>
         <th>
@@ -57,6 +63,12 @@
                 @Html.DisplayFor(modelItem => item.WhenAdded)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Ingredients)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Steps)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.EstimatedTime)
             </td>
             <td>
@@ -66,8 +78,8 @@
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
-                @Html.ActionLink("Details", "Details", new {id = item.Id}) |
+                @Html.ActionLink("Edit", "Edit", new {id = item.Id})
+                @Html.ActionLink("Details", "Details", new {id = item.Id})
                 @Html.ActionLink("Delete", "Delete", new {id = item.Id})
             </td>
         </tr>
