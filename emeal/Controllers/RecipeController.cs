@@ -62,7 +62,7 @@ namespace emeal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Recipe recipe)
         {
             try
             {
