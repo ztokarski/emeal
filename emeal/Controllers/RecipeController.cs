@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using emeal.Models;
@@ -18,17 +19,11 @@ namespace emeal.Controllers
         [HttpGet]
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var recipe = _db.Recipes.Find(id);
+            if (recipe == null) return HttpNotFound();
 
-            if (recipe == null)
-            {
-                return HttpNotFound();
-            }
             return View(recipe);
         }
 
@@ -40,12 +35,12 @@ namespace emeal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Recipe recipe)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                
                 return RedirectToAction("Index");
             }
             catch
@@ -60,10 +55,8 @@ namespace emeal.Controllers
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var recipe = _db.Recipes.Find(id);
-            if (recipe == null)
-            {
-                return HttpNotFound();
-            }
+            if (recipe == null) return HttpNotFound();
+
             return View();
         }
 
@@ -87,6 +80,7 @@ namespace emeal.Controllers
         public ActionResult Delete(int? id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
             var recipe = _db.Recipes.Find(id);
             if (recipe == null) return HttpNotFound();
 
