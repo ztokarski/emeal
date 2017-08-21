@@ -9,21 +9,16 @@ namespace emeal.Models.Utils
             return checkedInt >= rangeBottom && checkedInt <= rangeTop;
         }
 
-        private static bool CheckUrlValid(this string source)
+        internal static bool CheckUrlValid(this string source)
         {
             Uri uriResult;
             return Uri.TryCreate(source, UriKind.Absolute, out uriResult)
                    && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
         }
 
-        private static bool IsDifficultyEnum(Enum checkedEnum)
+        internal static bool IsDifficultyEnum(this Enum checkedEnum)
         {
             return Enum.IsDefined(typeof(Difficulty), checkedEnum);
-        }
-
-        internal static bool IsRequestValid(this Recipe recipe)
-        {
-            return recipe.PathToImage.CheckUrlValid() && IsDifficultyEnum(recipe.DifficultyLevel);
         }
     }
 }

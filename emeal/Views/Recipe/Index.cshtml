@@ -60,7 +60,8 @@
                 @Html.DisplayFor(modelItem => item.DifficultyLevel)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.WhenAdded)
+                @{ var shortValue = item.WhenAdded.ToShortDateString(); }
+                @Html.DisplayFor(modelItem => shortValue)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ingredients)
@@ -69,7 +70,7 @@
                 @Html.DisplayFor(modelItem => item.Steps)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EstimatedTime)
+                @Html.DisplayFor(modelItem => item.EstimatedTime) min
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Popularity)
