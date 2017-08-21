@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using emeal.Models;
+using emeal.Models.Utils;
 
 namespace emeal.Controllers
 {
@@ -38,16 +40,21 @@ namespace emeal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Recipe recipe)
         {
-            try
+            if (recipe.PathToImage.CheckUrlValid() && recipe.DifficultyLevel.IsDifficultyEnum()
+                && recipe.Popularity.Equals(0) && recipe.EstimatedTime > 0 && recipe.Rating.Equals(0))
             {
-                // TODO: Add insert logic here
+                recipe.Id = null;
+                recipe.Author = new User(); // TODO: Replace new User() with one adding the recipe
+                recipe.WhenAdded = DateTime.Today;
+                recipe.Ingredients = new List<Ingredient>();
+                recipe.Steps = new List<Step>();
+
+                _db.Recipes.Add(recipe);
+                _db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         [HttpGet]
@@ -65,19 +72,15 @@ namespace emeal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Recipe recipe)
         {
-            try
+            if (recipe.PathToImage.CheckUrlValid() && recipe.DifficultyLevel.IsDifficultyEnum())
             {
                 recipe.Id = id;
-
                 _db.Recipes.AddOrUpdate(recipe);
                 _db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         [HttpGet]
@@ -95,22 +98,16 @@ namespace emeal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
-            try
-            {
-                var recipe = _db.Recipes.Find(id);
+            var recipe = _db.Recipes.Find(id);
 
-                // ReSharper disable once InvertIf
-                if (recipe != null)
-                {
-                    _db.Recipes.Remove(recipe);
-                    _db.SaveChanges();
-                }
+            if (recipe != null)
+            {
+                _db.Recipes.Remove(recipe);
+                _db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
     }
 }
