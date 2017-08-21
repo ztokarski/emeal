@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -40,7 +41,7 @@ namespace emeal.Controllers
             try
             {
                 // TODO: Add insert logic here
-                
+
                 return RedirectToAction("Index");
             }
             catch
@@ -66,7 +67,10 @@ namespace emeal.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                recipe.Id = id;
+
+                _db.Recipes.AddOrUpdate(recipe);
+                _db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -94,6 +98,7 @@ namespace emeal.Controllers
             try
             {
                 var recipe = _db.Recipes.Find(id);
+
                 // ReSharper disable once InvertIf
                 if (recipe != null)
                 {
