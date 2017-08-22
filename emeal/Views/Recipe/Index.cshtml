@@ -6,9 +6,11 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+<div class="panel-body">
+    @Html.ActionLink("Create New", "Create", "Recipe", null, new { @class = "btn btn-success btn-default" })
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -41,7 +43,21 @@
         <th>
             @Html.DisplayNameFor(model => model.Rating)
         </th>
-        <th></th>
+        <th>
+            <div class="dropdown pull-right">
+                <button class="btn btn-xs btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sort By
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Name</a></li>
+                    <li><a href="#">Difficulty</a></li>
+                    <li><a href="#">Popularity</a></li>
+                    <li><a href="#">Rating</a></li>
+                    <li><a href="#">Time</a></li>
+                </ul>
+            </div>
+        </th>
     </tr>
 
     @foreach (var item in Model)
