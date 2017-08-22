@@ -14,9 +14,14 @@ namespace emeal.Controllers
         private readonly RecipeDb _db = new RecipeDb();
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string searchName)
         {
-            return View(_db.Recipes.ToList());
+            var recipes = _db.Recipes.ToList();
+            if (!String.IsNullOrEmpty(searchName))
+            {
+                recipes = recipes.Where(r => r.Name.ToLower().Contains(searchName.ToLower())).ToList();
+            }
+            return View(recipes);
         }
 
         [HttpGet]
@@ -109,5 +114,6 @@ namespace emeal.Controllers
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
+
     }
 }
