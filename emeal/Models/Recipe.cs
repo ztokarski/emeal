@@ -5,7 +5,7 @@ namespace emeal.Models
 {
     public class Recipe
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public virtual User Author { get; set; }
@@ -40,7 +40,7 @@ namespace emeal.Models
         public Recipe(string name, string description, User author, List<Ingredient> ingredients,
             List<Step> steps, string pathToImage, Difficulty difficultyLevel, int estimatedTime)
         {
-            Id = null;
+            Id = 0;
             Name = name;
             Description = description;
             Author = author;
