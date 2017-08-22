@@ -51,11 +51,11 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                    <li>@Html.ActionLink("Popularity", "Index", new { sortOrder = "popularity" })</li>
-                    <li>@Html.ActionLink("Name", "Index", new {sortOrder = "name"})</li>
-                    <li>@Html.ActionLink("Rating", "Index", new { sortOrder = "rating" })</li>
-                    <li>@Html.ActionLink("Difficulty", "Index", new {sortOrder = "difficulty"})</li>
-                    <li>@Html.ActionLink("Time", "Index", new {sortOrder = "time"})</li>
+                    <li>@Html.ActionLink("Popularity", "Index", new { sortOrder = "popularity", searchName = ViewBag.searchName})</li>
+                    <li>@Html.ActionLink("Name", "Index", new {sortOrder = "name", searchName = ViewBag.searchName })</li>
+                    <li>@Html.ActionLink("Rating", "Index", new { sortOrder = "rating", searchName = ViewBag.searchName })</li>
+                    <li>@Html.ActionLink("Difficulty", "Index", new {sortOrder = "difficulty", searchName = ViewBag.searchName })</li>
+                    <li>@Html.ActionLink("Time", "Index", new {sortOrder = "time", searchName = ViewBag.searchName })</li>
                 </ul>
             </div>
         </th>
