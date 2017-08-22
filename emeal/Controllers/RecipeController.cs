@@ -14,12 +14,31 @@ namespace emeal.Controllers
         private readonly RecipeDb _db = new RecipeDb();
 
         [HttpGet]
-        public ActionResult Index(string searchName)
+        public ActionResult Index(string searchName, string sortOrder)
         {
             var recipes = _db.Recipes.ToList();
             if (!String.IsNullOrEmpty(searchName))
             {
                 recipes = recipes.Where(r => r.Name.ToLower().Contains(searchName.ToLower())).ToList();
+            }
+
+            switch (sortOrder)
+            {
+                case "name":
+                    recipes = recipes.OrderBy(r => r.Name).ToList();
+                    break;
+                case "difficulty":
+                    recipes = recipes.OrderBy(r => r.DifficultyLevel).ToList();
+                    break;
+                case "rating":
+                    recipes = recipes.OrderByDescending(r => r.Rating).ToList();
+                    break;
+                case "time":
+                    recipes = recipes.OrderBy(r => r.EstimatedTime).ToList();
+                    break;
+                default:
+                    recipes = recipes.OrderByDescending(r => r.Popularity).ToList();
+                    break;
             }
             return View(recipes);
         }
@@ -114,6 +133,5 @@ namespace emeal.Controllers
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
-
     }
 }
