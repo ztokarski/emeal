@@ -40,7 +40,7 @@ namespace emeal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Recipe recipe)
         {
-            if (recipe.PathToImage.CheckUrlValid() && recipe.DifficultyLevel.IsDifficultyEnum()
+            if (recipe.PathToImage.CheckUrlValid()
                 && recipe.Popularity.Equals(0) && recipe.EstimatedTime > 0 && recipe.Rating.Equals(0))
             {
                 recipe.Id = 0;
@@ -72,7 +72,7 @@ namespace emeal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Recipe recipe)
         {
-            if (recipe.PathToImage.CheckUrlValid() && recipe.DifficultyLevel.IsDifficultyEnum())
+            if (recipe.PathToImage.CheckUrlValid())
             {
                 var recipeOriginal = _db.Recipes.Find(id);
                 recipe.Id = id;
