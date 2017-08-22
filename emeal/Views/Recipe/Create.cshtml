@@ -39,6 +39,15 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Ingredients, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                <a href="#" class="btn btn-default" id="add-ingredient-frame">Add ingredient</a>
+                <div id="recipe-ingredient-frames"></div>
+                @Html.ValidationMessageFor(model => model.Ingredients, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.DifficultyLevel, new {@class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.EnumDropDownListFor(model => model.DifficultyLevel, new {@class = "form-control"})
