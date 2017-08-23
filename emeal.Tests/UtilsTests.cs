@@ -24,21 +24,22 @@ namespace emeal.Tests
             var trueResult = valueInRange.InRange(rangeBottom, rangeTop);
             var falseResult = valueOutsideRange.InRange(rangeBottom, rangeTop);
 
-            Assert.AreEqual(true, trueResult);
-            Assert.AreEqual(false, falseResult);
+            Assert.That(trueResult, Is.True);
+            Assert.That(falseResult, Is.False);
         }
+
 
         [Test]
         public void testCheckUrlValid()
         {
-            var validSource = "https://stackoverflow.com/";
-            var inValidSource = "stackoverflow.com";
+            const string validSource = "https://stackoverflow.com/";
+            const string inValidSource = "stackoverflow.com";
 
             var trueResult = validSource.CheckUrlValid();
             var falseResult = inValidSource.CheckUrlValid();
 
-            Assert.AreEqual(true, trueResult);
-            Assert.AreEqual(false, falseResult);
+            Assert.That(trueResult, Is.True);
+            Assert.That(falseResult, Is.False);
         }
 
     }
