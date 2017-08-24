@@ -1,26 +1,27 @@
 "use strict";
 $(function () {
-    var ingredientFrameCount = 0;
+    var ingredient_container = $("#Ingredients");
+    var ingredient_warning = $("#ingredient-warning");
+    ingredient_warning.hide();
 
-    $("#add-ingredient-frame").click(function () {
-        var ingredientFrameIdString = "Ingredients[" + ingredientFrameCount + "]";
-        var ingredientFrameHTMLContent = "\
-            <div class='col-md-3' id='" + ingredientFrameIdString + "'>\
-                <label for='Ingredients[" + ingredientFrameCount + "].Product'>Product</label>\
-                <input name='Ingredients[" + ingredientFrameCount + "].Product' type='text'/>\
-                <label for='Ingredients[" + ingredientFrameCount + "].Amount'>Amount</label>\
-                <input name='Ingredients[" + ingredientFrameCount + "].Amount' type='text'/>\
-                <label for='Ingredients[" + ingredientFrameCount + "].UnitType'>Unit type</label>\
-                <input name='Ingredients[" + ingredientFrameCount + "].UnitType' type='text'/>\
-                <button class='btn btn-danger delete-ingredient-frame'>Delete</button>\
-            </div>";
+    $("#add-ingredient-frame").click(function (event) {
+        event.preventDefault();
 
-        $("#ingredient-frames").append(ingredientFrameHTMLContent);
-        ingredientFrameCount += 1;
+        var frame = document.createElement("div");
+        frame.innerText = "Loading...";
+
+        ingredient_container.append(frame);
+        $(frame).load("/Ingredient/PartialIngredient", function (response, status) {
+            if (status === "error") {
+                ingredient_warning.innerText = "You smart, you loyal... but an error occured! Try again.";
+                ingredient_warning.show();
+                $(this).remove()
+            }
+        });
     });
 
-
-    $('#ingredient-frames').on('click', '.delete-ingredient-frame', function () {
+    ingredient_container.on("click", ".delete-ingredient-frame", function (event) {
+        event.preventDefault();
         $(this).parent().remove();
     });
 });

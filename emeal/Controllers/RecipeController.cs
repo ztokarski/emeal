@@ -64,7 +64,7 @@ namespace emeal.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            return View(new Recipe());
         }
 
         [HttpPost]
@@ -119,32 +119,35 @@ namespace emeal.Controllers
             try
             {
                 var originalRecipe = _db.Recipes.Find(id);
-
                 if (originalRecipe == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
                 originalRecipe.Name = originalRecipe.Name == updatedRecipe.Name
                     ? originalRecipe.Name
                     : updatedRecipe.Name;
+
                 originalRecipe.Description = originalRecipe.Description == updatedRecipe.Description
                     ? originalRecipe.Description
                     : updatedRecipe.Description;
+
                 originalRecipe.DifficultyLevel = originalRecipe.DifficultyLevel == updatedRecipe.DifficultyLevel
                     ? originalRecipe.DifficultyLevel
                     : updatedRecipe.DifficultyLevel;
+
                 originalRecipe.PathToImage = originalRecipe.PathToImage == updatedRecipe.PathToImage
                     ? originalRecipe.PathToImage
                     : updatedRecipe.PathToImage;
+
                 originalRecipe.EstimatedTime = originalRecipe.EstimatedTime == updatedRecipe.EstimatedTime
                     ? originalRecipe.EstimatedTime
                     : updatedRecipe.EstimatedTime;
 
-//                 TODO
-//                originalRecipe.Ingredients = originalRecipe.Ingredients == updatedRecipe.Ingredients
-//                    ? originalRecipe.Ingredients
-//                    : updatedRecipe.Ingredients;
-//                originalRecipe.Steps = originalRecipe.Steps == updatedRecipe.Steps
-//                    ? originalRecipe.Steps
-//                    : updatedRecipe.Steps;
+                originalRecipe.Ingredients = originalRecipe.Ingredients == updatedRecipe.Ingredients
+                    ? originalRecipe.Ingredients
+                    : updatedRecipe.Ingredients;
+
+                originalRecipe.Steps = originalRecipe.Steps == updatedRecipe.Steps
+                    ? originalRecipe.Steps
+                    : updatedRecipe.Steps;
 
 
                 _db.Recipes.AddOrUpdate(originalRecipe);

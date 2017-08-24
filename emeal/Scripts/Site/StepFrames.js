@@ -1,24 +1,28 @@
 "use strict";
 $(function () {
+    var step_container = $("#Steps");
+    var step_warning = $("#step-warning");
+    step_warning.hide();
 
+    $("#add-step-frame").click(function (event) {
+        event.preventDefault();
+        step_warning.hide(250);
 
-    var stepFrameCount = 0;
+        var frame = document.createElement("div");
+        frame.innerText = "Loading...";
 
-    $("#add-step-frame").click(function () {
-        var stepFrameIdString = "Steps[" + stepFrameCount + "]";
-        var stepFrameHTMLContent = "\
-            <div class='col-md-3' id='" + stepFrameIdString + "'>\
-                <label for='Step[" + stepFrameCount + "].Name'>Name</label>\
-                <input name='Step[" + stepFrameCount + "]' type='text'/>\
-                <button class='btn btn-danger delete-step-frame'>Delete</button>\
-            </div>";
-
-        $("#step-frames").append(stepFrameHTMLContent);
-        stepFrameCount += 1;
+        step_container.append(frame);
+        $(frame).load("/Step/PartialStep", function (response, status) {
+            if (status === "error") {
+                step_warning.val = "You smart, you loyal... but an error occured! Try again.";
+                step_warning.show(250);
+                $(this).remove()
+            }
+        });
     });
 
-
-    $('#step-frames').on('click', '.delete-step-frame', function () {
+    step_container.on('click', '.delete-step-frame', function (event) {
+        event.preventDefault();
         $(this).parent().remove();
     });
 });
