@@ -15,7 +15,7 @@ namespace emeal.Controllers
         [HttpGet]
         public ActionResult Index(string searchName, string sortOrder)
         {
-            ViewBag.searchName = searchName;
+            ViewBag.SearchName = searchName;
             var recipes = _db.Recipes.ToList();
 
             if (string.IsNullOrEmpty(searchName)) return View(recipes);
