@@ -1,4 +1,10 @@
-﻿body {
+﻿html {
+    font-family: 'Encode Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+body {
     background: url("/Content/img/bg.jpg") repeat;
     padding-top: 50px;
     padding-bottom: 20px;
@@ -23,11 +29,20 @@ textarea {
 }
 
 #Steps > div, #Ingredients > div {
-    border: 1px solid rgb(191, 191, 191);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgb(195, 195, 195);
     border-radius: 10px;
+    padding: 2%;
+    margin: 2%;
 }
 
 body > div.navbar.navbar-inverse.navbar-fixed-top {
     background: rgb(206, 255, 174);
     color: black;
+}
+
+#Steps, #Ingredients {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
 }
