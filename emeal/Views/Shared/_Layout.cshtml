@@ -6,7 +6,7 @@
     <title>@ViewBag.Title</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css"/>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -20,8 +20,8 @@
             @Html.ActionLink("e-meal", "Index", "Recipe", new {area = ""}, new {@class = "navbar-brand"})
         </div>
 
-        <div class="dropdown center-block" id="searchDropdownMenu">
-            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="searchDropdown" aria-haspopup="true" aria-expanded="false">Search</button>
+        <div class="dropdown pull-right" id="searchDropdownMenu">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="searchDropdown">Search</button>
             <div class="dropdown-menu" aria-labelledby="searchDropdown">
                 @using (Html.BeginForm("Index", "Recipe", FormMethod.Get))
                 {
@@ -51,14 +51,14 @@
     </footer>
 </div>
 
-<script src="~/Scripts/jquery-3.1.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
 
 @*Custom scripts*@
-<script src="~/Scripts/Site/IngredientFrames.js"></script>
-<script src="~/Scripts/Site/StepFrames.js"></script>
-<script src="~/Scripts/Site/SearchByIngredient.js"></script>
+<script type="text/javascript" src="~/Scripts/Site/IngredientFrames.js"></script>
+<script type="text/javascript" src="~/Scripts/Site/StepFrames.js"></script>
+<script type="text/javascript" src="~/Scripts/Site/SearchByIngredient.js"></script>
 </body>
 </html>
