@@ -69,7 +69,7 @@ namespace emeal.Controllers
             if (recipe.PathToImage.CheckUrlValid() && recipe.DifficultyLevel.IsDifficultyEnum()
                 && recipe.Popularity.Equals(0) && recipe.EstimatedTime > 0 && recipe.Rating.Equals(0))
             {
-                recipe.Id = null;
+                recipe.Id = 0;
                 recipe.Author = new User(); // TODO: Replace new User() with one adding the recipe
                 recipe.WhenAdded = DateTime.Today;
                 recipe.Ingredients = new List<Ingredient>();
@@ -100,7 +100,12 @@ namespace emeal.Controllers
         {
             if (recipe.PathToImage.CheckUrlValid() && recipe.DifficultyLevel.IsDifficultyEnum())
             {
+                var recipeOriginal = _db.Recipes.Find(id);
                 recipe.Id = id;
+                recipe.Author = recipeOriginal.Author;
+                recipe.Ingredients = recipeOriginal.Ingredients;
+                recipe.Steps = recipeOriginal.Steps;
+                recipe.WhenAdded = recipeOriginal.WhenAdded;
                 _db.Recipes.AddOrUpdate(recipe);
                 _db.SaveChanges();
 
