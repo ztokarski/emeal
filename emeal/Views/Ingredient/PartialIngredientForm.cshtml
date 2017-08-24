@@ -1,0 +1,28 @@
+﻿@model emeal.Models.Ingredient
+
+@using (Html.BeginForm("PartialIngredientForm", "Ingredient", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Product, new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Product, new {htmlAttributes = new {@class = "form-control", type = "url"}})
+            @Html.ValidationMessageFor(model => model.Product, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Amount, new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Amount, new {htmlAttributes = new {@class = "form-control", type = "url"}})
+            @Html.ValidationMessageFor(model => model.Amount, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UnitType, new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.UnitType, new {@class = "form-control"})
+            @Html.ValidationMessageFor(model => model.UnitType, "", new {@class = "text-danger"})
+        </div>
+    </div>
+}
