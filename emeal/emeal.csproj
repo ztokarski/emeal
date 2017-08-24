@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -123,7 +124,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-      <Content Include="Scripts\Site\IngredientFrames.js"/>
+    <Content Include="Scripts\Site\IngredientFrames.js" />
+    <Content Include="Scripts\Site\SearchByIngredient.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -145,7 +147,7 @@
     <Compile Include="Models\RecipeDb.cs" />
     <Compile Include="Models\Step.cs" />
     <Compile Include="Models\User.cs" />
-      <Compile Include="Models\Utils\ModelUtils.cs"/>
+    <Compile Include="Models\Utils\ModelUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +162,7 @@
     <Content Include="Views\Recipe\Edit.cshtml" />
     <Content Include="Views\Recipe\Delete.cshtml" />
     <Content Include="Views\Recipe\Index.cshtml" />
+    <Content Include="Views\Recipe\SearchByIngredients.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
