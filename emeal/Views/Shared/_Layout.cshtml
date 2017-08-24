@@ -19,9 +19,11 @@
             </button>
             @Html.ActionLink("e-meal", "Index", "Recipe", new {area = ""}, new {@class = "navbar-brand"})
         </div>
+        
         @using (Html.BeginForm("Index", "Recipe", FormMethod.Get))
         {
             <div class="navbar-form navbar-right">
+                @Html.ActionLink("Search by ingredients", "SearchByIngredients", "Recipe", null, new { @class = "btn btn-success" })
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search by name..." name="searchName" value=@ViewBag.searchName>
                 </div>
@@ -30,6 +32,7 @@
                 </button>
             </div>
         }
+       
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
             </ul>
@@ -50,5 +53,6 @@
 
 @*Custom scripts*@
 <script src="~/Scripts/Site/IngredientFrames.js"></script>
+<script src="~/Scripts/Site/SearchByIngredient.js"></script>
 </body>
 </html>
