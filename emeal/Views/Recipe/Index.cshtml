@@ -4,9 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-
 <div class="panel-body">
     @Html.ActionLink("Create New", "Create", "Recipe", null, new {@class = "btn btn-success btn-default"})
 </div>
@@ -14,19 +11,19 @@
 <table class="table">
     <tr>
         <th>
+
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PathToImage)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.DifficultyLevel)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WhenAdded)
+            Added on
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Ingredients)
@@ -35,7 +32,7 @@
             @Html.DisplayNameFor(model => model.Steps)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EstimatedTime)
+            Cooking time
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Popularity)
@@ -64,13 +61,14 @@
     {
         <tr>
             <td>
+@*                @{ var shortImagePath = item.PathToImage.Substring(0, 20); }*@
+                @Html.DisplayFor(modelItem => item.PathToImage)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PathToImage)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DifficultyLevel)
