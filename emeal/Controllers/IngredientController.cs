@@ -1,13 +1,14 @@
 ﻿using System.Web.Mvc;
+using emeal.Models;
 
 namespace emeal.Controllers
 {
     public class IngredientController : Controller
     {
         [HttpGet]
-        public PartialViewResult PartialIngredientForm()
+        public PartialViewResult PartialIngredient()
         {
-            return PartialView();
+            return PartialView("PartialIngredient", new Ingredient());
         }
     }
 }
