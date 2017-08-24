@@ -19,20 +19,23 @@
             </button>
             @Html.ActionLink("e-meal", "Index", "Recipe", new {area = ""}, new {@class = "navbar-brand"})
         </div>
-        
-        @using (Html.BeginForm("Index", "Recipe", FormMethod.Get))
-        {
-            <div class="navbar-form navbar-right">
-                @Html.ActionLink("Search by ingredients", "SearchByIngredients", "Recipe", null, new { @class = "btn btn-success" })
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search by name..." name="searchName" value=@ViewBag.searchName>
-                </div>
-                <button type="submit" class="btn btn-default">
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
+        <div class="dropdown center-block">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="searchDropdown" aria-haspopup="true" aria-expanded="false">Search</button>
+            <div class="dropdown-menu" aria-labelledby="searchDropdown">
+                @using (Html.BeginForm("Index", "Recipe", FormMethod.Get))
+                {
+                    @Html.ActionLink("Search by ingredients", "SearchByIngredients", "Recipe", null, new {@class = "btn btn-success"})
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search by name..." name="searchName" value=@ViewBag.SearchName>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                }
             </div>
-        }
-       
+        </div>
+
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
             </ul>
