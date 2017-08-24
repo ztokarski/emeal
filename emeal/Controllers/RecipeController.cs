@@ -188,6 +188,8 @@ namespace emeal.Controllers
                 var recipe = _db.Recipes.Find(id);
                 if (recipe == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
+                _db.Steps.RemoveRange(recipe.Steps);
+                _db.Ingredients.RemoveRange(recipe.Ingredients);
                 _db.Recipes.Remove(recipe);
                 _db.SaveChanges();
             }
