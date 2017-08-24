@@ -140,5 +140,11 @@ namespace emeal.Controllers
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
+
+        [HttpGet]
+        public ActionResult SearchByIngredients()
+        {
+            return View();
+        }
     }
 }
