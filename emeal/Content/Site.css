@@ -1,10 +1,12 @@
 ﻿body {
+    background: url("/Content/img/bg.jpg") repeat;
     padding-top: 50px;
     padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    background: rgba(255, 255, 255, 0.9);
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -20,6 +22,12 @@ textarea {
     max-width: 280px;
 }
 
-td {
-    overflow-x: auto;
+#Steps > div, #Ingredients > div {
+    border: 1px solid rgb(191, 191, 191);
+    border-radius: 10px;
+}
+
+body > div.navbar.navbar-inverse.navbar-fixed-top {
+    background: rgb(206, 255, 174);
+    color: black;
 }
