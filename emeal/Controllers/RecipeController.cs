@@ -18,11 +18,9 @@ namespace emeal.Controllers
             ViewBag.searchName = searchName;
             var recipes = _db.Recipes.ToList();
 
-            if (!string.IsNullOrEmpty(searchName))
-            {
-                recipes = recipes.Where(r => r.Name.ToLower().Contains(searchName.ToLower())).ToList();
-            }
+            if (string.IsNullOrEmpty(searchName)) return View(recipes);
 
+            recipes = recipes.Where(r => r.Name.ToLower().Contains(searchName.ToLower())).ToList();
             switch (sortOrder)
             {
                 case "name":
@@ -47,12 +45,20 @@ namespace emeal.Controllers
         [HttpGet]
         public ActionResult Details(int? id)
         {
-            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            try
+            {
+                if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var recipe = _db.Recipes.Find(id);
-            if (recipe == null) return HttpNotFound();
+                var recipe = _db.Recipes.Find(id);
+                if (recipe == null) return HttpNotFound();
 
-            return View(recipe);
+                return View(recipe);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -81,19 +87,26 @@ namespace emeal.Controllers
             {
                 Console.WriteLine(e);
             }
-
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Edit(int? id)
         {
-            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            try
+            {
+                if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var recipe = _db.Recipes.Find(id);
-            if (recipe == null) return HttpNotFound();
+                var recipe = _db.Recipes.Find(id);
+                if (recipe == null) return HttpNotFound();
 
-            return View();
+                return View();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -141,33 +154,45 @@ namespace emeal.Controllers
             {
                 Console.WriteLine(e);
             }
-
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Delete(int? id)
         {
-            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            var recipe = _db.Recipes.Find(id);
-            if (recipe == null) return HttpNotFound();
-            return View(recipe);
+            try
+            {
+                if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                var recipe = _db.Recipes.Find(id);
+                if (recipe == null) return HttpNotFound();
+
+                return View(recipe);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
-            var recipe = _db.Recipes.Find(id);
-            if (recipe != null)
+            try
             {
+                var recipe = _db.Recipes.Find(id);
+                if (recipe == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
                 _db.Recipes.Remove(recipe);
                 _db.SaveChanges();
-
-                return RedirectToAction("Index");
             }
-
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
