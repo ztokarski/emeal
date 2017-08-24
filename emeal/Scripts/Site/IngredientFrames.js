@@ -1,23 +1,24 @@
 "use strict";
 $(function () {
-    var frameCount = 0;
 
-    $("#add-ingredient-frame").click(function (event) {
-        event.preventDefault();
 
-        var ingredientFrameIdString = "ingredients-frame-" + frameCount.toString();
-        var ingredientFrameHTMLContent = "<div id='" + ingredientFrameIdString + "'>\
-            <a href='#' class='btn btn-danger' id='delete-frame'>Delete</a>\
-            <h6>Ingredient</h6>\
-            <input type='text'/>\
+    var ingredientFrameCount = 0;
+
+    $("#add-ingredient-frame").click(function () {
+        var ingredientFrameIdString = "Ingredients[" + ingredientFrameCount + "]";
+        var ingredientFrameHTMLContent = "\
+            <div class='col-md-3' id='" + ingredientFrameIdString + "'>\
+                <label for='Ingredients[" + ingredientFrameCount + "].Name'>Name</label>\
+                <input name='Ingredients[" + ingredientFrameCount + "]' type='text'/>\
+                <button class='btn btn-danger delete-ingredient-frame'>Delete</button>\
             </div>";
 
-        $("#recipe-ingredient-frames").append(ingredientFrameHTMLContent);
-        frameCount += 1;
+        $("#ingredient-frames").append(ingredientFrameHTMLContent);
+        ingredientFrameCount += 1;
     });
 
-    $("#delete-frame").click(function (event) {
-        
-    });
 
+    $('#ingredient-frames').on('click', '.delete-ingredient-frame', function () {
+        $(this).parent().remove();
+    });
 });

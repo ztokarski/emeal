@@ -41,8 +41,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Ingredients, new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                <a href="#" class="btn btn-default" id="add-ingredient-frame">Add ingredient</a>
-                <div id="recipe-ingredient-frames"></div>
+                <span class="btn btn-default" id="add-ingredient-frame">Add ingredient</span>
+                <div id="ingredient-frames"></div>
                 @Html.ValidationMessageFor(model => model.Ingredients, "", new {@class = "text-danger"})
             </div>
         </div>
@@ -64,6 +64,15 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Steps, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                <span class="btn btn-default" id="add-step-frame">Add step</span>
+                <div id="step-frames"></div>
+                @Html.ValidationMessageFor(model => model.Steps, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default"/>
             </div>
@@ -74,6 +83,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
