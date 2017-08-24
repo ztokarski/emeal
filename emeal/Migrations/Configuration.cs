@@ -51,6 +51,154 @@ namespace emeal.Migrations
                     Rating = 4
                 }
             );
+
+            context.Recipes.AddOrUpdate(p => p.Name,
+                new Recipe
+                {
+                    Name = "Zupa pomidorowa",
+                    Description = "przepis po dziadku, znaleziony w mokrej piwnicy.",
+                    Author = new User { Name = "Przemek" },
+                    Ingredients = new List<Ingredient>
+                    {
+                        new Ingredient
+                        {
+                            Product = new Product
+                            {
+                                Name = "pomidor",
+                                PathToImage = "path to image..."
+                            },
+                            Amount = "4",
+                            UnitType = Unit.szt
+                        },
+                        new Ingredient
+                        {
+                            Product = new Product
+                            {
+                                Name = "wywar z rosolu",
+                                PathToImage = "path to image..."
+                            },
+                            Amount = "400",
+                            UnitType = Unit.ml
+                        },
+                        new Ingredient
+                        {
+                            Product = new Product
+                            {
+                                Name = "makaron",
+                                PathToImage = "path to image..."
+                            },
+                            Amount = "200",
+                            UnitType = Unit.g
+                        }
+                    },
+                    Steps = new List<Step>
+                    {
+                        new Step
+                        {
+                            Name = "Krok 1",
+                            Order = 1,
+                            PathToImage = "path to image",
+                            Timer = 20,
+                        },
+                        new Step
+                        {
+                            Name = "Krok 2",
+                            Order = 2,
+                            PathToImage = "path to image",
+                            Timer = 30,
+                        }
+                    },
+                    PathToImage = "path to main image",
+                    DifficultyLevel = Difficulty.Medium,
+                    WhenAdded = DateTime.Today,
+                    EstimatedTime = 80,
+                    Popularity = 15,
+                    Rating = 5
+                }
+            );
+
+            context.Recipes.AddOrUpdate(p => p.Name,
+                new Recipe
+                {
+                    Name = "Kotlet schabowy",
+                    Description = "Tradycyjny kotlet.",
+                    Author = new User { Name = "Marysia" },
+                    Ingredients = new List<Ingredient>
+                    {
+                        new Ingredient
+                        {
+                            Product = new Product
+                            {
+                                Name = "Jajka",
+                                PathToImage = "path to image..."
+                            },
+                            Amount = "2",
+                            UnitType = Unit.szt
+                        },
+                        new Ingredient
+                        {
+                            Product = new Product
+                            {
+                                Name = "Maka",
+                                PathToImage = "path to image..."
+                            },
+                            Amount = "200",
+                            UnitType = Unit.g
+                        },
+                        new Ingredient
+                        {
+                            Product = new Product
+                            {
+                                Name = "Olej rzepakowy",
+                                PathToImage = "path to image..."
+                            },
+                            Amount = "100",
+                            UnitType = Unit.ml
+                        },
+
+                        new Ingredient
+                        {
+                            Product = new Product
+                            {
+                                Name = "Schab bez kosci",
+                                PathToImage = "path to image..."
+                            },
+                            Amount = "500",
+                            UnitType = Unit.g
+                        }
+                    },
+                    Steps = new List<Step>
+                    {
+                        new Step
+                        {
+                            Name = "Krok 1",
+                            Order = 1,
+                            PathToImage = "path to image",
+                            Timer = 20,
+                        },
+                        new Step
+                        {
+                            Name = "Krok 2",
+                            Order = 2,
+                            PathToImage = "path to image",
+                            Timer = 30,
+                        },
+                        new Step
+                        {
+                            Name = "Krok 3",
+                            Order = 3,
+                            PathToImage = "path to image",
+                            Timer = 70,
+                        }
+                    },
+                    PathToImage = "path to main image",
+                    DifficultyLevel = Difficulty.Hard,
+                    WhenAdded = DateTime.Today,
+                    EstimatedTime = 100,
+                    Popularity = 100,
+                    Rating = 5
+                }
+            );
         }
     }
 }
