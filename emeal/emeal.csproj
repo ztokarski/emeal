@@ -126,13 +126,15 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Site\IngredientFrames.js" />
     <Content Include="Scripts\Site\SearchByIngredient.js" />
-      <Content Include="Scripts\Site\StepFrames.js"/>
+    <Content Include="Scripts\Site\StepFrames.js"/>
+    <Content Include="Views\Ingredient\PartialIngredientForm.cshtml"/>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\IngredientController.cs"/>
     <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

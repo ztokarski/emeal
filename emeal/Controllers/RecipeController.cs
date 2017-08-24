@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
@@ -19,7 +18,7 @@ namespace emeal.Controllers
             ViewBag.searchName = searchName;
             var recipes = _db.Recipes.ToList();
 
-            if (!String.IsNullOrEmpty(searchName))
+            if (!string.IsNullOrEmpty(searchName))
             {
                 recipes = recipes.Where(r => r.Name.ToLower().Contains(searchName.ToLower())).ToList();
             }
@@ -66,21 +65,24 @@ namespace emeal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Recipe recipe)
         {
-            if (recipe.PathToImage.CheckUrlValid() && recipe.DifficultyLevel.IsDifficultyEnum()
-                && recipe.Popularity.Equals(0) && recipe.EstimatedTime > 0 && recipe.Rating.Equals(0))
+            if (!recipe.PathToImage.CheckUrlValid() || !recipe.DifficultyLevel.IsDifficultyEnum() ||
+                recipe.EstimatedTime <= 0) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            try
             {
-                recipe.Id = 0;
-                recipe.Author = new User(); // TODO: Replace new User() with one adding the recipe
+                // TODO: Replace new User() with one adding the recipe
+                recipe.Author = new User();
                 recipe.WhenAdded = DateTime.Today;
-                recipe.Ingredients = new List<Ingredient>();
-                recipe.Steps = new List<Step>();
 
                 _db.Recipes.Add(recipe);
                 _db.SaveChanges();
-
-                return RedirectToAction("Index");
             }
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -96,32 +98,59 @@ namespace emeal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Recipe recipe)
+        public ActionResult Edit(int id, Recipe updatedRecipe)
         {
-            if (recipe.PathToImage.CheckUrlValid() && recipe.DifficultyLevel.IsDifficultyEnum())
-            {
-                var recipeOriginal = _db.Recipes.Find(id);
-                recipe.Id = id;
-                recipe.Author = recipeOriginal.Author;
-                recipe.Ingredients = recipeOriginal.Ingredients;
-                recipe.Steps = recipeOriginal.Steps;
-                recipe.WhenAdded = recipeOriginal.WhenAdded;
-                _db.Recipes.AddOrUpdate(recipe);
-                _db.SaveChanges();
+            if (!updatedRecipe.PathToImage.CheckUrlValid() || !updatedRecipe.DifficultyLevel.IsDifficultyEnum())
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-                return RedirectToAction("Index");
+            try
+            {
+                var originalRecipe = _db.Recipes.Find(id);
+
+                if (originalRecipe == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                originalRecipe.Name = originalRecipe.Name == updatedRecipe.Name
+                    ? originalRecipe.Name
+                    : updatedRecipe.Name;
+                originalRecipe.Description = originalRecipe.Description == updatedRecipe.Description
+                    ? originalRecipe.Description
+                    : updatedRecipe.Description;
+                originalRecipe.DifficultyLevel = originalRecipe.DifficultyLevel == updatedRecipe.DifficultyLevel
+                    ? originalRecipe.DifficultyLevel
+                    : updatedRecipe.DifficultyLevel;
+                originalRecipe.PathToImage = originalRecipe.PathToImage == updatedRecipe.PathToImage
+                    ? originalRecipe.PathToImage
+                    : updatedRecipe.PathToImage;
+                originalRecipe.EstimatedTime = originalRecipe.EstimatedTime == updatedRecipe.EstimatedTime
+                    ? originalRecipe.EstimatedTime
+                    : updatedRecipe.EstimatedTime;
+
+//                 TODO
+//                originalRecipe.Ingredients = originalRecipe.Ingredients == updatedRecipe.Ingredients
+//                    ? originalRecipe.Ingredients
+//                    : updatedRecipe.Ingredients;
+//                originalRecipe.Steps = originalRecipe.Steps == updatedRecipe.Steps
+//                    ? originalRecipe.Steps
+//                    : updatedRecipe.Steps;
+
+
+                _db.Recipes.AddOrUpdate(originalRecipe);
+                _db.SaveChanges();
             }
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Delete(int? id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
             var recipe = _db.Recipes.Find(id);
             if (recipe == null) return HttpNotFound();
-
             return View(recipe);
         }
 
@@ -130,7 +159,6 @@ namespace emeal.Controllers
         public ActionResult Delete(int id)
         {
             var recipe = _db.Recipes.Find(id);
-
             if (recipe != null)
             {
                 _db.Recipes.Remove(recipe);
@@ -138,6 +166,7 @@ namespace emeal.Controllers
 
                 return RedirectToAction("Index");
             }
+
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
