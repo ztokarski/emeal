@@ -18,9 +18,10 @@ namespace emeal.Controllers
             ViewBag.SearchName = searchName;
             var recipes = _db.Recipes.ToList();
 
-            if (string.IsNullOrEmpty(searchName)) return View(recipes);
-
-            recipes = recipes.Where(r => r.Name.ToLower().Contains(searchName.ToLower())).ToList();
+            if (!string.IsNullOrEmpty(searchName))
+            {
+                recipes = recipes.Where(r => r.Name.ToLower().Contains(searchName.ToLower())).ToList();
+            }
             switch (sortOrder)
             {
                 case "name":
