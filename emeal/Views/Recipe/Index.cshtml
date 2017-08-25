@@ -1,17 +1,10 @@
 ﻿@model IEnumerable<emeal.Models.Recipe>
-
-@{
-    ViewBag.Title = "Index";
-}
-
-<div class="panel-body">
-    @Html.ActionLink("Create New", "Create", "Recipe", null, new {@class = "btn btn-success btn-default"})
-</div>
+@{ ViewBag.Title = "Index"; }
 
 <table class="table">
     <tr>
         <th>
-
+            @Html.ActionLink("Create New", "Create", "Recipe", null, new {@class = "btn btn-success btn-default"})
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -35,12 +28,6 @@
             @Html.DisplayNameFor(model => model.EstimatedTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Popularity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating)
-        </th>
-        <th>
             <div class="dropdown pull-right">
                 <button class="btn btn-xs btn-primary dropdown-toggle" type="button" id="sortByDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sort By
@@ -60,81 +47,81 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PathToImage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DifficultyLevel)
-            </td>
-            <td>
-                @{ var shortValue = item.WhenAdded.ToShortDateString(); }
-                @Html.DisplayFor(modelItem => shortValue)
-            </td>
-            <td>
-                <div class="dropdown">
-                    <button class="btn btn-xs btn-primary dropdown-toggle" type="button" class="ingredients-dropdown" data-toggle="dropdown">
-                        @Html.DisplayFor(modelItem => item.Ingredients.Count)
-                        <span class="caret"></span>
-                    </button>
-                    @if (item.Ingredients.Count != 0)
-                    {
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="ingredients-dropdown">
-                            @foreach (var ingredient in item.Ingredients)
-                            {
-                                <li>
-                                    @Html.DisplayFor(ingredientItem => ingredient.Product.PathToImage)
-                                    @Html.DisplayFor(ingredientItem => ingredient.Product.Name)
-                                    @Html.DisplayFor(ingredientItem => ingredient.Amount)
-                                    @Html.DisplayFor(ingredientItem => ingredient.UnitType)
-                                    <br/>
-                                </li>
-                            }
-                        </ul>
-                    }
-                </div>
-            </td>
-            <td>
-                <div class="dropdown">
-                    <button class="btn btn-xs btn-primary dropdown-toggle" type="button" class="steps-dropdown" data-toggle="dropdown">
-                        @Html.DisplayFor(modelItem => item.Steps.Count)
-                        <span class="caret"></span>
-                    </button>
-                    @if (item.Steps.Count != 0)
-                    {
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="steps-dropdown">
+                <td>
+                    @Html.DisplayFor(modelItem => item.PathToImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DifficultyLevel)
+                </td>
+                <td>
+                    @{ var shortValue = item.WhenAdded.ToShortDateString(); }
+                    @Html.DisplayFor(modelItem => shortValue)
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-xs btn-primary dropdown-toggle" type="button" class="ingredients-dropdown" data-toggle="dropdown">
+                            @Html.DisplayFor(modelItem => item.Ingredients.Count)
+                            <span class="caret"></span>
+                        </button>
+                        @if (item.Ingredients.Count != 0)
+                        {
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="ingredients-dropdown">
+                                @foreach (var ingredient in item.Ingredients)
+                                {
+                                    <li>
+                                        @Html.DisplayFor(ingredientItem => ingredient.Product.PathToImage)
+                                        @Html.DisplayFor(ingredientItem => ingredient.Product.Name)
+                                        @Html.DisplayFor(ingredientItem => ingredient.Amount)
+                                        @Html.DisplayFor(ingredientItem => ingredient.UnitType)
+                                        <br/>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-xs btn-primary dropdown-toggle" type="button" class="steps-dropdown" data-toggle="dropdown">
+                            @Html.DisplayFor(modelItem => item.Steps.Count)
+                            <span class="caret"></span>
+                        </button>
+                        @if (item.Steps.Count != 0)
+                        {
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="steps-dropdown">
 
-                            @foreach (var step in item.Steps)
-                            {
-                                <li>
-                                    @Html.DisplayFor(stepItem => step.Name)
-                                    @Html.DisplayFor(stepstepItem => step.Order)
-                                    @Html.DisplayFor(stepItem => step.PathToImage)
-                                    @Html.DisplayFor(stepItem => step.Timer)
-                                </li>
-                            }
-                        </ul>
-                    }
-                </div>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EstimatedTime) min
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Popularity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {id = item.Id})
-                @Html.ActionLink("Details", "Details", new {id = item.Id})
-                @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                                @foreach (var step in item.Steps)
+                                {
+                                    <li>
+                                        @Html.DisplayFor(stepItem => step.Name)
+                                        @Html.DisplayFor(stepstepItem => step.Order)
+                                        @Html.DisplayFor(stepItem => step.PathToImage)
+                                        @Html.DisplayFor(stepItem => step.Timer)
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstimatedTime) min
+                </td>
+            <td class="btn-group">
+                <a href=@Href(Url.Action("Details", "Recipe", new {id = item.Id})) class="btn btn-xs">
+                    <span class='glyphicon glyphicon-info-sign'></span>
+                    </a>
+                <a href=@Href(Url.Action("Edit", "Recipe", new {id = item.Id})) class="btn btn-xs">
+                    <span class='glyphicon glyphicon-pencil'></span>
+                </a>
+                <a href=@Href(Url.Action("Details", "Recipe", new {id = item.Id})) class="btn btn-xs">
+                    <span class='glyphicon glyphicon-remove'></span>
+                </a>
             </td>
         </tr>
     }
