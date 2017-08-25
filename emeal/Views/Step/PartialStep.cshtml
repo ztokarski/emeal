@@ -1,0 +1,39 @@
+﻿@using HtmlHelpers.BeginCollectionItem
+@model emeal.Models.Step
+
+@using (Html.BeginCollectionItem("Steps"))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Order, new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Order, new {htmlAttributes = new {@class = "form-control", type = "number", min = "1", value = "1"}})
+            @Html.ValidationMessageFor(model => model.Order, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new {htmlAttributes = new {@class = "form-control"}})
+            @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PathToImage, new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PathToImage, new {htmlAttributes = new {@class = "form-control" @*, type = "url"*@}})
+            @Html.ValidationMessageFor(model => model.PathToImage, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Timer, new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Timer, new {htmlAttributes = new {@class = "form-control", type = "number", min = "0"}})
+            @Html.ValidationMessageFor(model => model.Timer, "", new {@class = "text-danger"})
+        </div>
+    </div>
+}
+
+<button class='btn btn-danger delete-step-frame'>Delete</button>

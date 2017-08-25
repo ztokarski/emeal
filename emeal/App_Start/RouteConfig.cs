@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace emeal
@@ -13,10 +9,12 @@ namespace emeal
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "CRUD", action = "Index", id = UrlParameter.Optional }
+                defaults: new {controller = "Recipe", action = "Index", id = UrlParameter.Optional}
             );
         }
     }
