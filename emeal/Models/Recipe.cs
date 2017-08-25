@@ -18,44 +18,6 @@ namespace emeal.Models
         public int EstimatedTime { get; set; }
         public int Popularity { get; set; }
         public int Rating { get; set; }
-
-        public Recipe(int id, string name, string description, User author, List<Ingredient> ingredients,
-            List<Step> steps, string pathToImage, Difficulty difficultyLevel, DateTime whenAdded, int estimatedTime,
-            int popularity, int rating)
-        {
-            Id = id;
-            Name = name;
-            Description = description;
-            Author = author;
-            Ingredients = ingredients;
-            Steps = steps;
-            PathToImage = pathToImage;
-            DifficultyLevel = difficultyLevel;
-            WhenAdded = whenAdded;
-            EstimatedTime = estimatedTime;
-            Popularity = popularity;
-            Rating = rating;
-        }
-
-        public Recipe(string name, string description, User author, List<Ingredient> ingredients,
-            List<Step> steps, string pathToImage, Difficulty difficultyLevel, int estimatedTime)
-        {
-            Id = 0;
-            Name = name;
-            Description = description;
-            Author = author;
-            Ingredients = ingredients;
-            Steps = steps;
-            PathToImage = pathToImage;
-            DifficultyLevel = difficultyLevel;
-            EstimatedTime = estimatedTime;
-            Popularity = 0;
-            Rating = 0;
-        }
-
-        public Recipe()
-        {
-        }
     }
 
     public enum Difficulty
