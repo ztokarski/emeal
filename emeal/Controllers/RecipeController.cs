@@ -72,8 +72,8 @@ namespace emeal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Recipe recipe)
         {
-            if (!recipe.PathToImage.CheckUrlValid() || !recipe.DifficultyLevel.IsDifficultyEnum() ||
-                recipe.EstimatedTime <= 0) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (!recipe.PathToImage.CheckUrlValid() || recipe.EstimatedTime <= 0)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             try
             {
@@ -114,7 +114,7 @@ namespace emeal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Recipe updatedRecipe)
         {
-            if (!updatedRecipe.PathToImage.CheckUrlValid() || !updatedRecipe.DifficultyLevel.IsDifficultyEnum())
+            if (!updatedRecipe.PathToImage.CheckUrlValid())
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             try

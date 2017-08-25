@@ -40,7 +40,7 @@ namespace emeal.Migrations
                             Name = "Krok 1",
                             Order = 1,
                             PathToImage = "path to image",
-                            Timer = 20,
+                            Timer = 20
                         }
                     },
                     PathToImage = "path to main image",
@@ -49,27 +49,6 @@ namespace emeal.Migrations
                     EstimatedTime = 20,
                     Popularity = 1,
                     Rating = 3
-                },
-                new RecipeModel
-                {
-                    Name = "Kapusniak po slasku",
-                    Description = "przepis po dziadku, znaleziony w gara�u. Moje dzieci go nie cierpi�",
-                    Author = user2,
-                    Ingredients = new List<Ingredient>()
-                    {
-                        pomidor1,
-                        ziemniak1,
-                    },
-                    Steps = new List<Step>()
-                    {
-                        step3
-                    },
-                    PathToImage = "path to main image",
-                    DifficultyLevel = Difficulty.Easy,
-                    WhenAdded = DateTime.Today,
-                    EstimatedTime = 50,
-                    Popularity = 3,
-                    Rating = 4
                 }
             );
 
@@ -78,7 +57,7 @@ namespace emeal.Migrations
                 {
                     Name = "Zupa pomidorowa",
                     Description = "przepis po dziadku, znaleziony w mokrej piwnicy.",
-                    Author = new User { Name = "Przemek" },
+                    Author = new User {Name = "Przemek"},
                     Ingredients = new List<Ingredient>
                     {
                         new Ingredient
@@ -143,7 +122,7 @@ namespace emeal.Migrations
                 {
                     Name = "Kotlet schabowy",
                     Description = "Tradycyjny kotlet.",
-                    Author = new User { Name = "Marysia" },
+                    Author = new User {Name = "Marysia"},
                     Ingredients = new List<Ingredient>
                     {
                         new Ingredient
