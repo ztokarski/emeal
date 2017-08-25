@@ -21,8 +21,8 @@
             @Html.ActionLink("e-meal", "Index", "Recipe", new {area = ""}, new {@class = "navbar-brand"})
         </div>
 
-        <div class="dropdown pull-right" id="searchDropdownMenu">
-            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="searchDropdown">Search</button>
+        <div class="dropdown pull-right navbar-btn" id="searchDropdownMenu">
+            <button class="btn dropdown-toggle btn-success" type="button" data-toggle="dropdown" id="searchDropdown">Search</button>
             <div class="dropdown-menu" aria-labelledby="searchDropdown">
                 @using (Html.BeginForm("Index", "Recipe", FormMethod.Get))
                 {
