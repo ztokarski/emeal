@@ -1,27 +1,25 @@
 ﻿@{
-    ViewBag.Title = "SearchByIngredients";
+    ViewBag.Title = "Search by ingredients";
 }
-
-<h2>SearchByIngredients</h2>
 
 <div class="jumbotron">
     <div class="row">
         <div class=" col-lg-3"></div>
         <div class="col-lg-6">
             <div class="input-group">
-                <input type="text" class="form-control col-lg-4" placeholder="Search for..." id="ingredientSearch" value="">
+                <input type="text" class="form-control col-lg-4" placeholder="Search for..." id="ingredientSearch">
                 <span class="input-group-btn">
-                    <button class="btn btn-success" type="button" id="add">Dodaj do wyszukiwania</button>
+                    <button class="btn btn-success" id="add">Add to the search</button>
                 </span>
-            </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
+            </div>
+        </div>
         <div class="col-lg-3"></div>
-    </div><!-- /.row -->
-    <h3>Twoje skladniki</h3>
-    <ul id='list'>
+    </div>
+    <h3>Your ingredients</h3>
+    <ul id="list">
     </ul>
 
     <div class="row">
-        <button class="btn btn-lg btn-success">Wyszukaj</button>
+        <button class="btn btn-lg btn-success">Search</button>
     </div>
 </div>

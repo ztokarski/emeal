@@ -87,3 +87,11 @@ body > div.navbar.navbar-inverse.navbar-fixed-top {
 .recipe-details-bottom-right h5 {
     font-weight: bold;
 }
+
+.ingredient-search-dropdown {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    padding: 1%;
+    margin: auto;
+}
