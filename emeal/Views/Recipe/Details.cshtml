@@ -1,79 +1,33 @@
 ﻿@model emeal.Models.Recipe
+@{ ViewBag.Title = Html.DisplayFor(model => model.Name); }
 
-@{
-    ViewBag.Title = @Html.DisplayFor(model => model.Name);
-}
+<div id="recipe-details">
+    <div class="recipe-details-top">
+        <img src="@Html.ValueFor(model => model.PathToImage)" alt="Meal image"/>
 
-<div>
+        <h1>@Html.ValueFor(model => model.Name)</h1>
+        <p>@Html.ValueFor(model => model.Description)</p>
+    </div>
     <hr/>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="recipe-details-bottom">
+        <div class="recipe-details-bottom-left">
+            <h5>@Html.DisplayNameFor(model => model.Author)</h5>
+            <p>@Html.ValueFor(model => model.Author.Name)</p>
+            <hr/>
+            <h5>@Html.DisplayNameFor(model => model.DifficultyLevel)</h5>
+            <p>@Html.ValueFor(model => model.DifficultyLevel)</p>
+        </div>
+        <div class="recipe-details-bottom-right">
+            <h5>@Html.DisplayNameFor(model => model.Popularity)</h5>
+            @Html.ValueFor(model => model.Popularity)
+            <hr/>
+            <h5>@Html.DisplayNameFor(model => model.Rating)</h5>
+            <p>@Html.ValueFor(model => model.Rating)</p>
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PathToImage)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PathToImage)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DifficultyLevel)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DifficultyLevel)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WhenAdded)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WhenAdded)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EstimatedTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EstimatedTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Popularity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Popularity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-    </dl>
-</div>
-<div class="btn-group">
-    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}, new {@class = "btn btn-info"})
-    @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-default"})
+    <div class="btn-group">
+        @Html.ActionLink("Edit", "Edit", new {id = Model.Id}, new {@class = "btn btn-info"})
+        @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-default"})
+    </div>
 </div>
