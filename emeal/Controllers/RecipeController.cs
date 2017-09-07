@@ -1,16 +1,31 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using emeal.Models;
 using emeal.Models.Utils;
+using emeal.Services;
 
 namespace emeal.Controllers
 {
     public class RecipeController : Controller
     {
-        private readonly RecipeDb _db = new RecipeDb();
+        private readonly RecipeDb _db;
+
+        public RecipeController()
+        {
+            _db = new RecipeDb();
+            _db.Recipes.Local.CollectionChanged += OnRecipesModified;
+            
+            RecipesModified += ConsoleService.OnRecipesChanged;
+        }
+
+        public event EventHandler<NotifyCollectionChangedEventArgs> RecipesModified;
+
+        private void OnRecipesModified(object source, NotifyCollectionChangedEventArgs args) =>
+            RecipesModified?.Invoke(source, args);
 
         [HttpGet]
         public ActionResult Index(string searchName, string sortOrder)

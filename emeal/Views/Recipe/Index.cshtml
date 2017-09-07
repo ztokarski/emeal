@@ -20,11 +20,11 @@
         </th>
         <th>
             <div class="dropdown pull-right">
-                <button class="btn btn-xs btn-primary dropdown-toggle" type="button" id="sortByDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-xs btn-primary dropdown-toggle" type="button" id="sortByDropdown" data-toggle="dropdown">
                     Sort By
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sortByDropdown">
+                <ul class="dropdown-menu dropdown-menu-right">
                     <li>@Html.ActionLink("Popularity", "Index", new {sortOrder = "popularity", ViewBag.SearchName})</li>
                     <li>@Html.ActionLink("Name", "Index", new {sortOrder = "name", ViewBag.SearchName})</li>
                     <li>@Html.ActionLink("Rating", "Index", new {sortOrder = "rating", ViewBag.SearchName})</li>

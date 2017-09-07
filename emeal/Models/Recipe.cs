@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace emeal.Models
@@ -31,6 +30,7 @@ namespace emeal.Models
         public int EstimatedTime { get; set; }
 
         public int Popularity { get; set; }
+
         public int Rating { get; set; }
     }
 

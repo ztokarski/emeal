@@ -18,13 +18,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("e-meal", "Index", "Recipe", new {area = ""}, new {@class = "navbar-brand"})
+            @Html.ActionLink("e-meal", "Index", "Recipe", null, new {@class = "navbar-brand"})
         </div>
 
         <div class="dropdown pull-right navbar-btn" id="searchDropdownMenu">
+            @Html.ActionLink("Search by ingredients", "SearchByIngredients", "Recipe", null, new {@class = "btn btn-success navbar-btn"})
             <button class="btn dropdown-toggle btn-success" type="button" data-toggle="dropdown" id="searchDropdown">Search</button>
             <div class="dropdown-menu" id="ingredient-search-dropdown">
-                @using (Html.BeginForm("Index", "Recipe", FormMethod.Get))
+                @using (Html.BeginForm("Index", "Recipe", FormMethod.Get, new {id = "ingredient-search-dropdown-content"}))
                 {
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search by name..." name="searchName" value=@ViewBag.SearchName>
@@ -35,8 +36,6 @@
                 }
             </div>
         </div>
-
-        @Html.ActionLink("Search by ingredients", "SearchByIngredients", "Recipe", null, new {@class = "btn btn-success navbar-btn"})
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
