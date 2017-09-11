@@ -7,7 +7,7 @@ $(function () {
 
         var li = document.createElement("li");
         var delButton = "<button class='btnDel btn btn-danger btn-xs'>x</button>";
-        li.innerHTML = delButton + "<div class='btn btn-success btn-sm'>" + text + "</div>";
+        li.innerHTML = "<div class='btn btn-success btn-sm'>" + text + delButton + "</div>";
 
         document.getElementById("list").appendChild(li);
         document.getElementById("ingredientSearch").value = "";
