@@ -3,7 +3,7 @@ $(function () {
 
     $("#add").click(function () {
 
-        var text = document.getElementById("ingredientSearch").value; //.value gets input values
+        var text = document.getElementById("ingredientSearch").value;
 
         var li = document.createElement("li");
         var delButton = "<button class='btnDel btn btn-danger btn-xs'>x</button>";
@@ -13,9 +13,17 @@ $(function () {
         document.getElementById("ingredientSearch").value = "";
     });
 
-    $(document).on("click", ".btnDel", function (e) {
+    $(document).on("click", ".btnDel", function () {
         var ingredient = $(this).parent().parent();
         ingredient.remove();
     });
 
+    $("#ingredient-search-input").select2({
+        placeholder: "Enter your ingredients here",
+        ajax: {
+            url: "~/search/ingredients",
+            dataFormat: "json"
+        },
+        tags: true
+    });
 });

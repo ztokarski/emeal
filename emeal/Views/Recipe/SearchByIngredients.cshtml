@@ -4,22 +4,16 @@
 
 <div class="jumbotron">
     <div class="row">
-        <div class=" col-lg-3"></div>
+        <div class="col-lg-3"></div>
         <div class="col-lg-6">
-            <div class="input-group">
-                <input type="text" class="form-control col-lg-4" placeholder="Search for..." id="ingredientSearch">
-                <span class="input-group-btn">
-                    <button class="btn btn-success" id="add">Add to the search</button>
-                </span>
+            <div class="input-group row">
+                <select id="ingredient-search-input" multiple="multiple">
+                    <option>none</option>
+                </select>
+                <button class="btn btn-success">Search</button>
             </div>
         </div>
         <div class="col-lg-3"></div>
     </div>
-    <h3>Your ingredients</h3>
-    <ul id="list">
-    </ul>
-
-    <div class="row">
-        <button class="btn btn-lg btn-success">Search</button>
-    </div>
 </div>
+
