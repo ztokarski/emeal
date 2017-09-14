@@ -215,11 +215,5 @@ namespace emeal.Controllers
             }
             return RedirectToAction("Index");
         }
-
-        [HttpGet]
-        public ActionResult SearchByIngredients()
-        {
-            return View();
-        }
     }
 }
