@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using emeal.Models;
+using System.Collections.Generic;
 
 namespace emeal.Controllers
 {
@@ -23,6 +24,15 @@ namespace emeal.Controllers
         public ActionResult SearchByIngredients()
         {
             return View(_db.Products.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult GetSearchResults()
+        {
+            var stubbedProductsFormSelect2 = new List<int>(){ 1, 2 };
+
+            var queryResult = _db.Recipes.ToList();
+            return View(queryResult);
         }
     }
 }
