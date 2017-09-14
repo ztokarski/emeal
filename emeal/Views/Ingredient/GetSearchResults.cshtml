@@ -1,0 +1,13 @@
+﻿@model IEnumerable<emeal.Models.Recipe>
+
+@{
+    ViewBag.Title = "GetSearchResults";
+}
+
+<h2>GetSearchResults</h2>
+
+@foreach (var recipe in Model)
+{
+    <p>@recipe.Name</p>
+}
+
