@@ -39,7 +39,7 @@
     {
         <tr>
             <td>
-                <img src=@item.PathToImage alt="Meal image" width="100", height="50"/>
+                <img src="@item.PathToImage" alt="Meal image" width="100", height="50"/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -56,11 +56,13 @@
                             @foreach (var ingredient in item.Ingredients)
                             {
                                 <li>
-                                    @Html.DisplayFor(ingredientItem => ingredient.Product.PathToImage)
-                                    @Html.DisplayFor(ingredientItem => ingredient.Product.Name)
-                                    @Html.DisplayFor(ingredientItem => ingredient.Amount)
-                                    @Html.DisplayFor(ingredientItem => ingredient.UnitType)
-                                    <br/>
+                                    <ul>
+                                        <li>@Html.DisplayFor(ingredientItem => ingredient.Product.PathToImage)</li>
+                                        <li>@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</li>
+                                        <li>@Html.DisplayFor(ingredientItem => ingredient.Amount)</li>
+                                        <li>@Html.DisplayFor(ingredientItem => ingredient.UnitType)</li>
+                                    </ul>
+                                    <hr/>
                                 </li>
                             }
                         </ul>
@@ -68,7 +70,7 @@
                 </div>
             </td>
             <td>
-                <div class="dropdown step-dropdown">
+                <div class="dropdown" id="step-dropdown">
                     <button class="btn btn-xs btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                         @Html.DisplayFor(modelItem => item.Steps.Count)
                         <span class="caret"></span>
@@ -79,10 +81,13 @@
                             @foreach (var step in item.Steps)
                             {
                                 <li>
-                                    @Html.DisplayFor(stepItem => step.Name)
-                                    @Html.DisplayFor(stepstepItem => step.Order)
-                                    @Html.DisplayFor(stepItem => step.PathToImage)
-                                    @Html.DisplayFor(stepItem => step.Timer)
+                                    <ul>
+                                        <li>@Html.DisplayFor(stepItem => step.Name)</li>
+                                        <li>@Html.DisplayFor(stepstepItem => step.Order)</li>
+                                        <li>@Html.DisplayFor(stepItem => step.PathToImage)</li>
+                                        <li>@Html.DisplayFor(stepItem => step.Timer)</li>
+                                        <hr/>
+                                    </ul>
                                 </li>
                             }
                         </ul>

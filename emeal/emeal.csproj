@@ -134,6 +134,7 @@
     <Content Include="Scripts\Site\SearchByIngredient.js" />
     <Content Include="Scripts\Site\StepFrames.js" />
     <Content Include="Views\Ingredient\PartialIngredient.cshtml" />
+    <Content Include="Views\Ingredient\SearchByIngredients.cshtml" />
     <Content Include="Views\Step\PartialStep.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -174,7 +175,6 @@
     <Content Include="Views\Recipe\Edit.cshtml" />
     <Content Include="Views\Recipe\Delete.cshtml" />
     <Content Include="Views\Recipe\Index.cshtml" />
-    <Content Include="Views\Recipe\SearchByIngredients.cshtml" />
     <None Include="Views\Shared\EditorTemplates\Collection.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

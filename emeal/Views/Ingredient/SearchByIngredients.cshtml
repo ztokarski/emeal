@@ -1,0 +1,20 @@
+﻿@model IEnumerable<emeal.Models.Product>
+@{ ViewBag.Title = "Search by ingredients"; }
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <select id="ingredient-search-input" multiple="multiple">
+                @foreach (var product in Model)
+                {
+                    <option value="@Html.ValueFor(prod => product.Id)">
+                        @Html.ValueFor(prod => product.Name)
+                    </option>
+                }
+            </select>
+            <button class="btn btn-success">Search</button>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>

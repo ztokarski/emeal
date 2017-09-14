@@ -20,10 +20,6 @@ $(function () {
 
     $("#ingredient-search-input").select2({
         placeholder: "Enter your ingredients here",
-        ajax: {
-            url: "~/search/ingredients",
-            dataFormat: "json"
-        },
-        tags: true
+        tags: false
     });
 });
