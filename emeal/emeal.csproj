@@ -165,8 +165,8 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\Facade.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
-    <Compile Include="Services\IRecipeFinder.cs" />
-    <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\Interfaces\IRecipeFinder.cs" />
+    <Compile Include="Services\Interfaces\IService.cs" />
     <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Controllers\StepController.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,7 +178,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ingredient.cs" />
-    <Compile Include="Services\IRecipeDb.cs" />
+    <Compile Include="Services\Interfaces\IRecipeDb.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RecipeDb.cs" />
