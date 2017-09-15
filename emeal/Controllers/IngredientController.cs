@@ -2,16 +2,20 @@
 using System.Web.Mvc;
 using emeal.Models;
 using System.Collections.Generic;
+using System;
+using emeal.Models.Utils;
+using System.Data.Entity;
+using emeal.Services;
 
 namespace emeal.Controllers
 {
     public class IngredientController : Controller
     {
-        private readonly RecipeDb _db;
+        public Facade facade;
 
-        public IngredientController()
+        public IngredientController(Facade facade)
         {
-            _db = new RecipeDb();
+            this.facade = facade;
         }
 
         [HttpGet]
@@ -23,16 +27,18 @@ namespace emeal.Controllers
         [HttpGet]
         public ActionResult SearchByIngredients()
         {
-            return View(_db.Products.ToList());
+            return View(facade.GetProducts());
         }
 
         [HttpGet]
         public ActionResult GetSearchResults()
         {
-            var stubbedProductsFormSelect2 = new List<int>(){ 1, 2 };
-
-            var queryResult = _db.Recipes.ToList();
-            return View(queryResult);
+            var stubbedProductsFormSelect2 = new List<int>(){ 1 };
+            return View(facade.SearchByProducts(stubbedProductsFormSelect2));
         }
+
+
+
+
     }
 }
