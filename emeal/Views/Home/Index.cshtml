@@ -1,0 +1,46 @@
+﻿@{ Layout = null; }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-meal</title>
+    @*CSS*@
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    @*CUSTOM STYLESHEET*@
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+<div class="navbar navbar-fixed-top" id="start-page-header">
+    Hello, {{username}}
+</div>
+<div class="container-fluid" id="start-page-items">
+    <div id="start-page-items-row-left">
+        @*SEARCH*@
+        <a href="@Url.Action("SearchByIngredients", "Ingredient")">
+            <span class="glyphicon glyphicon-search gi-5x"></span>
+        </a>
+        @*RANDOM*@
+        <a href="@Url.Action("", "")">
+            <span class="glyphicon glyphicon-random gi-5x"></span>
+        </a>
+    </div>
+    <div id="start-page-items-row-right">
+        @*USER*@
+        <a href="@Url.Action("", "")">
+            <span class="glyphicon glyphicon-user gi-5x"></span>
+        </a>
+        @*COOKBOOK*@
+        <a href="@Url.Action("Index", "Recipe")">
+            <span class="glyphicon glyphicon-book gi-5x"></span>
+        </a>
+    </div>
+</div>
+</body>
+</html>
