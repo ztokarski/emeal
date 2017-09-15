@@ -2,7 +2,7 @@
 
 namespace emeal.Models
 {
-    public class RecipeDb : DbContext
+    public class RecipeDb : DbContext, IRecipeDb
     {
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Product> Products { get; set; }
