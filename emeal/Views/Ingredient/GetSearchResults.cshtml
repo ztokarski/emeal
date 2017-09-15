@@ -1,4 +1,4 @@
-﻿@model IEnumerable<emeal.Models.Recipe>
+﻿@model IEnumerable<int>
 
 @{
     ViewBag.Title = "GetSearchResults";
@@ -8,6 +8,6 @@
 
 @foreach (var recipe in Model)
 {
-    <p>@recipe.Name</p>
+    <p>@recipe</p>
 }
 
