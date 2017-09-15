@@ -18,7 +18,7 @@ namespace emeal.Controllers
         {
             _db = new RecipeDb();
             _db.Recipes.Local.CollectionChanged += OnRecipesModified;
-            
+
             RecipesModified += ConsoleService.OnRecipesChanged;
         }
 
