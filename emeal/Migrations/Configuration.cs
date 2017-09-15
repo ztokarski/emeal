@@ -26,7 +26,7 @@ namespace emeal.Migrations
                         {
                             Product = new Product
                             {
-                                Name = "pomidor",
+                                Name = "pierogi",
                                 PathToImage = "path to image..."
                             },
                             Amount = "2",
