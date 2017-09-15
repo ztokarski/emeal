@@ -1,7 +1,4 @@
-﻿using emeal.Models;
-using System.Collections.Generic;
-
-namespace emeal
+﻿namespace emeal.Services.Interfaces
 {
     public interface IService
     {

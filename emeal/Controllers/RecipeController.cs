@@ -1,29 +1,28 @@
 ﻿using System;
-using System.Collections.Specialized;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using emeal.Controllers.Facades;
 using emeal.Models;
 using emeal.Models.Utils;
-using emeal.Services;
 
 namespace emeal.Controllers
 {
     public class RecipeController : Controller
     {
-        private readonly RecipeDb _db;
+        private readonly RecipeFacade _facade;
 
-        public RecipeController()
+        public RecipeController(RecipeFacade facade)
         {
-            _db = new RecipeDb();
+            _facade = facade;
         }
 
         [HttpGet]
         public ActionResult Index(string searchName, string sortOrder)
         {
             ViewBag.SearchName = searchName;
-            var recipes = _db.Recipes.ToList();
+            var recipes = _facade.GetAllRecipes();
 
             if (!string.IsNullOrEmpty(searchName))
             {
@@ -57,10 +56,14 @@ namespace emeal.Controllers
             {
                 if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-                var recipe = _db.Recipes.Find(id);
+                var recipe = _facade.Find(id);
                 if (recipe == null) return HttpNotFound();
 
                 return View(recipe);
+            }
+            catch (InvalidOperationException ioe)
+            {
+                Console.WriteLine($@"Sorry, couldn\'t find the recipe! \n {ioe}");
             }
             catch (Exception e)
             {
@@ -79,17 +82,9 @@ namespace emeal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Recipe recipe)
         {
-            if (!recipe.PathToImage.CheckUrlValid() || recipe.EstimatedTime <= 0)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
             try
             {
-                // TODO: Replace new User() with one adding the recipe
-                recipe.Author = new User();
-                recipe.WhenAdded = DateTime.Today;
-
-                _db.Recipes.Add(recipe);
-                _db.SaveChanges();
+                _facade.Add(recipe);
             }
             catch (Exception e)
             {
@@ -105,7 +100,7 @@ namespace emeal.Controllers
             {
                 if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-                var recipe = _db.Recipes.Find(id);
+                var recipe = _facade.Find(id);
                 if (recipe == null) return HttpNotFound();
 
                 return View();
@@ -126,7 +121,7 @@ namespace emeal.Controllers
 
             try
             {
-                var originalRecipe = _db.Recipes.Find(id);
+                var originalRecipe = _facade.Find(id);
                 if (originalRecipe == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
                 originalRecipe.Name = originalRecipe.Name == updatedRecipe.Name
@@ -158,8 +153,7 @@ namespace emeal.Controllers
                     : updatedRecipe.Steps;
 
 
-                _db.Recipes.AddOrUpdate(originalRecipe);
-                _db.SaveChanges();
+                _facade.Edit(originalRecipe);
             }
             catch (Exception e)
             {
@@ -175,7 +169,7 @@ namespace emeal.Controllers
             {
                 if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-                var recipe = _db.Recipes.Find(id);
+                var recipe = _facade.Find(id);
                 if (recipe == null) return HttpNotFound();
 
                 return View(recipe);
@@ -193,13 +187,10 @@ namespace emeal.Controllers
         {
             try
             {
-                var recipe = _db.Recipes.Find(id);
+                var recipe = _facade.Find(id);
                 if (recipe == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-                _db.Steps.RemoveRange(recipe.Steps);
-                _db.Ingredients.RemoveRange(recipe.Ingredients);
-                _db.Recipes.Remove(recipe);
-                _db.SaveChanges();
+                _facade.Remove(recipe);
             }
             catch (Exception e)
             {

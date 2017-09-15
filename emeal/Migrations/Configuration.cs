@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using emeal.Models;
+using emeal.Services;
 
 namespace emeal.Migrations
 {

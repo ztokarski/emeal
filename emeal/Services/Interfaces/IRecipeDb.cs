@@ -1,7 +1,8 @@
-﻿using emeal.Models;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using emeal.Models;
 
-namespace emeal
+namespace emeal.Services.Interfaces
 {
     public interface IRecipeDb
     {
@@ -10,5 +11,6 @@ namespace emeal
         DbSet<Recipe> Recipes { get; set; }
         DbSet<Step> Steps { get; set; }
         DbSet<User> Users { get; set; }
+        void SaveChanges();
     }
 }

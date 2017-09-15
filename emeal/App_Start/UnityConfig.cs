@@ -2,7 +2,7 @@ using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using emeal.Services;
-using emeal.Models;
+using emeal.Services.Interfaces;
 
 namespace emeal.App_Start
 {

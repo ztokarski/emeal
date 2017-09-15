@@ -1,16 +1,17 @@
 ﻿using System.Web.Mvc;
 using emeal.Models;
 using System.Collections.Generic;
+using emeal.Controllers.Facades;
 
 namespace emeal.Controllers
 {
     public class IngredientController : Controller
     {
-        private readonly Facade _facade;
+        private readonly IngredientFacade _facade;
 
-        public IngredientController(Facade facade)
+        public IngredientController(IngredientFacade facade)
         {
-            this._facade = facade;
+            _facade = facade;
         }
 
         [HttpGet]
