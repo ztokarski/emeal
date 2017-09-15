@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css?family=Encode+Sans');
 
 * {
-    --colour-primary-dark: #689F38;
-    --colour-primary: #8BC34A;
-    --colour-primary-light: #DCEDC8;
-    --colour-primary-accent: #CDDC39;
+    --colour-primary-dark: #075a54;
+    --colour-primary: #a4a659;
+    --colour-primary-light: #f8d46f;
+    --colour-primary-accent: #f5a723;
     --colour-primary-text: #212121;
     --colour-secondary-text: #757575;
     --colour-primary-divider: #BDBDBD;
@@ -57,7 +57,8 @@ textarea {
     margin: 2%;
 }
 
-body > div.navbar.navbar-inverse.navbar-fixed-top {
+body > div.navbar.navbar-inverse.navbar-fixed-top,
+#start-page-header {
     background: var(--colour-primary-accent);
     color: black;
 }
@@ -130,7 +131,7 @@ html, body, #start-page-items {
 
 #start-page-items {
     display: grid;
-    grid-template-rows: 5% repeat(3, 1fr);
+    grid-template-rows: 4% repeat(3, 1fr);
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas: "header header header header" ". . . ." ". icons-left icons-right ." ". . . .";
     color: var(--colour-primary-text);
@@ -138,14 +139,13 @@ html, body, #start-page-items {
 
 #start-page-header {
     grid-area: header;
-    background: var(--colour-primary-accent);
 }
 
 #start-page-items-row-left {
     grid-area: icons-left;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center ;
+    justify-content: center;
     align-items: center;
 }
 
@@ -168,7 +168,7 @@ html, body, #start-page-items {
 @media only screen and (max-width: 500px) {
     #start-page-items {
         display: grid;
-        grid-template-rows: 10% 1fr;
+        grid-template-rows: 8% 1fr;
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas: "header header" "icons-left icons-right";
     }
