@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using emeal.App_Start;
 
 namespace emeal
 {
@@ -11,7 +12,7 @@ namespace emeal
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            Bootstrapper.Initialize();
+            UnityWebActivator.Start();
         }
     }
 }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using emeal.Services;
 using emeal.Models;
 
@@ -23,7 +21,7 @@ namespace emeal.Controllers
             return _db.Products.ToList();
         }
 
-        public List<Recipe> GetAllReceipes()
+        public List<Recipe> GetAllRecipes()
         {
             return _db.Recipes.ToList();
         }
@@ -35,7 +33,7 @@ namespace emeal.Controllers
 
         internal List<int> SearchByProducts(List<int> queryArr)
         {
-            return _recipesFinder.FindRelevantRecipes(this.GetAllReceipes(), queryArr); ;
+            return _recipesFinder.FindRelevantRecipes(this.GetAllRecipes(), queryArr);
         }
     }
 }

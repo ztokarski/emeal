@@ -1,10 +1,9 @@
-﻿using emeal.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using emeal.Models;
 
-namespace emeal.Models.Utils
+namespace emeal.Services
 {
     public class RecipeFinderService : IRecipeFinder
     {
