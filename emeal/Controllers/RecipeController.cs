@@ -197,5 +197,10 @@ namespace emeal.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult RandomRecipe()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
