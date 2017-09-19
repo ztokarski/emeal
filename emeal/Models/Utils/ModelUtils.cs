@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("emeal.Tests")]
+
 namespace emeal.Models.Utils
 {
     internal static class ModelUtils
@@ -16,6 +17,11 @@ namespace emeal.Models.Utils
             Uri uriResult;
             return Uri.TryCreate(source, UriKind.Absolute, out uriResult)
                    && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+        }
+
+        internal static bool IsValid(this Recipe recipe)
+        {
+            return recipe != null && recipe.PathToImage.CheckUrlValid() && recipe.EstimatedTime > 0;
         }
     }
 }
