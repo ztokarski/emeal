@@ -6,13 +6,18 @@ using emeal.Services.Interfaces;
 
 namespace emeal.Services
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class RecipeFinderService : IRecipeFinder
     {
         public List<int> FindRelevantRecipes(IEnumerable<Recipe> allRecipes, List<int> queryArr)
         {
+            // TODO: Untangle this unholy mess
+
+            #region algorithm
+
             var recipeCoefficient = new List<Tuple<int, int>>(); // (recipeID, matchCoefficient)
             var result = new List<int>(); // Coefficient: 0 bestMatch, 1 oneRedundantIngredient, -1 oneMissingIngredient
-            var maxProductNumberDifference = 5;
+            const int maxProductNumberDifference = 5;
 
             foreach (var recipe in allRecipes)
             {
@@ -41,14 +46,15 @@ namespace emeal.Services
 
             foreach (var tuple in recipeCoefficient) result.Add(tuple.Item1);
 
+            #endregion
+
             return result;
         }
 
         public List<int> GetProductsIdsFromRecipe(Recipe recipe)
         {
             var productsIdsInRecipe = new List<int>();
-            foreach (var ingredient in recipe.Ingredients)
-                productsIdsInRecipe.Add(ingredient.Product.Id);
+            foreach (var ingredient in recipe.Ingredients) productsIdsInRecipe.Add(ingredient.Product.Id);
 
             return productsIdsInRecipe;
         }
