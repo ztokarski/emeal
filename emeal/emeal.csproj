@@ -245,7 +245,6 @@
     <Content Include="Views\Recipe\Delete.cshtml" />
     <Content Include="Views\Recipe\Index.cshtml" />
     <Content Include="Views\Ingredient\GetSearchResults.cshtml" />
-    <None Include="Views\Shared\EditorTemplates\Collection.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -255,7 +254,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Facade\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708011223440_AllTables.resx">
