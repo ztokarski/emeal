@@ -5,23 +5,23 @@ using emeal.Services.Interfaces;
 
 namespace emeal.Controllers.Facades
 {
-    public class BaseFacade
+    public abstract class BaseFacade
     {
-        protected readonly IBaseService BaseService;
+        private readonly IBaseService _baseService;
 
-        public BaseFacade(IBaseService baseService)
+        protected BaseFacade(IBaseService baseService)
         {
-            BaseService = baseService;
+            _baseService = baseService;
         }
 
         internal IEnumerable<Recipe> GetAllRecipes()
         {
-            return BaseService.GetAllRecipes();
+            return _baseService.GetAllRecipes();
         }
 
         internal IEnumerable<Product> GetAllProducts()
         {
-            return BaseService.GetAllProducts();
+            return _baseService.GetAllProducts();
         }
     }
 }
