@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using emeal.Models;
 using emeal.Services.Interfaces;
 
@@ -13,17 +11,11 @@ namespace emeal.Services
 
         public BaseService(IRecipeDb db)
         {
-            this.Db = db;
+            Db = db;
         }
 
-        public IEnumerable<Recipe> GetAllRecipes()
-        {
-            return Db.Recipes.ToList();
-        }
+        public IEnumerable<Recipe> GetAllRecipes() => Db.Recipes.ToList();
 
-        public IEnumerable<Product> GetAllProducts()
-        {
-            return Db.Products.ToList();
-        }
+        public IEnumerable<Product> GetAllProducts() => Db.Products.ToList();
     }
 }
