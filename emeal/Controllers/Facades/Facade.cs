@@ -7,16 +7,21 @@ namespace emeal.Controllers.Facades
 {
     public class Facade
     {
-        protected readonly IRecipeDb Db;
+        protected readonly IMainService MainService;
 
-        protected Facade(IRecipeDb db)
+        protected Facade(IMainService mainService)
         {
-            Db = db;
+            MainService = mainService;
         }
 
-        public IEnumerable<Recipe> GetAllRecipes()
+        protected IEnumerable<Recipe> GetAllRecipes()
         {
-            return Db.Recipes.ToList();
+            return MainService.GetAllRecipes();
+        }
+
+        protected IEnumerable<Product> GetAllProducts()
+        {
+            return MainService.GetAllProducts();
         }
     }
 }
