@@ -1,49 +1,48 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.Linq;
 using emeal.Models;
 using emeal.Models.Utils;
+using emeal.Services;
 using emeal.Services.Interfaces;
 
 namespace emeal.Controllers.Facades
 {
     public class RecipeFacade : Facade
     {
-        public RecipeFacade(IRecipeDb db) : base(db)
+        private readonly IRecipe _recipeService;
+
+        public RecipeFacade(IRecipe recipeService, IMainService mainService) : base(mainService)
         {
+            _recipeService = recipeService;
         }
 
         public void Add(Recipe recipe)
         {
-            if (!recipe.PathToImage.CheckUrlValid() || recipe.EstimatedTime <= 0)
-                throw new ArgumentException();
-//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
-            // TODO: Replace new User() with one adding the recipe
-            recipe.Author = new User();
-            recipe.WhenAdded = DateTime.Today;
-
-            Db.Recipes.Add(recipe);
-            Db.SaveChanges();
+           _recipeService.Add(recipe);
         }
 
         public Recipe Find(int? id)
         {
-            return Db.Recipes.Find(id);
+            return _recipeService.Find(id);
         }
 
         public void Edit(Recipe recipe)
         {
-            Db.Recipes.AddOrUpdate(recipe);
-            Db.SaveChanges();
+            _recipeService.Edit(recipe);
         }
 
 
         public void Remove(Recipe recipe)
         {
-            Db.Steps.RemoveRange(recipe.Steps);
-            Db.Ingredients.RemoveRange(recipe.Ingredients);
-            Db.Recipes.Remove(recipe);
-            Db.SaveChanges();
+            _recipeService.Remove(recipe);
+        }
+
+        public IEnumerable<Recipe> GetIndex(string searchName, string sortOrder)
+        {
+            return null;
         }
     }
 }
