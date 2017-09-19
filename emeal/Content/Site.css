@@ -131,9 +131,9 @@ html, body, #start-page-items {
 
 #start-page-items {
     display: grid;
-    grid-template-rows: 4% repeat(3, 1fr);
+    grid-template-rows: 4% repeat(2, 1fr);
     grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: "header header header header" ". . . ." ". icons-left icons-right ." ". . . .";
+    grid-template-areas: "header header header header" ". icons-upper-left icons-upper-right ." ". icons-lower-left icons-lower-right ." ". . . .";
     color: var(--colour-primary-text);
 }
 
@@ -141,20 +141,29 @@ html, body, #start-page-items {
     grid-area: header;
 }
 
-#start-page-items-row-left {
-    grid-area: icons-left;
+#start-page-items-row-left-upper,
+#start-page-items-row-left-lower,
+#start-page-items-row-right-upper,
+#start-page-items-row-right-lower {
     display: flex;
-    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
 
-#start-page-items-row-right {
-    grid-area: icons-right;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+#start-page-items-row-left-upper {
+    grid-area: icons-upper-left;
+}
+
+#start-page-items-row-left-lower {
+    grid-area: icons-lower-left;
+}
+
+#start-page-items-row-right-upper {
+    grid-area: icons-upper-right;
+}
+
+#start-page-items-row-right-lower {
+    grid-area: icons-lower-right;
 }
 
 #start-page-items a {
@@ -167,9 +176,27 @@ html, body, #start-page-items {
 
 @media only screen and (max-width: 500px) {
     #start-page-items {
-        display: grid;
-        grid-template-rows: 8% 1fr;
+        font-size: 2rem;
+        grid-template-rows: 10% repeat(3, 1fr);
         grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "header header" "icons-left icons-right";
+        grid-template-areas: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right" ".    .";
+    }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+    #start-page-items {
+        font-size: 3rem;
+        grid-template-rows: 10% repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right";
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    #start-page-items {
+        font-size: 4rem;
+        grid-template-rows: 10% repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right";
     }
 }
