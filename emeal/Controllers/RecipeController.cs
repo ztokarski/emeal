@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using emeal.Controllers.Facades;
+using emeal.Exceptions;
 using emeal.Models;
-using emeal.Models.Utils;
 
 namespace emeal.Controllers
 {
@@ -21,7 +20,7 @@ namespace emeal.Controllers
         public ActionResult Index(string searchName, string sortOrder)
         {
             ViewBag.SearchName = searchName;
-            return View(_facade.GetIndex(searchName, sortOrder));
+            return View(_facade.GetSortedRecipes(searchName, sortOrder));
         }
 
         [HttpGet]
@@ -29,16 +28,15 @@ namespace emeal.Controllers
         {
             try
             {
-                if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
-                var recipe = _facade.Find(id);
-                if (recipe == null) return HttpNotFound();
-
-                return View(recipe);
+                return View(_facade.Find(id));
             }
             catch (InvalidOperationException ioe)
             {
-                Console.WriteLine($@"Sorry, couldn\'t find the recipe! \n {ioe}");
+                Console.WriteLine($"Couldn\'t find the recipe by ID! \n {ioe}");
+            }
+            catch (InvalidRecipeIdException iride)
+            {
+                Console.WriteLine($"Couldn\'t find the recipe! \n {iride}");
             }
             catch (Exception e)
             {
@@ -64,6 +62,7 @@ namespace emeal.Controllers
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             return RedirectToAction("Index");
         }
@@ -73,12 +72,8 @@ namespace emeal.Controllers
         {
             try
             {
-                if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
                 var recipe = _facade.Find(id);
-                if (recipe == null) return HttpNotFound();
-
-                return View();
+                return View(recipe);
             }
             catch (Exception e)
             {
@@ -91,44 +86,17 @@ namespace emeal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Recipe updatedRecipe)
         {
-            if (!updatedRecipe.PathToImage.CheckUrlValid())
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
             try
             {
-                var originalRecipe = _facade.Find(id);
-                if (originalRecipe == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
-                originalRecipe.Name = originalRecipe.Name == updatedRecipe.Name
-                    ? originalRecipe.Name
-                    : updatedRecipe.Name;
-
-                originalRecipe.Description = originalRecipe.Description == updatedRecipe.Description
-                    ? originalRecipe.Description
-                    : updatedRecipe.Description;
-
-                originalRecipe.DifficultyLevel = originalRecipe.DifficultyLevel == updatedRecipe.DifficultyLevel
-                    ? originalRecipe.DifficultyLevel
-                    : updatedRecipe.DifficultyLevel;
-
-                originalRecipe.PathToImage = originalRecipe.PathToImage == updatedRecipe.PathToImage
-                    ? originalRecipe.PathToImage
-                    : updatedRecipe.PathToImage;
-
-                originalRecipe.EstimatedTime = originalRecipe.EstimatedTime == updatedRecipe.EstimatedTime
-                    ? originalRecipe.EstimatedTime
-                    : updatedRecipe.EstimatedTime;
-
-                originalRecipe.Ingredients = originalRecipe.Ingredients == updatedRecipe.Ingredients
-                    ? originalRecipe.Ingredients
-                    : updatedRecipe.Ingredients;
-
-                originalRecipe.Steps = originalRecipe.Steps == updatedRecipe.Steps
-                    ? originalRecipe.Steps
-                    : updatedRecipe.Steps;
-
-
-                _facade.Edit(originalRecipe);
+                _facade.Edit(id, updatedRecipe);
+            }
+            catch (InvalidRecipeException ire)
+            {
+                Console.WriteLine($"Invalid recipe! \n {ire}");
+            }
+            catch (InvalidOperationException ioe)
+            {
+                Console.WriteLine($"Couldn\'t find the recipe by ID! \n {ioe}");
             }
             catch (Exception e)
             {
@@ -142,12 +110,17 @@ namespace emeal.Controllers
         {
             try
             {
-                if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
                 var recipe = _facade.Find(id);
-                if (recipe == null) return HttpNotFound();
 
                 return View(recipe);
+            }
+            catch (InvalidRecipeException ire)
+            {
+                Console.WriteLine($"Invalid recipe! \n {ire}");
+            }
+            catch (InvalidOperationException ioe)
+            {
+                Console.WriteLine($"Couldn\'t find the recipe by ID! \n {ioe}");
             }
             catch (Exception e)
             {
@@ -163,9 +136,11 @@ namespace emeal.Controllers
             try
             {
                 var recipe = _facade.Find(id);
-                if (recipe == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
                 _facade.Remove(recipe);
+            }
+            catch (InvalidRecipeIdException iride)
+            {
+                Console.WriteLine($@"Couldn\'t find the recipe with that ID! \n {iride}");
             }
             catch (Exception e)
             {
@@ -176,7 +151,8 @@ namespace emeal.Controllers
 
         public ActionResult RandomRecipe()
         {
-            throw new NotImplementedException();
+            // TODO
+            return RedirectToAction("Index");
         }
     }
 }
