@@ -6,6 +6,7 @@ using emeal.Services.Interfaces;
 
 namespace emeal.Controllers.Facades
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class RecipeFacade : Facade
     {
         public RecipeFacade(IRecipeDb db) : base(db)
@@ -16,7 +17,7 @@ namespace emeal.Controllers.Facades
         {
             if (!recipe.PathToImage.CheckUrlValid() || recipe.EstimatedTime <= 0)
                 throw new ArgumentException();
-//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             // TODO: Replace new User() with one adding the recipe
             recipe.Author = new User();
