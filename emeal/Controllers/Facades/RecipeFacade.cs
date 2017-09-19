@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-using System.Linq;
+﻿using System.Collections.Generic;
 using emeal.Models;
-using emeal.Models.Utils;
-using emeal.Services;
 using emeal.Services.Interfaces;
 
 namespace emeal.Controllers.Facades
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class RecipeFacade : BaseFacade
     {
         private readonly IRecipe _recipeService;
@@ -21,7 +16,7 @@ namespace emeal.Controllers.Facades
 
         public void Add(Recipe recipe)
         {
-           _recipeService.Add(recipe);
+            _recipeService.Add(recipe);
         }
 
         public Recipe Find(int? id)
@@ -29,21 +24,19 @@ namespace emeal.Controllers.Facades
             return _recipeService.Find(id);
         }
 
-        public void Edit(Recipe recipe)
+        public void Edit(int id, Recipe editedRecipe)
         {
-            _recipeService.Edit(recipe);
+            _recipeService.Edit(id, editedRecipe);
         }
-
 
         public void Remove(Recipe recipe)
         {
             _recipeService.Remove(recipe);
         }
 
-        public IEnumerable<Recipe> GetIndex(string searchName, string sortOrder)
+        public IEnumerable<Recipe> GetSortedRecipes(string searchName, string sortOrder)
         {
-            return _recipeService.GetIndex(searchName, sortOrder);
+            return _recipeService.GetSortedRecipes(searchName, sortOrder);
         }
-
     }
 }

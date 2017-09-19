@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using emeal.Models;
 using emeal.Services.Interfaces;
 
 namespace emeal.Controllers.Facades
