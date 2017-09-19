@@ -10,14 +10,9 @@ namespace emeal.Controllers.Facades
     {
         private readonly IRecipeFinder _recipesFinder;
 
-        public IngredientFacade(IRecipeFinder finder, IRecipeDb db) : base(db)
+        public IngredientFacade(IRecipeFinder finder, IMainService mainService) : base(mainService)
         {
             _recipesFinder = finder;
-        }
-
-        public IEnumerable<Product> GetProducts()
-        {
-            return Db.Products.ToList();
         }
 
         internal List<int> SearchByProducts(List<int> queryArr)
