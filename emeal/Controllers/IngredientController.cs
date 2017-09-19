@@ -23,7 +23,7 @@ namespace emeal.Controllers
         [HttpGet]
         public ActionResult SearchByIngredients()
         {
-            return View(_facade.GetProducts());
+            return View(_facade.GetAllProducts());
         }
 
         [HttpGet]
