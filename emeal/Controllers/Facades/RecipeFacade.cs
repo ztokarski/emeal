@@ -10,11 +10,11 @@ using emeal.Services.Interfaces;
 
 namespace emeal.Controllers.Facades
 {
-    public class RecipeFacade : Facade
+    public class RecipeFacade : BaseFacade
     {
         private readonly IRecipe _recipeService;
 
-        public RecipeFacade(IRecipe recipeService, IMainService mainService) : base(mainService)
+        public RecipeFacade(IRecipe recipeService, IBaseService baseService) : base(baseService)
         {
             _recipeService = recipeService;
         }
@@ -42,7 +42,8 @@ namespace emeal.Controllers.Facades
 
         public IEnumerable<Recipe> GetIndex(string searchName, string sortOrder)
         {
-            return null;
+            return _recipeService.GetIndex(searchName, sortOrder);
         }
+
     }
 }

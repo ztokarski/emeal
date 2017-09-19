@@ -6,7 +6,7 @@ using emeal.Models;
 
 namespace emeal.Services.Interfaces
 {
-    public interface IMainService
+    public interface IBaseService
     {
         IEnumerable<Recipe> GetAllRecipes();
         IEnumerable<Product> GetAllProducts();

@@ -7,11 +7,11 @@ using emeal.Services.Interfaces;
 
 namespace emeal.Services
 {
-    public class MainService : IMainService
+    public class BaseService : IBaseService
     {
         protected readonly IRecipeDb Db;
 
-        public MainService(IRecipeDb db)
+        public BaseService(IRecipeDb db)
         {
             this.Db = db;
         }

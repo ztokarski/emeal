@@ -8,7 +8,7 @@ using emeal.Services.Interfaces;
 
 namespace emeal.Services
 {
-    public class RecipeService : MainService, IRecipe
+    public class RecipeService : BaseService, IRecipe
     {
 
         public RecipeService(IRecipeDb Db) : base (Db)

@@ -216,12 +216,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
-    <Compile Include="Controllers\Facades\Facade.cs" />
+    <Compile Include="Controllers\Facades\BaseFacade.cs" />
     <Compile Include="Controllers\Facades\IngredientFacade.cs" />
     <Compile Include="Controllers\Facades\RecipeFacade.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
-    <Compile Include="Services\Interfaces\IMainService.cs" />
+    <Compile Include="Services\Interfaces\IBaseService.cs" />
     <Compile Include="Services\Interfaces\IRecipeFinder.cs" />
     <Compile Include="Services\Interfaces\IRecipe.cs" />
     <Compile Include="Controllers\RecipeController.cs" />
@@ -241,7 +241,7 @@
     <Compile Include="Models\Step.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Utils\ModelUtils.cs" />
-    <Compile Include="Services\MainService.cs" />
+    <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\RecipeDb.cs" />
     <Compile Include="Services\RecipeFinderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

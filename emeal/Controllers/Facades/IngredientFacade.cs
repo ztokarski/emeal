@@ -6,11 +6,11 @@ using emeal.Services.Interfaces;
 namespace emeal.Controllers.Facades
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    public class IngredientFacade : Facade
+    public class IngredientFacade : BaseFacade
     {
         private readonly IRecipeFinder _recipesFinder;
 
-        public IngredientFacade(IRecipeFinder finder, IMainService mainService) : base(mainService)
+        public IngredientFacade(IRecipeFinder finder, IBaseService baseService) : base(baseService)
         {
             _recipesFinder = finder;
         }
