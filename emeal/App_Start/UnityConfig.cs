@@ -41,7 +41,7 @@ namespace emeal.App_Start
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRecipeFinder, RecipeFinderService>();
             container.RegisterType<IRecipe, RecipeService>();
-            container.RegisterType<IMainService, MainService>();
+            container.RegisterType<IBaseService, BaseService>();
             container.RegisterType<IRecipeDb, RecipeDb>();
         }
     }
