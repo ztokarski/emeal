@@ -6,14 +6,14 @@ using emeal.Services;
 
 namespace emeal.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<RecipeDb>
+    internal sealed class Configuration : DbMigrationsConfiguration<MsqlRecipeDb>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(RecipeDb context)
+        protected override void Seed(MsqlRecipeDb context)
         {
             context.Recipes.AddOrUpdate(p => p.Name,
                 new Recipe

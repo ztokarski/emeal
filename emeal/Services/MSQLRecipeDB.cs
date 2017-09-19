@@ -4,7 +4,8 @@ using emeal.Services.Interfaces;
 
 namespace emeal.Services
 {
-    public class RecipeDb : DbContext, IRecipeDb
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class MsqlRecipeDb : DbContext, IRecipeDb
     {
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Product> Products { get; set; }

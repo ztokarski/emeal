@@ -7,7 +7,7 @@ using emeal.Services.Interfaces;
 
 namespace emeal
 {
-    public class AutofacConfig
+    public static class AutofacConfig
     {
         internal static IDependencyResolver GetDependencyResolver()
         {
@@ -15,10 +15,12 @@ namespace emeal
 
             contBuilder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            contBuilder.RegisterType<RecipeDb>().As<IRecipeDb>();
+            contBuilder.RegisterType<BaseService>().As<IBaseService>();
             contBuilder.RegisterType<RecipeFinderService>().As<IRecipeFinder>();
+            contBuilder.RegisterType<RecipeService>().As<IRecipe>();
+            contBuilder.RegisterType<MsqlRecipeDb>().As<IRecipeDb>();
 
-            contBuilder.RegisterType<Facade>().As<Facade>();
+            contBuilder.RegisterType<BaseFacade>().As<BaseFacade>();
             contBuilder.RegisterType<IngredientFacade>().As<IngredientFacade>();
             contBuilder.RegisterType<RecipeFacade>().As<RecipeFacade>();
 
