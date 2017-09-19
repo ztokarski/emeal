@@ -6,18 +6,13 @@ using emeal.Services.Interfaces;
 namespace emeal.Controllers.Facades
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    public class IngredientFacade : Facade
+    public class IngredientFacade : BaseFacade
     {
         private readonly IRecipeFinder _recipesFinder;
 
-        public IngredientFacade(IRecipeFinder finder, IRecipeDb db) : base(db)
+        public IngredientFacade(IRecipeFinder finder, IBaseService baseService) : base(baseService)
         {
             _recipesFinder = finder;
-        }
-
-        public IEnumerable<Product> GetProducts()
-        {
-            return Db.Products.ToList();
         }
 
         internal List<int> SearchByProducts(List<int> queryArr)
