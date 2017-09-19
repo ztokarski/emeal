@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @*CSS*@
-    <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet">
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
-    <link href="~/Content/select2/select2.min.css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans"/>
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"/>
+    <link type="text/css" rel="stylesheet" href="~/Content/select2/select2.min.css"/>
     @*CUSTOM STYLESHEET*@
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css"/>
+    <link type="text/css" rel="stylesheet" href="~/Content/Site.css"/>
     @*SCRIPTS*@
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    <script type="text/javascript" src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
     @*FALLBACK*@
-    <script type="text/javascript" src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script type="text/javascript" src="~/Scripts/select2/select2.min.js"></script>
@@ -60,7 +60,7 @@
     </div>
 </div>
 
-<div class="container body-content">
+<div class="container">
     @RenderBody()
     <hr/>
     <footer>
@@ -68,7 +68,6 @@
     </footer>
     @*CUSTOM SCRIPTS*@
     <script type="text/javascript" src="~/Scripts/Site/SearchByIngredient.js"></script>
-
 </div>
 </body>
 </html>
