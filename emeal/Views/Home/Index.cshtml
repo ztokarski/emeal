@@ -1,4 +1,5 @@
-﻿@{ Layout = null; }
+﻿@using emeal.Models
+@{ Layout = null; }
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 </head>
 <body>
 <div class="navbar navbar-fixed-top" id="start-page-header">
-    Hello, {{username}}
+    Hello, @Html.ValueFor(model => (Session["User"] as User).Name)
 </div>
 <div class="container-fluid" id="start-page-items">
     <div id="start-page-items-row-left-upper">
@@ -32,7 +33,7 @@
         </a>
     </div>
     <div id="start-page-items-row-right-upper">
-        <a href="@Url.Action("", "")" title="Profile">
+        <a href="@Url.Action("Index", "User")" title="Profile">
             <span class="glyphicon glyphicon-user gi-5x"></span>
         </a>
     </div>

@@ -210,6 +210,7 @@
     <Compile Include="Controllers\Facades\RecipeFacade.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Exceptions\BaseExceptions.cs" />
     <Compile Include="Exceptions\IngredientExceptions.cs" />
     <Compile Include="Exceptions\RecipeExceptions.cs" />
@@ -251,6 +252,7 @@
     <Content Include="Views\Recipe\Delete.cshtml" />
     <Content Include="Views\Recipe\Index.cshtml" />
     <Content Include="Views\Ingredient\GetSearchResults.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
