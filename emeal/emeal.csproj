@@ -111,6 +111,14 @@
     <Content Include="Content\img\bg.jpg" />
     <Content Include="Content\img\djkhaled-sm.png" />
     <Content Include="Content\img\djkhaled.png" />
+    <Content Include="Content\img\status\400.jpg" />
+    <Content Include="Content\img\status\401.jpg" />
+    <Content Include="Content\img\status\403.jpg" />
+    <Content Include="Content\img\status\404.jpg" />
+    <Content Include="Content\img\status\418.jpg" />
+    <Content Include="Content\img\status\420.jpg" />
+    <Content Include="Content\img\status\500.jpg" />
+    <Content Include="Content\img\status\502.jpg" />
     <Content Include="Content\select2\select2.css" />
     <Content Include="Content\select2\select2.min.css" />
     <Content Include="Content\Site.css" />
@@ -194,6 +202,8 @@
     <Content Include="Scripts\Site\IngredientFrames.js" />
     <Content Include="Scripts\Site\SearchByIngredient.js" />
     <Content Include="Scripts\Site\StepFrames.js" />
+    <Content Include="Views\Error\404.cshtml" />
+    <Content Include="Views\Error\500.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Ingredient\PartialIngredient.cshtml" />
     <Content Include="Views\Ingredient\SearchByIngredients.cshtml" />
