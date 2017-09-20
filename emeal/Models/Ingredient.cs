@@ -25,6 +25,8 @@ namespace emeal.Models
         łyżeczka,
         gałązka,
         główka,
-        szczypta
+        szczypta,
+        puszka,
+        ząbek
     }
 }
