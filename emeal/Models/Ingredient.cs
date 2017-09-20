@@ -6,10 +6,9 @@ namespace emeal.Models
     {
         public int Id { get; set; }
         public virtual Product Product { get; set; }
-        [Required]
-        public string Amount { get; set; }
+        public double Amount { get; set; }
 
-        [Required]
+        
         [Display(Name = "Unit")]
         public Unit UnitType { get; set; }
     }
