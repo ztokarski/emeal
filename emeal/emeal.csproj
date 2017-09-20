@@ -202,8 +202,14 @@
     <Content Include="Scripts\Site\IngredientFrames.js" />
     <Content Include="Scripts\Site\SearchByIngredient.js" />
     <Content Include="Scripts\Site\StepFrames.js" />
+    <Content Include="Views\Error\400.cshtml" />
+    <Content Include="Views\Error\401.cshtml" />
+    <Content Include="Views\Error\403.cshtml" />
     <Content Include="Views\Error\404.cshtml" />
+    <Content Include="Views\Error\418.cshtml" />
+    <Content Include="Views\Error\420.cshtml" />
     <Content Include="Views\Error\500.cshtml" />
+    <Content Include="Views\Error\502.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Ingredient\PartialIngredient.cshtml" />
     <Content Include="Views\Ingredient\SearchByIngredients.cshtml" />
