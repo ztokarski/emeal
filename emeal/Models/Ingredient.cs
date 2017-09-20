@@ -21,6 +21,11 @@ namespace emeal.Models
         dag,
         kg,
         ml,
-        l
+        l,
+        łyżka,
+        łyżeczka,
+        gałązka,
+        główka,
+        szczypta
     }
 }
