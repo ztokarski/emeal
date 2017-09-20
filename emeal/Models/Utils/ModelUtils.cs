@@ -7,21 +7,24 @@ namespace emeal.Models.Utils
 {
     internal static class ModelUtils
     {
+        // TODO: Use Strategy design pattern?
         internal static bool InRange(this int checkedInt, int rangeBottom, int rangeTop)
         {
-            return checkedInt >= rangeBottom && checkedInt <= rangeTop;
+            return checkedInt >= rangeBottom &&
+                   checkedInt <= rangeTop;
         }
 
         internal static bool CheckUrlValid(this string source)
         {
-            Uri uriResult;
-            return Uri.TryCreate(source, UriKind.Absolute, out uriResult)
-                   && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+            return Uri.TryCreate(source, UriKind.Absolute, out var uriResult) &&
+                   (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
         }
 
         internal static bool IsValid(this Recipe recipe)
         {
-            return recipe != null && recipe.PathToImage.CheckUrlValid() && recipe.EstimatedTime > 0;
+            return recipe != null &&
+                   recipe.PathToImage.CheckUrlValid() &&
+                   recipe.EstimatedTime > 0;
         }
     }
 }

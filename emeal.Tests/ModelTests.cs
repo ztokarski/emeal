@@ -1,22 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using emeal.Models;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
-namespace emeal.Tests.ModelTests
+namespace emeal.Tests
 {
-
     [TestFixture]
     public class RecipeTests
     {
         [SetUp]
-        public void Init()
-        {
-            CreateTestRecipe();
-        }
+        public void Init() => CreateTestRecipe();
 
         private User _testAuthor;
         private Product _testProduct1;
@@ -25,21 +18,19 @@ namespace emeal.Tests.ModelTests
         private Ingredient _testIngredient2;
         private Step _testStep1;
         private Step _testStep2;
-
         private Recipe _testRecipe;
 
-
-        public void CreateTestRecipe()
+        private void CreateTestRecipe()
         {
-            this._testAuthor = new User() { Id = 1, Name = "John", PathToImage = "myPath" };
+            _testAuthor = new User {Id = 1, Name = "John", PathToImage = "myPath"};
 
-            this._testProduct1 = new Product() { Id = 1, Name = "Tomato", PathToImage = "myProductPath" };
-            this._testProduct2 = new Product() { Id = 2, Name = "Onion", PathToImage = "myProductPath" };
+            _testProduct1 = new Product {Id = 1, Name = "Tomato", PathToImage = "myProductPath"};
+            _testProduct2 = new Product {Id = 2, Name = "Onion", PathToImage = "myProductPath"};
 
-            this._testIngredient1 = new Ingredient() { Id = 1, Amount = "Some", Product = this._testProduct1, UnitType = Unit.szt };
-            this._testIngredient2 = new Ingredient() { Id = 2, Amount = "A lot", Product = this._testProduct2, UnitType = Unit.g };
+            _testIngredient1 = new Ingredient {Id = 1, Amount = 42, Product = _testProduct1, UnitType = Unit.szt};
+            _testIngredient2 = new Ingredient {Id = 2, Amount = 42, Product = _testProduct2, UnitType = Unit.g};
 
-            this._testStep1 = new Step()
+            _testStep1 = new Step
             {
                 Id = 1,
                 Name = "Cut the onion",
@@ -48,7 +39,7 @@ namespace emeal.Tests.ModelTests
                 Order = 1
             };
 
-            this._testStep2 = new Step()
+            _testStep2 = new Step
             {
                 Id = 2,
                 Name = "Slice the tomato",
@@ -57,7 +48,7 @@ namespace emeal.Tests.ModelTests
                 Order = 2
             };
 
-            this._testRecipe = new Recipe()
+            _testRecipe = new Recipe
             {
                 Id = 1,
                 Name = "Soup",
@@ -73,11 +64,12 @@ namespace emeal.Tests.ModelTests
                 Rating = 6
             };
 
-            this._testRecipe.Ingredients.Add(this._testIngredient1);
-            this._testRecipe.Ingredients.Add(this._testIngredient2);
 
-            this._testRecipe.Steps.Add(this._testStep1);
-            this._testRecipe.Steps.Add(this._testStep2);
+            _testRecipe.Ingredients.Add(_testIngredient1);
+            _testRecipe.Ingredients.Add(_testIngredient2);
+
+            _testRecipe.Steps.Add(_testStep1);
+            _testRecipe.Steps.Add(_testStep2);
         }
 
         [Test]
@@ -93,25 +85,24 @@ namespace emeal.Tests.ModelTests
             const int expectedPopularity = 5;
             const int expectedRating = 6;
 
-
-            Assert.AreEqual(expectedRecipeId, this._testRecipe.Id);
-            Assert.AreEqual(expectedName, this._testRecipe.Name);
-            Assert.AreEqual(expectedDescription, this._testRecipe.Description);
-            Assert.AreEqual(expectedPathToImage, this._testRecipe.PathToImage);
-            Assert.AreEqual(expectedDifficulty, this._testRecipe.DifficultyLevel);
-            Assert.AreEqual(expectedDate, this._testRecipe.WhenAdded);
-            Assert.AreEqual(expectedEstimatedTime, this._testRecipe.EstimatedTime);
-            Assert.AreEqual(expectedPopularity, this._testRecipe.Popularity);
-            Assert.AreEqual(expectedRating, this._testRecipe.Rating);
+            Assert.AreEqual(expectedRecipeId, _testRecipe.Id);
+            Assert.AreEqual(expectedName, _testRecipe.Name);
+            Assert.AreEqual(expectedDescription, _testRecipe.Description);
+            Assert.AreEqual(expectedPathToImage, _testRecipe.PathToImage);
+            Assert.AreEqual(expectedDifficulty, _testRecipe.DifficultyLevel);
+            Assert.AreEqual(expectedDate, _testRecipe.WhenAdded);
+            Assert.AreEqual(expectedEstimatedTime, _testRecipe.EstimatedTime);
+            Assert.AreEqual(expectedPopularity, _testRecipe.Popularity);
+            Assert.AreEqual(expectedRating, _testRecipe.Rating);
         }
 
         [Test]
         public void AuthorFieldTests()
         {
-            Assert.AreEqual(this._testAuthor, this._testRecipe.Author);
-            Assert.AreEqual(this._testAuthor.Id, this._testRecipe.Author.Id);
-            Assert.AreEqual(this._testAuthor.Name, this._testRecipe.Author.Name);
-            Assert.AreEqual(this._testAuthor.PathToImage, this._testRecipe.Author.PathToImage);
+            Assert.AreEqual(_testAuthor, _testRecipe.Author);
+            Assert.AreEqual(_testAuthor.Id, _testRecipe.Author.Id);
+            Assert.AreEqual(_testAuthor.Name, _testRecipe.Author.Name);
+            Assert.AreEqual(_testAuthor.PathToImage, _testRecipe.Author.PathToImage);
         }
 
         [Test]
@@ -121,24 +112,31 @@ namespace emeal.Tests.ModelTests
             const string expectedName = "Tomato";
             const string expectedPathToImage = "myProductPath";
 
-            Assert.AreEqual(expectedId, this._testProduct1.Id);
-            Assert.AreEqual(expectedName, this._testProduct1.Name);
-            Assert.AreEqual(expectedPathToImage, this._testProduct1.PathToImage);
+            Assert.AreEqual(expectedId, _testProduct1.Id);
+            Assert.AreEqual(expectedName, _testProduct1.Name);
+            Assert.AreEqual(expectedPathToImage, _testProduct1.PathToImage);
         }
 
         [Test]
         public void IngredientFieldTests()
         {
-            this._testIngredient1 = new Ingredient() { Id = 1, Amount = "Some", Product = this._testProduct1, UnitType = Unit.szt };
             const int expectedId = 1;
-            const string expectedAmount = "Some";
-            var expectedProduct = this._testProduct1;
-            const Unit expectedUnityType = Unit.szt;
+            const double expectedAmount = 42;
+            var expectedProduct = _testProduct1;
+            const Unit expectedUnitType = Unit.szt;
+            _testIngredient1 = new Ingredient
+            {
+                Id = expectedId,
+                Amount = expectedAmount,
+                Product = _testProduct1,
+                UnitType = expectedUnitType
+            };
 
-            Assert.AreEqual(expectedId, this._testIngredient1.Id);
-            Assert.AreEqual(expectedAmount, this._testIngredient1.Amount);
-            Assert.AreEqual(expectedProduct, this._testIngredient1.Product);
-            Assert.AreEqual(expectedUnityType, this._testIngredient1.UnitType);
+
+            Assert.AreEqual(expectedId, _testIngredient1.Id);
+            Assert.AreEqual(expectedAmount, _testIngredient1.Amount);
+            Assert.AreEqual(expectedProduct, _testIngredient1.Product);
+            Assert.AreEqual(expectedUnitType, _testIngredient1.UnitType);
         }
 
         [Test]
@@ -150,12 +148,11 @@ namespace emeal.Tests.ModelTests
             const int expectedTimer = 30;
             const int expectedOrder = 1;
 
-            Assert.AreEqual(expectedId, this._testStep1.Id);
-            Assert.AreEqual(expectedName, this._testStep1.Name);
-            Assert.AreEqual(expectedPathToImage, this._testStep1.PathToImage);
-            Assert.AreEqual(expectedTimer, this._testStep1.Timer);
-            Assert.AreEqual(expectedOrder, this._testStep1.Order);
+            Assert.AreEqual(expectedId, _testStep1.Id);
+            Assert.AreEqual(expectedName, _testStep1.Name);
+            Assert.AreEqual(expectedPathToImage, _testStep1.PathToImage);
+            Assert.AreEqual(expectedTimer, _testStep1.Timer);
+            Assert.AreEqual(expectedOrder, _testStep1.Order);
         }
-
     }
 }
