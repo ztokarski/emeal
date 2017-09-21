@@ -1,0 +1,13 @@
+﻿@using emeal.Models
+@model User
+@{ ViewBag.Title = "Profile"; }
+
+<div id="user-info">
+    <div id="user-info-avatar">
+
+    </div>
+    <div id="user-info-name">
+        @Html.DisplayNameFor(model => (Session["User"] as User).Name)
+        @Html.DisplayFor(model => (Session["User"] as User).Name)
+    </div>
+</div>

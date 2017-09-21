@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using emeal.Models;
-using NUnit.Framework;
-using NUnit.Framework.Internal;
+﻿using NUnit.Framework;
 using emeal.Models.Utils;
 
 namespace emeal.Tests
@@ -30,18 +23,13 @@ namespace emeal.Tests
 
 
         [Test]
-        public void testCheckUrlValid()
+        public void TestCheckUrlValid()
         {
             const string validSource = "https://stackoverflow.com/";
-            const string inValidSource = "stackoverflow.com";
+            var invalidSource = string.Empty;
 
-            var trueResult = validSource.CheckUrlValid();
-            var falseResult = inValidSource.CheckUrlValid();
-
-            Assert.That(trueResult, Is.True);
-            Assert.That(falseResult, Is.False);
+            Assert.That(validSource.CheckUrlValid(), Is.True);
+            Assert.That(invalidSource.CheckUrlValid(), Is.False);
         }
-
     }
 }
-

@@ -111,6 +111,14 @@
     <Content Include="Content\img\bg.jpg" />
     <Content Include="Content\img\djkhaled-sm.png" />
     <Content Include="Content\img\djkhaled.png" />
+    <Content Include="Content\img\status\400.jpg" />
+    <Content Include="Content\img\status\401.jpg" />
+    <Content Include="Content\img\status\403.jpg" />
+    <Content Include="Content\img\status\404.jpg" />
+    <Content Include="Content\img\status\418.jpg" />
+    <Content Include="Content\img\status\420.jpg" />
+    <Content Include="Content\img\status\500.jpg" />
+    <Content Include="Content\img\status\502.jpg" />
     <Content Include="Content\select2\select2.css" />
     <Content Include="Content\select2\select2.min.css" />
     <Content Include="Content\Site.css" />
@@ -194,6 +202,14 @@
     <Content Include="Scripts\Site\IngredientFrames.js" />
     <Content Include="Scripts\Site\SearchByIngredient.js" />
     <Content Include="Scripts\Site\StepFrames.js" />
+    <Content Include="Views\Error\400.cshtml" />
+    <Content Include="Views\Error\401.cshtml" />
+    <Content Include="Views\Error\403.cshtml" />
+    <Content Include="Views\Error\404.cshtml" />
+    <Content Include="Views\Error\418.cshtml" />
+    <Content Include="Views\Error\420.cshtml" />
+    <Content Include="Views\Error\500.cshtml" />
+    <Content Include="Views\Error\502.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Ingredient\PartialIngredient.cshtml" />
     <Content Include="Views\Ingredient\SearchByIngredients.cshtml" />
@@ -210,6 +226,7 @@
     <Compile Include="Controllers\Facades\RecipeFacade.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Exceptions\BaseExceptions.cs" />
     <Compile Include="Exceptions\IngredientExceptions.cs" />
     <Compile Include="Exceptions\RecipeExceptions.cs" />
@@ -251,6 +268,7 @@
     <Content Include="Views\Recipe\Delete.cshtml" />
     <Content Include="Views\Recipe\Index.cshtml" />
     <Content Include="Views\Ingredient\GetSearchResults.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
