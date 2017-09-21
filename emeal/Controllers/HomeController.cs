@@ -11,7 +11,7 @@ namespace emeal.Controllers
             {
                 Id = 42,
                 Name = "DJ Khaled",
-                PathToImage = "~/Content/img/djkhaled.png"
+                PathToImage = "/Content/img/djkhaled.png"
             };
 
             return View();

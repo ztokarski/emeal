@@ -1,6 +1,7 @@
 ﻿/*noinspection CssUnknownTarget*/
 
 @import url("https://fonts.googleapis.com/css?family=Encode+Sans");
+
 * {
     --colour-primary-dark: #075a54;
     --colour-primary: #a4a659;
@@ -11,25 +12,15 @@
     --colour-primary-divider: #BDBDBD;
 }
 
-
 /*Font-Awesome copypaste :D*/
 
-.gi-2x {
-    font-size: 2em;
-}
+.gi-2x { font-size: 2em; }
 
-.gi-3x {
-    font-size: 3em;
-}
+.gi-3x { font-size: 3em; }
 
-.gi-4x {
-    font-size: 4em;
-}
+.gi-4x { font-size: 4em; }
 
-.gi-5x {
-    font-size: 5em;
-}
-
+.gi-5x { font-size: 5em; }
 
 /*ACTUAL STYLESHEET STARTS HERE*/
 
@@ -45,12 +36,11 @@ body {
 
 input,
 select,
-textarea {
-    max-width: 280px;
-}
+textarea { max-width: 280px; }
 
-#Steps>div,
-#Ingredients>div {
+#Steps > div,
+#Ingredients > div {
+    background: #ffffff;
     background: rgba(255, 255, 255, .9);
     border: 1px solid rgb(195, 195, 195);
     border-radius: 10px;
@@ -58,7 +48,7 @@ textarea {
     margin: 2%;
 }
 
-body>div.navbar.navbar-inverse.navbar-fixed-top,
+body > div.navbar.navbar-inverse.navbar-fixed-top,
 #start-page-header {
     background: var(--colour-primary-accent);
     color: black;
@@ -72,9 +62,7 @@ body>div.navbar.navbar-inverse.navbar-fixed-top,
 }
 
 .ingredient-dropdown-content,
-.step-dropdown-content {
-    padding: 5%;
-}
+.step-dropdown-content { padding: 5%; }
 
 .recipe-details {
     display: flex;
@@ -110,9 +98,7 @@ body>div.navbar.navbar-inverse.navbar-fixed-top,
 }
 
 .recipe-details-bottom-left h5,
-.recipe-details-bottom-right h5 {
-    font-weight: bold;
-}
+.recipe-details-bottom-right h5 { font-weight: bold; }
 
 .ingredient-search-dropdown {
     display: flex;
@@ -122,9 +108,7 @@ body>div.navbar.navbar-inverse.navbar-fixed-top,
     margin: auto;
 }
 
-#ingredient-search-input {
-    width: 100%;
-}
+#ingredient-search-input { width: 100%; }
 
 html,
 body,
@@ -141,9 +125,7 @@ body,
     color: var(--colour-primary-text);
 }
 
-#start-page-header {
-    grid-area: header;
-}
+#start-page-header { grid-area: header; }
 
 #start-page-items-row-left-upper,
 #start-page-items-row-left-lower,
@@ -154,29 +136,17 @@ body,
     align-items: center;
 }
 
-#start-page-items-row-left-upper {
-    grid-area: icons-upper-left;
-}
+#start-page-items-row-left-upper { grid-area: icons-upper-left; }
 
-#start-page-items-row-left-lower {
-    grid-area: icons-lower-left;
-}
+#start-page-items-row-left-lower { grid-area: icons-lower-left; }
 
-#start-page-items-row-right-upper {
-    grid-area: icons-upper-right;
-}
+#start-page-items-row-right-upper { grid-area: icons-upper-right; }
 
-#start-page-items-row-right-lower {
-    grid-area: icons-lower-right;
-}
+#start-page-items-row-right-lower { grid-area: icons-lower-right; }
 
-#start-page-items a {
-    padding: 2em;
-}
+#start-page-items a { padding: 2em; }
 
-#start-page-items a span {
-    color: var(--colour-primary-light);
-}
+#start-page-items a span { color: var(--colour-primary-light); }
 
 @media only screen and (max-width: 500px) {
     #start-page-items {
@@ -212,10 +182,14 @@ body,
     grid-template-areas: ". status-img ." ". status-info .";
 }
 
-.error-status-content-img {
-    grid-area: status-img;
-}
+.error-status-content-img { grid-area: status-img; }
 
-.error-status-content-info {
-    grid-area: status-info;
+.error-status-content-info { grid-area: status-info; }
+
+.user-profile-pic {
+    background: var(--colour-primary-light);
+    border: 2px var(--colour-primary-accent);
+    border-radius: 100%;
+    height: 5rem;
+    width: 5rem;
 }
