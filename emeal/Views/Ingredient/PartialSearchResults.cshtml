@@ -1,0 +1,12 @@
+﻿@model IEnumerable<emeal.Models.Recipe>
+
+@foreach (var recipe in Model)
+{
+    <div id="@Html.ValueFor(rcp => recipe.Id)">
+        <a href="@Url.Action("Details", "Recipe", new {id = Html.ValueFor(rcp => recipe.Id)})">
+            @Html.ValueFor(rcp => recipe.PathToImage)
+            <h5>@Html.ValueFor(rcp => recipe.Name)</h5>
+            <p>@Html.ValueFor(rcp => recipe.Description)</p>
+        </a>
+    </div>
+}
