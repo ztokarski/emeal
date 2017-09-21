@@ -8,9 +8,9 @@ namespace emeal.Models
         public virtual Product Product { get; set; }
         public double Amount { get; set; }
 
-        
         [Display(Name = "Unit")]
         public Unit UnitType { get; set; }
+        public string Description { get;  set; }
     }
 
     public enum Unit
@@ -27,6 +27,7 @@ namespace emeal.Models
         główka,
         szczypta,
         puszka,
-        ząbek
+        ząbek,
+        kromka
     }
 }
