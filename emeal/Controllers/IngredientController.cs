@@ -27,10 +27,9 @@ namespace emeal.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult SearchByIngredientsResult()
+        public PartialViewResult SearchByIngredientsResult(List<int> selectedProductIds)
         {
-            var stubbedProductsFormSelect2 = new List<int>();
-            return PartialView("PartialSearchResults", _facade.SearchByProducts(stubbedProductsFormSelect2));
+            return PartialView("PartialSearchResults", _facade.SearchByProducts(selectedProductIds));
         }
     }
 }
