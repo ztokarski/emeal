@@ -3,20 +3,19 @@
 
 <div class="jumbotron">
     <div class="row">
-        <div class="col-lg-3"></div>
         <div class="col-lg-6">
-            <select id="ingredient-search-input" multiple="multiple">
-                @foreach (var product in Model)
-                {
-                    <option value="@Html.ValueFor(prod => product.Id)">
-                        @Html.ValueFor(prod => product.Name)
-                    </option>
-                }
-            </select>
-            @Html.ActionLink("Search", "GetSearchResults", "Ingredient",
-                     null, new { @class = "btn btn-primary" })
-
+            @using (Html.BeginForm("GetSearchResults", "Ingredient", FormMethod.Post))
+            {
+                <select id="ingredient-search-input" multiple="multiple">
+                    @foreach (var product in Model)
+                    {
+                        <option value="@Html.ValueFor(prod => product.Id)">
+                            @Html.ValueFor(prod => product.Name)
+                        </option>
+                    }
+                </select>
+                <input type="submit" value="Search" class="btn btn-success"/>
+            }
         </div>
-        <div class="col-lg-3"></div>
     </div>
 </div>
