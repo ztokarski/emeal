@@ -57,12 +57,10 @@
                             {
                                 <li>
                                     <ul>
-                                        <li>@Html.DisplayFor(ingredientItem => ingredient.Product.PathToImage)</li>
                                         <li>@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</li>
-                                        <li>@Html.DisplayFor(ingredientItem => ingredient.Amount)</li>
-                                        <li>@Html.DisplayFor(ingredientItem => ingredient.UnitType)</li>
+                                        @Html.DisplayFor(ingredientItem => ingredient.Amount)
+                                        @Html.DisplayFor(ingredientItem => ingredient.UnitType)
                                     </ul>
-                                    <hr/>
                                 </li>
                             }
                         </ul>
@@ -71,7 +69,7 @@
             </td>
             <td>
                 <div class="dropdown" id="step-dropdown">
-                    <button class="btn btn-xs btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    <button class="btn btn-xs btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >
                         @Html.DisplayFor(modelItem => item.Steps.Count)
                         <span class="caret"></span>
                     </button>
@@ -82,10 +80,8 @@
                             {
                                 <li>
                                     <ul>
-                                        <li>@Html.DisplayFor(stepItem => step.Name)</li>
-                                        <li>@Html.DisplayFor(stepstepItem => step.Order)</li>
-                                        <li>@Html.DisplayFor(stepItem => step.PathToImage)</li>
-                                        <li>@Html.DisplayFor(stepItem => step.Timer)</li>
+                                        <li><b>@Html.DisplayFor(stepItem => step.Name)</b></li>
+                                        @Html.DisplayFor(stepstepItem => step.Description)
                                         <hr/>
                                     </ul>
                                 </li>

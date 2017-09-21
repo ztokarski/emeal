@@ -21,7 +21,6 @@ namespace emeal.Migrations
             Product pomarancza = new Product() { Name = "pomarańcza", PathToImage = "path to image" };
             Product serKozi = new Product() { Name = "ser kozi", PathToImage = "path to image" };
             Product kapar = new Product() { Name = "kapar", PathToImage = "path to image" };
-            Product czerwonaCebula = new Product() { Name = "czerwona cebula", PathToImage = "path to image" };
             Product czosnek = new Product() { Name = "czosnek", PathToImage = "path to image" };
             Product oliwaZOliwek = new Product() { Name = "oliwa z oliwek", PathToImage = "path to image" };
             Product rozmaryn = new Product() { Name = "rozmaryn", PathToImage = "path to image" };
@@ -43,6 +42,28 @@ namespace emeal.Migrations
             Product oliwkiZCzosnkiem = new Product() { Name = "oliwki nadziewane czosnkiem", PathToImage = "path to image" };
             Product serFeta = new Product() { Name = "ser feta", PathToImage = "path to image" };
             Product jogurtNaturalny = new Product() { Name = "jogurt naturalny", PathToImage = "path to image" };
+            Product cukierBrazowy = new Product() { Name = "cukier brązowy", PathToImage = "path to image" };
+            Product espressoWProszku = new Product() { Name = "espresso w proszku", PathToImage = "path to image" };
+            Product cynamonMielony = new Product() { Name = "cynamon mielony", PathToImage = "path to image" };
+            Product kolendraMielona = new Product() { Name = "kolendra mielona", PathToImage = "path to image" };
+            Product mleko = new Product() { Name = "mleko", PathToImage = "path to image" };
+            Product smietana18 = new Product() { Name = "śmietana 18%", PathToImage = "path to image" };
+            Product pieprzCayenne = new Product() { Name = "pieprz cayenne", PathToImage = "path to image" };
+            Product limonka = new Product() { Name = "limonka", PathToImage = "path to image" };
+            Product miod = new Product() { Name = "miód", PathToImage = "path to image" };
+            Product kielbasaGrillowa = new Product() { Name = "kiełbasa grillowa", PathToImage = "path to image" };
+            Product fasolaCzerwonaZPuszki = new Product() { Name = "fasola czerwona", PathToImage = "path to image" };
+            Product cebulaCzerwona = new Product() { Name = "cebula czerwona", PathToImage = "path to image" };
+            Product awokado = new Product() { Name = "awokado", PathToImage = "path to image" };
+            Product tortillaPszenna = new Product() { Name = "tortilla pszenna", PathToImage = "path to image" };
+            Product rzezucha = new Product() { Name = "rzeżucha", PathToImage = "path to image" };
+            Product serekGrani = new Product() { Name = "serek grani", PathToImage = "path to image" };
+            Product smietanka30 = new Product() { Name = "śmietanka 30%", PathToImage = "path to image" };
+            Product skorkaZCytryny = new Product() { Name = "skórka z cytryny", PathToImage = "path to image" };
+            Product jajko = new Product() { Name = "jajko", PathToImage = "path to image" };
+            Product chlebTostowy = new Product() { Name = "chleb tostowy", PathToImage = "path to image" };
+            Product maslo = new Product() { Name = "masło", PathToImage = "path to image" };
+            Product kawiorZPstraga = new Product() { Name = "kawior z pstrąga", PathToImage = "path to image" };
 
 
             context.Recipes.AddOrUpdate(p => p.Name,
@@ -58,7 +79,7 @@ namespace emeal.Migrations
                         new Ingredient { Product = pomarancza, Amount = 1, UnitType = Unit.szt },
                         new Ingredient { Product = serKozi, Amount = 150, UnitType = Unit.g },
                         new Ingredient { Product = kapar, Amount = 2, UnitType = Unit.łyżeczka },
-                        new Ingredient { Product = czerwonaCebula, Amount = 2, UnitType = Unit.szt },
+                        new Ingredient { Product = cebulaCzerwona, Amount = 2, UnitType = Unit.szt },
                         new Ingredient { Product = czosnek, Amount = 0.5, UnitType = Unit.główka },
                         new Ingredient { Product = oliwaZOliwek, Amount = 4, UnitType = Unit.łyżka },
                         new Ingredient { Product = rozmaryn, Amount = 2, UnitType = Unit.gałązka },
@@ -152,6 +173,104 @@ namespace emeal.Migrations
                     EstimatedTime = 10,
                     Popularity = 3,
                     Rating = 5
+                }
+            );
+            context.Recipes.AddOrUpdate(p => p.Name,
+                new Recipe
+                {
+                    Name = "Kawa po portugalsku",
+                    Description = "Mielony cynamon, kolendra, duża ilość spienionego mleka i oczywiście mocne espresso – z tych składników przygotujesz kawę po portugalsku!",
+                    Author = new User { Name = "Katarzyna" },
+                    Ingredients = new List<Ingredient>
+                    {
+                        new Ingredient { Product = cukierBrazowy, Amount = 25, UnitType = Unit.g },
+                        new Ingredient { Product = espressoWProszku, Amount = 50, UnitType = Unit.g },
+                        new Ingredient { Product = cynamonMielony, Amount = 0.25, UnitType = Unit.łyżeczka },
+                        new Ingredient { Product = kolendraMielona, Amount = 0.25, UnitType = Unit.łyżeczka },
+                        new Ingredient { Product = mleko, Amount = 1, UnitType = Unit.l },
+                    },
+                    Steps = new List<Step>
+                    {
+                        new Step {Name = "PRZYGOTUJ",Order = 1,Description = "moździerz"},
+                        new Step {Name = "KROK 1: UCIERAMY CUKIER",Order = 2,Description = "Cukier ucieramy w moździerzu. Espresso w proszku mieszamy z cynamonem i kolendrą. Zaparzamy ok. 250 ml mocnego espresso z przyprawami."},
+                        new Step {Name = "KROK 2: PODGRZEWAMY MLEKO",Order = 3,Description = "Mleko podgrzewamy. Połowę przelewamy do 4 szklanek. Resztę mleka spieniamy i również rozlewamy do szklanek."},
+                        new Step {Name = "KROK 3: DEKORUJEMY GALAO",Order = 3,Description = "Espresso ostrożnie dolewamy do mleka, tak aby utworzyło środkową warstwę. Galao posypujemy cukrem i podajemy natychmiast posypane odrobiną cynamonu."},
+
+                    },
+                    PathToImage = "path to main image",
+                    DifficultyLevel = Difficulty.Easy,
+                    WhenAdded = DateTime.Today,
+                    EstimatedTime = 8,
+                    Popularity = 4,
+                    Rating = 6
+                }
+            );
+            context.Recipes.AddOrUpdate(p => p.Name,
+                new Recipe
+                {
+                    Name = "Śniadaniowe burrito",
+                    Description = "Tortille z mięsem, awokado, fasolą i ostrym dipem! Zobacz, jak przygotować śniadanie inspirowane kuchnią meksykańską!",
+                    Author = new User { Name = "Huanito" },
+                    Ingredients = new List<Ingredient>
+                    {
+                        new Ingredient { Product = smietana18, Amount = 150, UnitType = Unit.g },
+                        new Ingredient { Product = pieprzCayenne, Amount = 1, UnitType = Unit.szczypta },
+                        new Ingredient { Product = limonka, Amount = 0.5, UnitType = Unit.szt },
+                        new Ingredient { Product = miod, Amount = 1, UnitType = Unit.łyżeczka },
+                        new Ingredient { Product = kielbasaGrillowa, Amount = 400, UnitType = Unit.g },
+                        new Ingredient { Product = fasolaCzerwonaZPuszki, Amount =255, UnitType = Unit.g },
+                        new Ingredient { Product = cebulaCzerwona, Amount = 1, UnitType = Unit.szt },
+                        new Ingredient { Product = czosnek, Amount = 2, UnitType = Unit.ząbek },
+                        new Ingredient { Product = awokado, Amount = 1, UnitType = Unit.szt },
+                        new Ingredient { Product = kielbasaGrillowa, Amount = 400, UnitType = Unit.g },
+                        new Ingredient { Product = tortillaPszenna, Amount =6, UnitType = Unit.szt },
+                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.szczypta },
+                    },
+                    Steps = new List<Step>
+                    {
+                        new Step {Name = "KROK 1: PRZYGOTOWUJEMY SOS",Order = 1,Description = "Śmietanę mieszamy z solą, pieprzem cayenne i skórką z limonki, możemy także doprawić miodem. Cebulę oraz czosnek obieramy i kroimy w drobną kostkę. Fasolę odcedzamy, płuczemy i odsączamy."},
+                        new Step {Name = "KROK 2: SMAŻYMY MIĘSNY FARSZ",Order = 2,Description = "Kiełbasę grillową nacinamy i wyciskamy mięso z osłonki. Smażymy na gorącej patelni przez ok. 4 minuty, rozdrabniając je. Dodajemy cebulę i czosnek, smażymy razem przez 3 minuty. Dodajemy fasolę i podgrzewamy przez 2-3 minuty, doprawiamy do smaku."},
+                        new Step {Name = "KROK 3: ZWIJAMY TORTILLE",Order = 3,Description = "Awokado obieramy, kroimy na pół, pozbawiamy pestki i kroimy w plasterki. Skrapiamy sokiem z limonki. Tortille kolejno podgrzewamy na dużej patelni bez tłuszczu przez 20-30 sekund. Smarujemy śmietaną, układamy awokado i mięsny farsz, zwijamy."},
+                    },
+                    PathToImage = "path to main image",
+                    DifficultyLevel = Difficulty.Easy,
+                    WhenAdded = DateTime.Today,
+                    EstimatedTime = 30,
+                    Popularity = 6,
+                    Rating = 5
+                }
+            );
+            context.Recipes.AddOrUpdate(p => p.Name,
+                new Recipe
+                {
+                    Name = "Jajka po wiedeńsku z kremem z rzeżuchy i tostowymi paluszkami",
+                    Description = "Krem z rzeżuchy i tostowe paluszki to świetne dodatki do jajek. Wypróbuj koniecznie!",
+                    Author = new User { Name = "Bogumiła" },
+                    Ingredients = new List<Ingredient>
+                    {
+                        new Ingredient { Product = rzezucha, Amount = 1, UnitType = Unit.szt },
+                        new Ingredient { Product = serekGrani, Amount = 150, UnitType = Unit.g },
+                        new Ingredient { Product = smietanka30, Amount = 2, UnitType = Unit.łyżka},
+                        new Ingredient { Product = skorkaZCytryny, Amount = 1, UnitType = Unit.szt},
+                        new Ingredient { Product = jajko, Amount = 8, UnitType = Unit.szt },
+                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.szczypta },
+                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.szczypta },
+                        new Ingredient { Product = chlebTostowy, Amount = 4, UnitType = Unit.kromka },
+                        new Ingredient { Product = maslo, Amount = 3, UnitType = Unit.łyżka },
+                        new Ingredient { Product = kawiorZPstraga, Amount = 4, UnitType = Unit.łyżeczka, Description = "opcjonalnie" },
+                    },
+                    Steps = new List<Step>
+                    {
+                        new Step {Name = "KROK 1: PRZYGOTOWUJEMY KREM Z RZEŻUCHY",Order = 1,Description = "Rzeżuchę obcinamy i mieszamy z serkiem grani i śmietanką, doprawiamy solą, pieprzem i skórką z cytryny."},
+                        new Step {Name = "KROK 2: GOTUJEMY JAJKA I SMAŻYMY CHLEB",Order = 2,Description = "Jajka gotujemy na miękko we wrzącej wodzie przez 5-6 minut. W międzyczasie każdą kromkę chleba kroimy na 4 paski i podsmażamy na gorącym maśle ok. 1 minuty z każdej strony."},
+                        new Step {Name = "KROK 3: NAKŁADAMY KREM NA JAJKA",Order = 3,Description = "Jajka przelewamy zimną wodą, obieramy ze skorupki i przekładamy po 2 sztuki do szklanki. Lekko nacinamy, doprawiamy solą i pieprzem i rozkładamy na nich krem z rzeżuchy. Dodajemy po 1 łyżeczce kawioru z pstrąga (opcjonalnie). Podajemy z tostowymi paluszkami."},
+                    },
+                    PathToImage = "path to main image",
+                    DifficultyLevel = Difficulty.Easy,
+                    WhenAdded = DateTime.Today,
+                    EstimatedTime = 20,
+                    Popularity = 1,
+                    Rating = 1
                 }
             );
         }
