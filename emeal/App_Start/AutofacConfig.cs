@@ -4,6 +4,8 @@ using Autofac.Integration.Mvc;
 using emeal.Controllers.Facades;
 using emeal.Services;
 using emeal.Services.Interfaces;
+using emeal.Strategies;
+using emeal.Strategies.Interfaces;
 
 namespace emeal
 {
@@ -18,7 +20,10 @@ namespace emeal
             contBuilder.RegisterType<BaseService>().As<IBaseService>();
             contBuilder.RegisterType<RecipeFinderService>().As<IRecipeFinder>();
             contBuilder.RegisterType<RecipeService>().As<IRecipe>();
+
             contBuilder.RegisterType<MsqlRecipeDb>().As<IRecipeDb>();
+
+            contBuilder.RegisterType<RecipeSearchStrategy>().As<IRecipeSearchStrategy>();
 
             contBuilder.RegisterType<BaseFacade>().As<BaseFacade>();
             contBuilder.RegisterType<IngredientFacade>().As<IngredientFacade>();

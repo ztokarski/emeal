@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using emeal.Models;
 using emeal.Services.Interfaces;
-using emeal.Services.Strategies;
+using emeal.Strategies.Interfaces;
 
 namespace emeal.Services
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class RecipeFinderService : IRecipeFinder
     {
-        private const int MaxProductNumberDifference = 5;
+        private readonly IRecipeSearchStrategy _strategy;
 
-        public List<int> FindRelevantRecipes(List<Recipe> recipeList, List<int> queryArr)
+        public RecipeFinderService(IRecipeSearchStrategy strategy)
         {
-            return RecipeSearchStrategy.GetRelevantRecipeIds(recipeList, queryArr, MaxProductNumberDifference);
+            _strategy = strategy;
+        }
+
+        public List<int> FindRelevantRecipes(IEnumerable<Recipe> recipeList, List<int> queryArr)
+        {
+            return _strategy.GetRelevantRecipeIds(recipeList, queryArr);
         }
     }
 }

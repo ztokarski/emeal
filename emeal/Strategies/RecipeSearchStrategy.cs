@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using emeal.Models;
+using emeal.Strategies.Interfaces;
 
-namespace emeal.Services.Strategies
+namespace emeal.Strategies
 {
-    internal static class RecipeSearchStrategy
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class RecipeSearchStrategy : IRecipeSearchStrategy
     {
-        public static List<int> GetRelevantRecipeIds(List<Recipe> recipeList, List<int> queryArr,
-            int maxProductNumberDifference)
+        private const int MaxProductNumberDifference = 5;
+
+        public List<int> GetRelevantRecipeIds(IEnumerable<Recipe> recipeList, List<int> queryArr)
         {
             // TODO: Untangle this unholy mess
 
             #region algorithm
 
-            var recipeCoefficient = new List<Tuple<int, int>>(); // (recipeID, matchCoefficient)
+            //                                  (recipeID, matchCoefficient)
+            var recipeCoefficient = new List<Tuple<int, int>>();
 
-            var result = new List<int>(); // Coefficient: 0 bestMatch, 1 oneRedundantIngredient, -1 oneMissingIngredient
             foreach (var recipe in recipeList)
             {
                 var productsIds = GetProductsIdsFromRecipe(recipe);
@@ -30,7 +32,7 @@ namespace emeal.Services.Strategies
 
                 var currentProductNumberDifference = queryLen - recipeLen;
 
-                if (currentProductNumberDifference <= maxProductNumberDifference)
+                if (currentProductNumberDifference <= MaxProductNumberDifference)
                 {
                     if (exceptQueryRecipe == queryLen) continue;
                     else if (exceptQueryRecipe >= 0 && exceptRecipeQuery > 0)
@@ -42,21 +44,17 @@ namespace emeal.Services.Strategies
                     else
                         recipeCoefficient.Add(Tuple.Create(recipe.Id, -exceptRecipeQuery + recipeLen * 10));
                 }
-
-                #endregion
             }
             recipeCoefficient.Sort((y, x) => y.Item2.CompareTo(x.Item2));
-            foreach (var tuple in recipeCoefficient) result.Add(tuple.Item1);
 
-            return result;
+            return recipeCoefficient.Select(tuple => tuple.Item1).ToList();
+
+            #endregion
         }
 
-        static List<int> GetProductsIdsFromRecipe(Recipe recipe)
+        public List<int> GetProductsIdsFromRecipe(Recipe recipe)
         {
-            var productsIdsInRecipe = new List<int>();
-            foreach (var ingredient in recipe.Ingredients) productsIdsInRecipe.Add(ingredient.Product.Id);
-
-            return productsIdsInRecipe;
+            return recipe.Ingredients.Select(ingredient => ingredient.Product.Id).ToList();
         }
     }
 }

@@ -256,7 +256,8 @@
     <Compile Include="Services\RecipeFinderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RecipeService.cs" />
-    <Compile Include="Services\Strategies\RecipeSearchStrategy.cs" />
+    <Compile Include="Strategies\Interfaces\IRecipeSearchStrategy.cs" />
+    <Compile Include="Strategies\RecipeSearchStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
