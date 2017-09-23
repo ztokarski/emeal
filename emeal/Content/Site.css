@@ -188,7 +188,7 @@ body,
 
 .user-profile-pic {
     background: var(--colour-primary-light);
-    border: 2px var(--colour-primary-accent);
+    border: 2px solid var(--colour-primary-light);
     border-radius: 100%;
     height: 5rem;
     width: 5rem;

@@ -1,6 +1,6 @@
 ﻿"use strict";
 $(function() {
-    var ingredientResults = $("#ingredients-search-results");
+    var ingredientResults = $("#ingredient-search-results");
 
     $("#ingredient-search-input").select2({
         placeholder: "Enter your ingredients here...",
@@ -15,14 +15,11 @@ $(function() {
                 url: this.action,
                 type: "POST",
                 data: $(this).serialize(),
-                complete: function(response, status) {
-                    if (status === "error") {
-                        ingredientResults.innerText = "An error occured. Please try again. :(";
-                    } else {
-                        // KURWO DZIAŁAJ
-                        ingredientResults.innerText = response;
-                    }
-
+                success: function(responseData) {
+                    ingredientResults.html(responseData);
+                },
+                error: function() {
+                    ingredientResults.innerHTML = "<h3>An error occured. Please try again. :(</h3>";
                 }
             });
         }

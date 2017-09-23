@@ -13,13 +13,15 @@ namespace emeal.Strategies
 
         public List<int> GetRelevantRecipeIds(IEnumerable<Recipe> recipeList, List<int> queryProductIds)
         {
+            if (recipeList == null || queryProductIds == null) return new List<int>();
+
             // TODO: Untangle this unholy mess
 
             #region recipeMatchAlgorithm
 
             //                                  (recipeID, matchRatio)
             var recipeMatchRatios = new List<Tuple<int, int>>();
-
+            ;
             foreach (var recipe in recipeList)
             {
                 var productsIds = GetProductsIdsFromRecipe(recipe);
