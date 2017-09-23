@@ -1,27 +1,30 @@
 "use strict";
-$(function () {
-    var ingredient_container = $("#Ingredients");
-    var ingredient_warning = $("#ingredient-warning");
-    ingredient_warning.hide();
+$(function() {
+    var ingredientContainer = $("#Ingredients");
+    var ingredientWarning = $("#ingredient-warning");
+    ingredientWarning.hide();
 
-    $("#add-ingredient-frame").click(function (event) {
+    $("#add-ingredient-frame").click(function(event) {
         event.preventDefault();
 
         var frame = document.createElement("div");
         frame.innerText = "Loading...";
 
-        ingredient_container.append(frame);
-        $(frame).load("/Ingredient/PartialIngredient", function (response, status) {
-            if (status === "error") {
-                ingredient_warning.innerText = "You smart, you loyal... but an error occured! Try again.";
-                ingredient_warning.show();
-                $(this).remove()
-            }
-        });
+        ingredientContainer.append(frame);
+        $(frame).load("/Ingredient/PartialIngredient",
+            function(response, status) {
+                if (status === "error") {
+                    ingredientWarning.innerText = "You smart, you loyal... but an error occured! Try again.";
+                    ingredientWarning.show();
+                    $(this).remove();
+                }
+            });
     });
 
-    ingredient_container.on("click", ".delete-ingredient-frame", function (event) {
-        event.preventDefault();
-        $(this).parent().remove();
-    });
+    ingredientContainer.on("click",
+        ".delete-ingredient-frame",
+        function(event) {
+            event.preventDefault();
+            $(this).parent().remove();
+        });
 });

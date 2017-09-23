@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using emeal.Models;
 using emeal.Services.Interfaces;
 
 namespace emeal.Controllers.Facades
@@ -13,9 +15,10 @@ namespace emeal.Controllers.Facades
             _recipesFinder = finder;
         }
 
-        internal List<int> SearchByProducts(List<int> queryArr)
+        internal List<Recipe> SearchByProducts(List<int> queryArr)
         {
-            return _recipesFinder.FindRelevantRecipes(GetAllRecipes(), queryArr);
+            var foundRecipeIds = _recipesFinder.FindRelevantRecipes(GetAllRecipes(), queryArr);
+            return GetAllRecipes().Where(rcp => foundRecipeIds.Contains(rcp.Id)).ToList();
         }
     }
 }

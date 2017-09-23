@@ -26,7 +26,7 @@ namespace emeal.Controllers
             return View(_facade.GetAllProducts());
         }
 
-        [HttpGet]
+        [HttpPost]
         public PartialViewResult SearchByIngredientsResult(List<int> selectedProductIds)
         {
             return PartialView("PartialSearchResults", _facade.SearchByProducts(selectedProductIds));

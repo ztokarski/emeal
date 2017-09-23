@@ -1,11 +1,10 @@
-﻿@using emeal.Models;
-@model IEnumerable<Product>
+﻿@model IEnumerable<emeal.Models.Product>
 @{ ViewBag.Title = "Search by ingredients"; }
 
 <div class="jumbotron">
-    @using (Html.BeginForm("SearchByIngredientsResult", "Ingredient", FormMethod.Get))
+    @using (Html.BeginForm("SearchByIngredientsResult", "Ingredient", FormMethod.Post, new {id = "ingredient-search-form"}))
     {
-        <select id="ingredient-search-input" multiple="multiple">
+        <select id="ingredient-search-input" multiple="multiple" name="selectedProductIds">
             @foreach (var product in Model)
             {
                 <option value="@Html.ValueFor(prod => product.Id)">
@@ -13,9 +12,7 @@
                 </option>
             }
         </select>
-        <input type="submit" value="Search" class="btn btn-success"/>
+        <input class="btn btn-success" id="ingredient-search-submit" type="submit" value="Search"/>
     }
-    <div id="ingredients-search-results">
-
-    </div>
+    <div id="ingredients-search-results"></div>
 </div>

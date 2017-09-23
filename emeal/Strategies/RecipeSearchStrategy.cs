@@ -11,48 +11,51 @@ namespace emeal.Strategies
     {
         private const int MaxProductNumberDifference = 5;
 
-        public List<int> GetRelevantRecipeIds(IEnumerable<Recipe> recipeList, List<int> queryArr)
+        public List<int> GetRelevantRecipeIds(IEnumerable<Recipe> recipeList, List<int> queryProductIds)
         {
             // TODO: Untangle this unholy mess
 
-            #region algorithm
+            #region recipeMatchAlgorithm
 
-            //                                  (recipeID, matchCoefficient)
-            var recipeCoefficient = new List<Tuple<int, int>>();
+            //                                  (recipeID, matchRatio)
+            var recipeMatchRatios = new List<Tuple<int, int>>();
 
             foreach (var recipe in recipeList)
             {
                 var productsIds = GetProductsIdsFromRecipe(recipe);
 
-                var exceptQueryRecipe = queryArr.Except(productsIds).ToList().Count;
-                var exceptRecipeQuery = productsIds.Except(queryArr).ToList().Count;
+                var queryArgumentsWithoutRecipeIdsCount = queryProductIds.Except(productsIds).ToList().Count;
+                var productIdsWithoutQueryArgumentsCount = productsIds.Except(queryProductIds).ToList().Count;
 
-                var queryLen = queryArr.Count;
-                var recipeLen = productsIds.Count;
+                var queryArgumentsCount = queryProductIds.Count;
+                var recipeProdictIdsCount = productsIds.Count;
 
-                var currentProductNumberDifference = queryLen - recipeLen;
+                var currentProductNumberDifference = queryArgumentsCount - recipeProdictIdsCount;
 
                 if (currentProductNumberDifference <= MaxProductNumberDifference)
                 {
-                    if (exceptQueryRecipe == queryLen) continue;
-                    else if (exceptQueryRecipe >= 0 && exceptRecipeQuery > 0)
-                        recipeCoefficient.Add(Tuple.Create(recipe.Id, -exceptRecipeQuery + recipeLen * 10));
-                    else if (exceptQueryRecipe >= 0 && queryLen >= recipeLen)
-                        recipeCoefficient.Add(Tuple.Create(recipe.Id, exceptQueryRecipe));
-                    else if (exceptQueryRecipe == 0 && queryLen < recipeLen)
-                        recipeCoefficient.Add(Tuple.Create(recipe.Id, -exceptRecipeQuery + recipeLen * 10));
+                    if (queryArgumentsWithoutRecipeIdsCount == queryArgumentsCount) continue;
+                    else if (queryArgumentsWithoutRecipeIdsCount >= 0 && productIdsWithoutQueryArgumentsCount > 0)
+                        recipeMatchRatios.Add(Tuple.Create(recipe.Id,
+                            -productIdsWithoutQueryArgumentsCount + recipeProdictIdsCount * 10));
+                    else if (queryArgumentsWithoutRecipeIdsCount >= 0 && queryArgumentsCount >= recipeProdictIdsCount)
+                        recipeMatchRatios.Add(Tuple.Create(recipe.Id, queryArgumentsWithoutRecipeIdsCount));
+                    else if (queryArgumentsWithoutRecipeIdsCount == 0 && queryArgumentsCount < recipeProdictIdsCount)
+                        recipeMatchRatios.Add(Tuple.Create(recipe.Id,
+                            -productIdsWithoutQueryArgumentsCount + recipeProdictIdsCount * 10));
                     else
-                        recipeCoefficient.Add(Tuple.Create(recipe.Id, -exceptRecipeQuery + recipeLen * 10));
+                        recipeMatchRatios.Add(Tuple.Create(recipe.Id,
+                            -productIdsWithoutQueryArgumentsCount + recipeProdictIdsCount * 10));
                 }
             }
-            recipeCoefficient.Sort((y, x) => y.Item2.CompareTo(x.Item2));
+            recipeMatchRatios.Sort((y, x) => y.Item2.CompareTo(x.Item2));
 
-            return recipeCoefficient.Select(tuple => tuple.Item1).ToList();
+            return recipeMatchRatios.Select(tuple => tuple.Item1).ToList();
 
             #endregion
         }
 
-        public List<int> GetProductsIdsFromRecipe(Recipe recipe)
+        private static List<int> GetProductsIdsFromRecipe(Recipe recipe)
         {
             return recipe.Ingredients.Select(ingredient => ingredient.Product.Id).ToList();
         }

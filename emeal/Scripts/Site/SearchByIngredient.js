@@ -1,25 +1,30 @@
 ﻿"use strict";
-$(function () {
-
-    $("#add").click(function () {
-
-        var text = document.getElementById("ingredientSearch").value;
-
-        var li = document.createElement("li");
-        var delButton = "<button class='btnDel btn btn-danger btn-xs'>x</button>";
-        li.innerHTML = "<div class='btn btn-success btn-sm'>" + text + delButton + "</div>";
-
-        document.getElementById("list").appendChild(li);
-        document.getElementById("ingredientSearch").value = "";
-    });
-
-    $(document).on("click", ".btnDel", function () {
-        var ingredient = $(this).parent().parent();
-        ingredient.remove();
-    });
+$(function() {
+    var ingredientResults = $("#ingredients-search-results");
 
     $("#ingredient-search-input").select2({
-        placeholder: "Enter your ingredients here",
+        placeholder: "Enter your ingredients here...",
         tags: false
+    });
+
+    $("#ingredient-search-form").submit(function(event) {
+        event.preventDefault();
+
+        if ($(this).valid()) {
+            $.ajax({
+                url: this.action,
+                type: "POST",
+                data: $(this).serialize(),
+                complete: function(response, status) {
+                    if (status === "error") {
+                        ingredientResults.innerText = "An error occured. Please try again. :(";
+                    } else {
+                        // KURWO DZIAŁAJ
+                        ingredientResults.innerText = response;
+                    }
+
+                }
+            });
+        }
     });
 });
