@@ -64,14 +64,14 @@ body > div.navbar.navbar-inverse.navbar-fixed-top,
 .ingredient-dropdown-content,
 .step-dropdown-content { padding: 5%; }
 
-.recipe-details {
-    display: flex;
-    flex-flow: column nowrap;
-    align-content: space-around;
-    justify-content: space-around;
+#recipe-details {
+    background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, .15);
+    margin: auto;
+    padding: 2%;
 }
 
-.recipe-details-top {
+#recipe-details-top {
     display: flex;
     flex-flow: column wrap;
     align-content: center;
@@ -80,7 +80,16 @@ body > div.navbar.navbar-inverse.navbar-fixed-top,
     margin: auto;
 }
 
-.recipe-details-bottom {
+#recipe-details-middle {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    margin: auto;
+    padding: 3rem 0;
+}
+
+#recipe-details-bottom {
     display: flex;
     flex-flow: row wrap;
     align-content: space-around;
@@ -88,17 +97,25 @@ body > div.navbar.navbar-inverse.navbar-fixed-top,
     margin: auto;
 }
 
-.recipe-details-bottom-left,
-.recipe-details-bottom-right {
-    border: 1px solid rgb(195, 195, 195);
+#recipe-details-bottom-left,
+#recipe-details-bottom-right {
+    border: 1px solid var(--colour-primary-divider);
     border-radius: 5px;
     margin: auto;
-    padding: 1%;
+    padding: 2.5% 4%;
     text-align: center;
 }
 
-.recipe-details-bottom-left h5,
-.recipe-details-bottom-right h5 { font-weight: bold; }
+#recipe-details-bottom-left h5,
+#recipe-details-bottom-right h5 { font-weight: bold; }
+
+#recipe-details-action-buttons {
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center
+}
 
 .ingredient-search-dropdown {
     display: flex;
@@ -193,3 +210,31 @@ body,
     height: 5rem;
     width: 5rem;
 }
+
+#ingredient-search-results {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    margin: auto;
+}
+
+.ingredient-search-result {
+    font-size: smaller;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 15rem;
+    width: 12.5rem;
+    margin: auto;
+    padding: 5%;
+}
+
+#ingredient-search-results > a {
+    background: var(--colour-primary-divider);
+    text-decoration: none;
+    color: var(--colour-primary-text);
+}
+
+#ingredient-search-results > a:hover { box-shadow: 1px 1px 5px 1px var(--colour-primary-text); }

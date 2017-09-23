@@ -19,7 +19,7 @@ $(function() {
                     ingredientResults.html(responseData);
                 },
                 error: function() {
-                    ingredientResults.innerHTML = "<h3>An error occured. Please try again. :(</h3>";
+                    ingredientResults.html("<h3>An error occured. Please try again. :(</h3>");
                 }
             });
         }

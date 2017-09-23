@@ -10,12 +10,6 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ingredients)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Steps)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.EstimatedTime)
         </th>
         <th>
@@ -43,52 +37,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <div class="dropdown" id="ingredient-dropdown">
-                    <button class="btn btn-xs btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                        @Html.DisplayFor(modelItem => item.Ingredients.Count)
-                        <span class="caret"></span>
-                    </button>
-                    @if (item.Ingredients.Count != 0)
-                    {
-                        <ul class="dropdown-menu dropdown-menu-right ingredient-dropdown-content">
-                            @foreach (var ingredient in item.Ingredients)
-                            {
-                                <li>
-                                    <ul>
-                                        <li>@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</li>
-                                        @Html.DisplayFor(ingredientItem => ingredient.Amount)
-                                        @Html.DisplayFor(ingredientItem => ingredient.UnitType)
-                                    </ul>
-                                </li>
-                            }
-                        </ul>
-                    }
-                </div>
-            </td>
-            <td>
-                <div class="dropdown" id="step-dropdown">
-                    <button class="btn btn-xs btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >
-                        @Html.DisplayFor(modelItem => item.Steps.Count)
-                        <span class="caret"></span>
-                    </button>
-                    @if (item.Steps.Count != 0)
-                    {
-                        <ul class="dropdown-menu dropdown-menu-right step-dropdown-content">
-                            @foreach (var step in item.Steps)
-                            {
-                                <li>
-                                    <ul>
-                                        <li><b>@Html.DisplayFor(stepItem => step.Name)</b></li>
-                                        @Html.DisplayFor(stepstepItem => step.Description)
-                                        <hr/>
-                                    </ul>
-                                </li>
-                            }
-                        </ul>
-                    }
-                </div>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EstimatedTime) min
