@@ -23,19 +23,19 @@ namespace emeal.Strategies
             {
                 var productsIds = GetProductsIdsFromRecipe(recipe);
 
-                var queryArgsWithoutRecipeIdsCount = queryProductIds.Except(productsIds).ToList().Count;
-                var productIdsWithoutQueryArgsCount = productsIds.Except(queryProductIds).ToList().Count;
+                var queryRecipeDifference = queryProductIds.Except(productsIds).ToList().Count;
+                var recipeQueryDifference = productsIds.Except(queryProductIds).ToList().Count;
 
-                var queryArgumentsCount = queryProductIds.Count;
-                var recipeProductIdsCount = productsIds.Count;
+                var queryCount = queryProductIds.Count;
+                var recipeCount = productsIds.Count;
                 
-                if (queryArgsWithoutRecipeIdsCount == queryArgumentsCount) continue; // matching 0%  e.g. query=[1,2,3] & recipe=[4,5,6] 
-                else if (queryArgsWithoutRecipeIdsCount >= 0 && productIdsWithoutQueryArgsCount > 0) // e.g. query=[1,2,3] & recipe=[2,3,4]
-                    recipeMatchRatios.Add(Tuple.Create(recipe.Id, productIdsWithoutQueryArgsCount + 30));
-                else if (queryArgsWithoutRecipeIdsCount >= 0 && queryArgumentsCount >= recipeProductIdsCount) // matching 100% or e.g. query=[1,2,3] & recipe=[1,2]
-                    recipeMatchRatios.Add(Tuple.Create(recipe.Id, queryArgsWithoutRecipeIdsCount));
+                if (queryRecipeDifference == queryCount) continue; // matching 0%  e.g. query=[1,2,3] & recipe=[4,5,6] 
+                else if (queryRecipeDifference >= 0 && recipeQueryDifference > 0) // e.g. query=[1,2,3] & recipe=[2,3,4]
+                    recipeMatchRatios.Add(Tuple.Create(recipe.Id, recipeQueryDifference + 30));
+                else if (queryRecipeDifference >= 0 && queryCount >= recipeCount) // matching 100% or e.g. query=[1,2,3] & recipe=[1,2]
+                    recipeMatchRatios.Add(Tuple.Create(recipe.Id, queryRecipeDifference));
                 else                                                                                          // you have to buy product(s) e.g. query=[1,2,3] & recipe=[1,2,3,4] 
-                    recipeMatchRatios.Add(Tuple.Create(recipe.Id, productIdsWithoutQueryArgsCount + 30));
+                    recipeMatchRatios.Add(Tuple.Create(recipe.Id, recipeQueryDifference + 30));
                 
             }
             recipeMatchRatios.Sort((y, x) => y.Item2.CompareTo(x.Item2)); // sort Recipes by Match Ratio (second element in Tuple)
