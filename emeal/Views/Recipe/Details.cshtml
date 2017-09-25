@@ -20,11 +20,10 @@
                     @foreach (var ingredient in Model.Ingredients)
                     {
                         <li>
-                            <h5>@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</h5>
+                            <strong>@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</strong>
                             <p>
                                 @Html.DisplayFor(ingredientItem => ingredient.Amount)
                                 @Html.DisplayFor(ingredientItem => ingredient.UnitType)</p>
-                            <hr/>
                         </li>
                     }
                 </ul>
@@ -41,16 +40,8 @@
                     @foreach (var step in Model.Steps)
                     {
                         <li>
-                            <ul>
-                                <li>
-                                    <b>@Html.DisplayFor(stepItem => step.Name)</b>
-                                </li>
-                                @Html.DisplayFor(stepstepItem => step.Description)
-
-                                <li>
-                                    <hr/>
-                                </li>
-                            </ul>
+                            <strong>@Html.DisplayFor(stepItem => step.Name)</strong>
+                            <p>@Html.DisplayFor(stepstepItem => step.Description)</p>
                         </li>
                     }
                 </ul>
