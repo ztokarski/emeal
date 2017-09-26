@@ -10,6 +10,7 @@ using emeal.Services.Interfaces;
 using emeal.Strategies.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using NSubstitute;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 using Assert = NUnit.Framework.Assert;
@@ -34,8 +35,6 @@ namespace emeal.Tests
             _recipeService = new RecipeService(_mockedDb.Object);
         }
 
-
-        //Testing ADD method
         [Test]
         public void DoesAddMethodSaveChanges()
         {
@@ -66,13 +65,26 @@ namespace emeal.Tests
         public void DoesFindMethodUsesEntityFind()
         {
             //Arrange
-            _mockedDb.Setup(x => x.Recipes.Find(It.IsAny<int>()));
+            _mockedDb.Setup(x => x.Recipes.Find(It.IsAny<int>())).Returns(new Recipe());
 
             //Act
             _recipeService.Find(It.IsAny<int>());
 
             //Assert
             _mockedDb.Verify(x => x.Recipes.Find(It.IsAny<int>()), Times.Once());
+        }
+
+        [Test]
+        public void DoesFindMethodReturnsProperDataType()
+        {
+            //Arrange
+            _mockedDb.Setup(x => x.Recipes.Find(It.IsAny<int>())).Returns(new Recipe());
+
+            //Act
+            var foundRecipe = _recipeService.Find(It.IsAny<int>());
+
+            //Assert
+            Assert.That(foundRecipe, Is.TypeOf<Recipe>());
         }
 
         [Test]
