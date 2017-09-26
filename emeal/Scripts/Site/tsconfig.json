@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/main.js",
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "removeComments": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "allowJs": true,
+    "checkJs": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "pretty": true,
+    "target": "es5"
+  },
+  "files": [
+    "./src/IngredientFrame.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}
