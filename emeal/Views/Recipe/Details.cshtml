@@ -3,11 +3,10 @@
 
 <div id="recipe-details">
     <div id="recipe-details-top">
-        <img src="@Html.ValueFor(model => model.PathToImage)" alt="Meal image"/>
-
-        <h1>@Html.ValueFor(model => model.Name)</h1>
-        <p>@Html.ValueFor(model => model.Description)</p>
-    </div>
+            <a><img src="@Html.ValueFor(model => model.PathToImage)" width="650" image" /></a>
+            <h1>@Html.ValueFor(model => model.Name)</h1>
+            <p>@Html.ValueFor(model => model.Description)</p>
+</div>
     <div id="recipe-details-middle">
         <div class="dropdown" id="ingredient-dropdown">
             <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">
