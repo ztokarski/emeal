@@ -17,9 +17,7 @@ namespace emeal.Controllers.Facades
 
         internal List<Recipe> SearchByProducts(List<int> queryArr)
         {
-            var foundRecipeIds = _recipesFinder.FindRelevantRecipes(GetAllRecipes(), queryArr);
-            var matchedRecipes = GetAllRecipes().Where(rcp => foundRecipeIds.Contains(rcp.Id)).ToList();
-            return matchedRecipes.OrderBy(rcp => foundRecipeIds.IndexOf(rcp.Id)).ToList();
+            return _recipesFinder.GetQueryResult(queryArr);
         }
     }
 }
