@@ -1,0 +1,31 @@
+{
+  "name": "e-meal",
+  "version": "0.2.2",
+  "description": "Show us the fridge and we'll show you the meals",
+  "scripts": {
+    "build": "tsc -p .\\Scripts\\Site\\tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/aesthetix/e-meal.git"
+  },
+  "keywords": [
+    "e-meal"
+  ],
+  "author": "Aesthetix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/aesthetix/e-meal/issues"
+  },
+  "homepage": "https://gitlab.com/aesthetix/e-meal#README",
+  "devDependencies": {
+    "@types/jquery": "^3.2.12",
+    "typescript": "^2.5.2"
+  },
+  "-vs-binding": {
+    "BeforeBuild": [
+      "build"
+    ]
+  }
+}
