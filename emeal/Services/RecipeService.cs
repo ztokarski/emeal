@@ -18,7 +18,7 @@ namespace emeal.Services
 
         public void Add(Recipe recipe)
         {
-            if (recipe.IsValid()) throw new InvalidRecipeException();
+            if (!recipe.IsValid()) throw new InvalidRecipeException();
 
             // TODO: Replace new User() with one adding the recipe
             recipe.Author = new User();
