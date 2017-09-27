@@ -3,11 +3,21 @@
 
 <div id="recipe-details">
     <div id="recipe-details-top">
-            <a><img src="@Html.ValueFor(model => model.PathToImage)" width="650" image" /></a>
-            <h1>@Html.ValueFor(model => model.Name)</h1>
-            <p>@Html.ValueFor(model => model.Description)</p>
-</div>
-    <div id="recipe-details-middle">
+            <a><img src="@Html.ValueFor(model => model.PathToImage)"  class="img-responsive center-block"/></a>
+        <div class="container-fluid">
+            <table class="table table-hover">
+                <tr class="info">
+                    <td width="12%"><span class="glyphicon glyphicon-user"> @Html.ValueFor(model => model.Author.Name)</span></td>
+                    <td width="12%"><span class="glyphicon glyphicon-stats"> @Html.ValueFor(model => model.DifficultyLevel)</span></td>
+                    <td width="12%"><span class="glyphicon glyphicon-time"> @Html.ValueFor(model => model.EstimatedTime)</span></td>
+                    <td width="12%"><span class="glyphicon glyphicon-thumbs-up"> @Html.ValueFor(model => model.Popularity)</span></td>
+                    <td width="12%"><span class="glyphicon glyphicon-star"> @Html.ValueFor(model => model.Rating)</span></td>
+                </tr>
+            </table>
+        </div>
+        <h2><strong>@Html.ValueFor(model => model.Name)</strong></h2>
+        <h4><strong>@Html.ValueFor(model => model.Description)</strong></h4>
+        <div id="recipe-details-middle">
         <div class="dropdown" id="ingredient-dropdown">
             <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">
                 @Html.DisplayNameFor(model => model.Ingredients)
