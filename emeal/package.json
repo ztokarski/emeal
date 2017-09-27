@@ -4,7 +4,7 @@
   "description": "Show us the fridge and we'll show you the meals",
   "scripts": {
     "build": "tsc -p .\\Scripts\\Site\\tsconfig.json",
-    "scss": "node-sass --watch .\\Content\\src -o .\\Content\\dist",    
+    "scss": "node-sass --watch .\\Content\\src -o .\\Content\\dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,35 +1,22 @@
-
 @import url("https://fonts.googleapis.com/css?family=Encode+Sans")
+@import navbar
+@import recipe_details
+@import glyphicons
 
-*
-  --colour-primary-dark: #075a54
-  --colour-primary: #a4a659
-  --colour-primary-light: #f8d46f
-  --colour-primary-accent: #f5a723
-  --colour-primary-text: #212121
-  --colour-secondary-text: #757575
-  --colour-primary-divider: #BDBDBD
+$colour-primary-dark: #075a54
+$colour-primary: #a4a659
+$colour-primary-light: #f8d46f
+$colour-primary-accent: #f5a723
+$colour-primary-text: #212121
+$colour-secondary-text: #757575
+$colour-primary-divider: #BDBDBD
 
-// Font-Awesome copypaste
-
-.gi-2x
-  font-size: 2em
-
-.gi-3x
-  font-size: 3em
-
-.gi-4x
-  font-size: 4em
-
-.gi-5x
-  font-size: 5em
-
-// ACTUAL STYLESHEET STARTS HERE
+$font-stack: unquote("Encode Sans"), Arial, sans-serif
 
 body
-  background: var(--colour-primary)
-  color: var(--colour-primary-text)
-  font-family: "Encode Sans", Arial, sans-serif
+  background: $colour-primary
+  color: $colour-primary-text
+  font-family: $font-stack
   font-style: normal
   font-weight: 400
   padding-top: 50px
@@ -38,71 +25,9 @@ body
 input, select, textarea
   max-width: 280px
 
-#Steps > div, #Ingredients > div
-  background: #ffffff
-  background: rgba(255, 255, 255, 0.9)
-  border: 1px solid rgb(195, 195, 195)
-  border-radius: 10px
-  padding: 2%
-  margin: 2%
-
 body > div.navbar.navbar-inverse.navbar-fixed-top, #start-page-header
-  background: var(--colour-primary-accent)
+  background: $colour-primary-accent
   color: black
-
-#Steps, #Ingredients
-  display: flex
-  flex-flow: row wrap
-  margin: 0 auto
-
-.ingredient-dropdown-content, .step-dropdown-content
-  padding: 5%
-
-#recipe-details
-  background: rgb(255, 255, 255)
-  background: rgba(255, 255, 255, 0.15)
-  margin: auto
-  padding: 2%
-
-#recipe-details-top
-  display: flex
-  flex-flow: column wrap
-  align-content: center
-  justify-content: center
-  text-align: center
-  margin: auto
-
-#recipe-details-middle
-  display: flex
-  flex-flow: row wrap
-  align-content: space-around
-  justify-content: space-around
-  margin: auto
-  padding: 3rem 0
-
-#recipe-details-bottom
-  display: flex
-  flex-flow: row wrap
-  align-content: space-around
-  justify-content: space-around
-  margin: auto
-
-#recipe-details-bottom-left, #recipe-details-bottom-right
-  border: 1px solid var(--colour-primary-divider)
-  border-radius: 5px
-  margin: auto
-  padding: 2.5% 4%
-  text-align: center
-
-#recipe-details-bottom-left h5, #recipe-details-bottom-right h5
-  font-weight: bold
-
-#recipe-details-action-buttons
-  margin: auto
-  display: flex
-  flex-flow: row wrap
-  justify-content: center
-  align-content: center
 
 .ingredient-search-dropdown
   display: flex
@@ -122,10 +47,10 @@ html, body
   margin: 0
   height: 100%
   display: grid
+  grid-template: "header header header header" ". icons-upper-left icons-upper-right ." ". icons-lower-left icons-lower-right ." ". . . ."
   grid-template-rows: 4% repeat(2, 1fr)
   grid-template-columns: repeat(4, 1fr)
-  grid-template-areas: "header header header header" ". icons-upper-left icons-upper-right ." ". icons-lower-left icons-lower-right ." ". . . ."
-  color: var(--colour-primary-text)
+  color: $colour-primary-text
 
 #start-page-header
   grid-area: header
@@ -150,21 +75,21 @@ html, body
 #start-page-items a
   padding: 2em
   span
-    color: var(--colour-primary-light)
+    color: $colour-primary-light
 
 @media only screen and (max-width: 500px)
   #start-page-items
     font-size: 2rem
+    grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right" ". ."
     grid-template-rows: 10% repeat(3, 1fr)
     grid-template-columns: repeat(2, 1fr)
-    grid-template-areas: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right" ". ."
 
 @media only screen and (min-width: 501px) and (max-width: 768px)
   #start-page-items
     font-size: 3rem
+    grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right"
     grid-template-rows: 10% repeat(2, 1fr)
     grid-template-columns: repeat(2, 1fr)
-    grid-template-areas: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right"
 
 @media only screen and (min-width: 769px) and (max-width: 1024px)
   #start-page-items
@@ -175,9 +100,9 @@ html, body
 
 .error-status-content
   display: grid
+  grid-template: ". status-img ." ". status-info ."
   grid-template-rows: 2fr
   grid-template-columns: 1fr 2fr 1fr
-  grid-template-areas: ". status-img ." ". status-info ."
 
 .error-status-content-img
   grid-area: status-img
@@ -186,8 +111,8 @@ html, body
   grid-area: status-info
 
 .user-profile-pic
-  background: var(--colour-primary-light)
-  border: 2px solid var(--colour-primary-light)
+  background: $colour-primary-light
+  border: 2px solid $colour-primary-light
   border-radius: 100%
   height: 5rem
   width: 5rem
@@ -199,11 +124,11 @@ html, body
   justify-content: flex-start
   margin: auto
   a 
-    background: var(--colour-primary-divider)
+    background: $colour-primary-divider
     text-decoration: none
-    color: var(--colour-primary-text)
+    color: $colour-primary-text
     &:hover
-      box-shadow: 1px 1px 5px 1px var(--colour-primary-text)
+      box-shadow: 1px 1px 5px 1px $colour-primary-text
 
 .ingredient-search-result
   font-size: smaller
