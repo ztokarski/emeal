@@ -18,7 +18,7 @@ namespace emeal.Services
 
         public void Add(Recipe recipe)
         {
-            if (recipe.IsValid()) throw new InvalidRecipeException();
+            if (!recipe.IsValid()) throw new InvalidRecipeException();
 
             // TODO: Replace new User() with one adding the recipe
             recipe.Author = new User();
@@ -82,7 +82,7 @@ namespace emeal.Services
 
         public void Remove(Recipe recipe)
         {
-            if (recipe == null) throw new InvalidRecipeException();
+            if (!recipe.IsValid()) throw new InvalidRecipeException();
 
             Db.Steps.RemoveRange(recipe.Steps);
             Db.Ingredients.RemoveRange(recipe.Ingredients);
