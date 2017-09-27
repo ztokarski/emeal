@@ -165,6 +165,8 @@ body,
 
 #start-page-items a span { color: var(--colour-primary-light); }
 
+#start-page-items a img { max-width: 100px; height: auto }
+
 @media only screen and (max-width: 500px) {
     #start-page-items {
         font-size: 2rem;
@@ -181,6 +183,10 @@ body,
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right";
     }
+        #start-page-items a img {
+            max-width: 150px;
+            height: auto
+        }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
