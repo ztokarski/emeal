@@ -4,6 +4,7 @@
   "description": "Show us the fridge and we'll show you the meals",
   "scripts": {
     "build": "tsc -p .\\Scripts\\Site\\tsconfig.json",
+    "scss": "node-sass --watch .\\Content\\src -o .\\Content\\dist",    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,9 @@
   "devDependencies": {
     "@types/jquery": "^3.2.12",
     "@types/select2": "^4.0.41",
+    "node-sass": "^4.5.3",
+    "stylelint-config-recommended": "^1.0.0",
+    "stylelint-config-standard": "^17.0.0",
     "typescript": "^2.5.2"
   },
   "dependencies": {
@@ -34,7 +38,12 @@
     "stylelint": "^8.1.1"
   },
   "-vs-binding": {
-    "BeforeBuild": [ "build" ],
-    "ProjectOpened": [ "update" ]
+    "BeforeBuild": [
+      "build"
+    ],
+    "ProjectOpened": [
+      "update",
+      "scss"
+    ]
   }
 }

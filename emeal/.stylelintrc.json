@@ -1,4 +1,5 @@
 {
+  "extends": "stylelint-config-recommended",
   "rules": {
     "max-empty-lines": 2,
     "string-quotes": "double",
@@ -8,5 +9,6 @@
     "number-leading-zero": "never",
     "value-list-comma-newline-after": null,
     "max-nesting-depth": 2
-  }
+  },
+  "ignoreFiles": "node_modules"
 }
