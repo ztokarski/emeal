@@ -1,23 +1,5 @@
 ﻿@using emeal.Models
-@{ Layout = null; }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-meal</title>
-    @*CSS*@
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Encode+Sans">
-    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css"/>
-    @*CUSTOM STYLESHEET*@
-    <link rel="stylesheet" type="text/css" href="~/Content/Site.css"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="~/Scripts/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/modernizr-2.8.3.js"></script>
-</head>
-<body>
+
 <div class="navbar navbar-fixed-top" id="start-page-header">
     Hello, @Html.ValueFor(model => (Session["User"] as User).Name)
 </div>
@@ -43,5 +25,3 @@
         </a>
     </div>
 </div>
-</body>
-</html>
