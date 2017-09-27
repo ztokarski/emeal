@@ -1,0 +1,17 @@
+#########################
+## Sample Sass Lint File
+#########################
+# Linter Options
+options:
+  # Don't merge default rules
+  merge-default-rules: true
+  # Set the formatter to 'html'
+  formatter: stylish
+  # Output file instead of logging results
+  # output-file: 'linters/sass-lint.html'
+  # Raise an error if more than 10 warnings are generated
+  max-warnings: 10
+# File Options
+files:
+  include: './Content/src/*.s+(a|c)ss'
+# Rule Configuration
