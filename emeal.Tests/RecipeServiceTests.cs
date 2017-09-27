@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using emeal.Exceptions;
 using emeal.Models;
 using emeal.Services;
 using emeal.Services.Interfaces;
-using emeal.Strategies.Interfaces;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using NSubstitute;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
-using Assert = NUnit.Framework.Assert;
 
 namespace emeal.Tests
 {
@@ -23,11 +14,8 @@ namespace emeal.Tests
     //Act
     //Assert
     [TestFixture]
-    class RecipeServiceTests
+    internal class RecipeServiceTests
     {
-        private Mock<IRecipeDb> _mockedDb;
-        private RecipeService _recipeService;
-
         [SetUp]
         public void Setup()
         {
@@ -35,43 +23,23 @@ namespace emeal.Tests
             _recipeService = new RecipeService(_mockedDb.Object);
         }
 
+        private Mock<IRecipeDb> _mockedDb;
+        private RecipeService _recipeService;
+
         [Test]
         public void DoesAddMethodSaveChanges()
         {
             //Arrange
+            var mockedRecipe = new Mock<Recipe>();
             _mockedDb.Setup(x => x.Recipes.Add(It.IsAny<Recipe>()));
             _mockedDb.Setup(x => x.SaveChanges());
-           
+
             //Act
-            var mockedRecipe = new Mock<Recipe>();
             _recipeService.Add(mockedRecipe.Object);
 
             //Assert
             _mockedDb.Verify(x => x.Recipes.Add(It.IsAny<Recipe>()), Times.Once);
-            _mockedDb.Verify(x => x.SaveChanges(), Times.Once);        
-        }
-
-        [Test]
-        public void DoesSUTThrowsExceptionWhenRecipeIsNull()
-        {
-            //Arrange
-            var expectedExceptionType = new InvalidRecipeException().GetType();
-
-            //Assert
-            Assert.Throws(expectedExceptionType, () => _recipeService.Add(null));
-        }
-
-        [Test]
-        public void DoesFindMethodUsesEntityFind()
-        {
-            //Arrange
-            _mockedDb.Setup(x => x.Recipes.Find(It.IsAny<int>())).Returns(new Recipe());
-
-            //Act
-            _recipeService.Find(It.IsAny<int>());
-
-            //Assert
-            _mockedDb.Verify(x => x.Recipes.Find(It.IsAny<int>()), Times.Once());
+            _mockedDb.Verify(x => x.SaveChanges(), Times.Once);
         }
 
         [Test]
@@ -88,6 +56,19 @@ namespace emeal.Tests
         }
 
         [Test]
+        public void DoesFindMethodUsesEntityFind()
+        {
+            //Arrange
+            _mockedDb.Setup(x => x.Recipes.Find(It.IsAny<int>())).Returns(new Recipe());
+
+            //Act
+            _recipeService.Find(It.IsAny<int>());
+
+            //Assert
+            _mockedDb.Verify(x => x.Recipes.Find(It.IsAny<int>()), Times.Once());
+        }
+
+        [Test]
         public void DoesSUTThrowsExceptionWhenFindParameterIsNull()
         {
             //Arrange
@@ -98,11 +79,33 @@ namespace emeal.Tests
         }
 
         [Test]
-        public void test()
+        public void DoesSUTThrowsExceptionWhenRecipeIsNull()
         {
             //Arrange
-            //Act
+            var expectedExceptionType = new InvalidRecipeException().GetType();
+
             //Assert
+            Assert.Throws(expectedExceptionType, () => _recipeService.Add(null));
+        }
+
+        [Test]
+        public void DoesRemoveMethodRemovesOnceAndSavesChanges()
+        {
+            //Arrange
+            var mockedRecipe = new Mock<Recipe>();
+            _mockedDb.Setup(x => x.Steps.RemoveRange(It.IsAny<IEnumerable<Step>>()));
+            _mockedDb.Setup(x => x.Ingredients.RemoveRange(It.IsAny<IEnumerable<Ingredient>>()));
+            _mockedDb.Setup(x => x.Recipes.Remove(It.IsAny<Recipe>()));
+            _mockedDb.Setup(x => x.SaveChanges());
+
+            //Act
+            _recipeService.Remove(mockedRecipe.Object);
+
+            //Assert
+            _mockedDb.Verify(x => x.Steps.RemoveRange((It.IsAny<IEnumerable<Step>>())), Times.Once);
+            _mockedDb.Verify(x => x.Ingredients.RemoveRange((It.IsAny<IEnumerable<Ingredient>>())), Times.Once);
+            _mockedDb.Verify(x => x.Recipes.Remove(It.IsAny<Recipe>()), Times.Once);
+            _mockedDb.Verify(x => x.SaveChanges(), Times.Once);
         }
 
         [Test]
