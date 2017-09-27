@@ -4,29 +4,26 @@
 <div id="recipe-details">
     <div id="recipe-details-top">
         <a>
-            <img src="@Html.ValueFor(model => model.PathToImage)" class="img-responsive center-block" alt="Meal image"/>
+            <img src="@Html.ValueFor(model => model.PathToImage)" alt="Meal image"/>
         </a>
-        <div class="container-fluid">
-            <table class="table table-hover">
-                <tr class="info">
-                    <td width="12%">
-                        <span class="glyphicon glyphicon-user"> @Html.ValueFor(model => model.Author.Name)</span>
-                    </td>
-                    <td width="12%">
-                        <span class="glyphicon glyphicon-stats"> @Html.ValueFor(model => model.DifficultyLevel)</span>
-                    </td>
-                    <td width="12%">
-                        <span class="glyphicon glyphicon-time"> @Html.ValueFor(model => model.EstimatedTime)</span>
-                    </td>
-                    <td width="12%">
-                        <span class="glyphicon glyphicon-thumbs-up"> @Html.ValueFor(model => model.Popularity)</span>
-                    </td>
-                    <td width="12%">
-                        <span class="glyphicon glyphicon-star"> @Html.ValueFor(model => model.Rating)</span>
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <ul>
+            <li>
+                <span class="glyphicon glyphicon-user"> @Html.ValueFor(model => model.Author.Name)</span>
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-stats"> @Html.ValueFor(model => model.DifficultyLevel)</span>
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-time"> @Html.ValueFor(model => model.EstimatedTime)</span>
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-thumbs-up"> @Html.ValueFor(model => model.Popularity)</span>
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-star"> @Html.ValueFor(model => model.Rating)</span>
+            </li>
+        </ul>
+        
         <h2>
             <strong>@Html.ValueFor(model => model.Name)</strong>
         </h2>
@@ -45,7 +42,7 @@
                         @foreach (var ingredient in Model.Ingredients)
                         {
                             <li>
-                                <strong>@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</strong>
+                                <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>
                                 <p>
                                     @Html.DisplayFor(ingredientItem => ingredient.Amount)
                                     @Html.DisplayFor(ingredientItem => ingredient.UnitType)</p>
@@ -65,8 +62,8 @@
                         @foreach (var step in Model.Steps)
                         {
                             <li>
-                                <strong>@Html.DisplayFor(stepItem => step.Name)</strong>
-                                <p>@Html.DisplayFor(stepstepItem => step.Description)</p>
+                                <span class="font-bold">@Html.DisplayFor(stepItem => step.Name)</span>
+                                <p>@Html.DisplayFor(stepItem => step.Description)</p>
                             </li>
                         }
                     </ul>
