@@ -96,5 +96,21 @@ namespace emeal.Tests
             //Assert
             Assert.Throws(expectedExceptionType, () => _recipeService.Find(null));
         }
+
+        [Test]
+        public void test()
+        {
+            //Arrange
+            //Act
+            //Assert
+        }
+
+        [Test]
+        public void test2()
+        {
+            //Arrange
+            //Act
+            //Assert
+        }
     }
 }
