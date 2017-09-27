@@ -2665,6 +2665,7 @@
     <Content Include="node_modules\yargs\locales\zh_TW.json" />
     <Content Include="node_modules\yargs\package.json" />
     <Content Include="node_modules\yargs\README.md" />
+    <Content Include=".stylelintrc.json" />
     <None Include="packages.config" />
     <Content Include="Scripts\Site\dist\IngredientFrames.js" />
     <Content Include="Scripts\Site\dist\SearchByIngredient.js" />

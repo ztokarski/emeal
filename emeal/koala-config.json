@@ -1,0 +1,17 @@
+﻿{
+  "mappings": [
+    {
+      "dest": "src/Site.css",
+      "src": "dist/Site.scss"
+    },
+    {
+      "dest": "main.min.js",
+      "src": "js/main.js"
+    }
+  ],
+  "ignores": [
+    "node_modules",
+    "wwwroot"
+  ]
+
+}
