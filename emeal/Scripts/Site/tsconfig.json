@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
+    "outFile": "/dist/main.js",
     "noImplicitAny": false,
     "noEmitOnError": true,
     "removeComments": true,
@@ -21,7 +22,6 @@
     "./src/*.ts"
   ],
   "exclude": [
-    "*.js",
     "dist",
     "node_modules",
     "wwwroot"
