@@ -3,15 +3,23 @@
 #########################
 # Linter Options
 options:
-  # Don't merge default rules
+  # Merge default rules
   merge-default-rules: true
-  # Set the formatter to 'html'
-  formatter: stylish
-  # Output file instead of logging results
-  # output-file: 'linters/sass-lint.html'
-  # Raise an error if more than 10 warnings are generated
-  max-warnings: 10
-# File Options
-files:
-  include: './Content/src/*.s+(a|c)ss'
-# Rule Configuration
+
+rules:
+  no-empty-rulesets: 1
+  no-ids: 0
+  no-url-protocols: 0
+  no-url-domains: 0
+  no-color-hex: 0
+  no-mergeable-selectors: 1
+  quotes: 0
+
+  # Name format
+  class-name-format: 1
+  function-name-format: 1
+  id-name-format: 1
+  mixin-name-format: 1
+  placeholder-name-format: 1
+  variable-name-format: 1
+
