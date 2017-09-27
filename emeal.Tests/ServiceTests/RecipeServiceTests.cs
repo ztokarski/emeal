@@ -6,7 +6,7 @@ using emeal.Services.Interfaces;
 using Moq;
 using NUnit.Framework;
 
-namespace emeal.Tests
+namespace emeal.Tests.ServiceTests
 {
     //SUT - System Under Test
     //Arrange
