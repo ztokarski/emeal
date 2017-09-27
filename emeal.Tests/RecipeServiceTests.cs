@@ -8,11 +8,13 @@ using NUnit.Framework;
 
 namespace emeal.Tests
 {
-    // SUT - System Under Test
-
+    //SUT - System Under Test
     //Arrange
     //Act
     //Assert
+
+     // Todo: Write tests for: Edit(), GetSortedRecipes()
+
     [TestFixture]
     internal class RecipeServiceTests
     {
@@ -79,13 +81,23 @@ namespace emeal.Tests
         }
 
         [Test]
-        public void DoesSUTThrowsExceptionWhenRecipeIsNull()
+        public void DoesSUTThrowsExceptionWhenAddedRecipeIsNull()
         {
             //Arrange
             var expectedExceptionType = new InvalidRecipeException().GetType();
 
             //Assert
             Assert.Throws(expectedExceptionType, () => _recipeService.Add(null));
+        }
+
+        [Test]
+        public void DoesSUTThrowsExceptionWhenEdittedRecipeIsNull()
+        {
+            //Arrange
+            var expectedExceptionType = new InvalidRecipeException().GetType();
+
+            //Assert
+            Assert.Throws(expectedExceptionType, () => _recipeService.Edit(It.IsAny<int>(), null));
         }
 
         [Test]
@@ -109,11 +121,13 @@ namespace emeal.Tests
         }
 
         [Test]
-        public void test2()
+        public void DoesSUTThrowsExceptionWhenRemovedRecipeIsNull()
         {
             //Arrange
-            //Act
+            var expectedExceptionType = new InvalidRecipeException().GetType();
+
             //Assert
+            Assert.Throws(expectedExceptionType, () => _recipeService.Remove(null));
         }
     }
 }
