@@ -17,7 +17,7 @@ using Assert = NUnit.Framework.Assert;
 
 namespace emeal.Tests
 {
-    // SUT - Service Under Test
+    // SUT - System Under Test
 
     //Arrange
     //Act
@@ -52,7 +52,7 @@ namespace emeal.Tests
         }
 
         [Test]
-        public void DoesSutThrowsExceptionWhenRecipeIsNull()
+        public void DoesSUTThrowsExceptionWhenRecipeIsNull()
         {
             //Arrange
             var expectedExceptionType = new InvalidRecipeException().GetType();
@@ -88,7 +88,7 @@ namespace emeal.Tests
         }
 
         [Test]
-        public void DoesSutThrowsExceptionWhenFindParameterIsNull()
+        public void DoesSUTThrowsExceptionWhenFindParameterIsNull()
         {
             //Arrange
             var expectedExceptionType = new InvalidRecipeIdException().GetType();
