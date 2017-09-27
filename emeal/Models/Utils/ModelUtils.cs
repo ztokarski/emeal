@@ -22,7 +22,7 @@ namespace emeal.Models.Utils
 
         internal static bool IsValid(this Recipe recipe)
         {
-            return recipe is null;
+            return recipe != null;
         }
     }
 }
