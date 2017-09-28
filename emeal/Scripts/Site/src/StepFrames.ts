@@ -1,4 +1,5 @@
-var stepContainer = $("#Steps");
+$(function () {	
+var stepContainer = $("#steps");
 var stepWarning = $("#step-warning");
 
 stepWarning.hide();
@@ -27,3 +28,4 @@ stepContainer.on("click", ".delete-step-frame",
 		event.preventDefault();
 		$(this).parent().remove();
 	});
+});
