@@ -27,9 +27,9 @@ namespace emeal.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult SearchByIngredientsResult(List<int> selectedProductIds)
+        public PartialViewResult SearchByIngredientsResult(List<int> selectedProductIds, List<int> selectedAllergiesIds)
         {
-            return PartialView("PartialSearchResults", _facade.SearchByProducts(selectedProductIds));
+            return PartialView("PartialSearchResults", _facade.SearchByProducts(selectedProductIds, selectedAllergiesIds));
         }
     }
 }
