@@ -9,9 +9,6 @@
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans"/>
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"/>
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    @*CSS FALLBACK*@
-    <link type="text/css" rel="stylesheet" href="~/node_modules/select2/dist/css/select2.min.css"/>
-    <link type="text/css" rel="stylesheet" href="~/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     @*CUSTOM STYLESHEET*@
     <link type="text/css" rel="stylesheet" href="~/Content/dist/Site.css"/>
     @*JS*@
@@ -21,12 +18,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    @*JS FALLBACK*@
-    <script type="text/javascript" src="~/node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="~/node_modules/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    <script type="text/javascript" src="~/node_modules/select2/dist/js/select2.full.min.js"></script>
-    <script type="text/javascript" src="~/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     @*CUSTOM SCRIPTS*@
     <script type="text/javascript" src="~/Scripts/Site/dist/IngredientFrames.js"></script>
     <script type="text/javascript" src="~/Scripts/Site/dist/StepFrames.js"></script>
@@ -42,9 +33,9 @@
             @Html.ActionLink("e-meal", "Index", "Home", null, new {@class = "navbar-brand"})
         </div>
 
-        @Html.ActionLink("Search by ingredients", "SearchByIngredients", "Ingredient", null, new {@class = "btn btn-success navbar-btn pull-right"})
-        <div class="dropdown pull-right navbar-btn" id="searchDropdownMenu">
-            <button class="btn dropdown-toggle btn-success" type="button" data-toggle="dropdown" id="searchDropdown">Search by name</button>
+        <a class="btn btn-success navbar-btn pull-right" href="@Url.Action("SearchByIngredients", "Ingredient")"><span class="glyphicon glyphicon-search"></span> Ingredients</a>
+        <div class="pull-right navbar-btn dropdown" id="searchDropdownMenu">
+            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" id="searchDropdown"><span class="glyphicon glyphicon-search"></span> Name</button>
             <div class="dropdown-menu" id="ingredient-search-dropdown">
                 @using (Html.BeginForm("Index", "Recipe", FormMethod.Get, new {id = "ingredient-search-dropdown-content"}))
                 {
