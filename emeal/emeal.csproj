@@ -116,11 +116,17 @@
     <Content Include="Content\img\status\420.jpg" />
     <Content Include="Content\img\status\500.jpg" />
     <Content Include="Content\img\status\502.jpg" />
+    <Content Include="Content\src\Site.sass" />
     <Content Include="Global.asax" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include=".stylelintrc.json" />
-    <Content Include="Content\src\Site.sass" />
+    <Content Include="Content\src\Error\_Index.sass" />
+    <Content Include="Content\src\Recipe\_Details.sass" />
+    <Content Include="Content\src\Shared\_Colours.sass" />
+    <Content Include="Content\src\Shared\_Fonts.sass" />
+    <Content Include="Content\src\Shared\_Glyphicons.sass" />
+    <Content Include="Content\src\Shared\_Navbar.sass" />
     <None Include="packages.config" />
     <Content Include="Scripts\Site\dist\IngredientFrames.js" />
     <Content Include="Scripts\Site\dist\SearchByIngredient.js" />
@@ -208,6 +214,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\dist\" />
+    <Folder Include="Content\src\Ingredient\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708011223440_AllTables.resx">
