@@ -128,9 +128,6 @@
     <Content Include="Content\src\Shared\_Glyphicons.sass" />
     <Content Include="Content\src\Shared\_Navbar.sass" />
     <None Include="packages.config" />
-    <Content Include="Scripts\Site\dist\IngredientFrames.js" />
-    <Content Include="Scripts\Site\dist\SearchByIngredient.js" />
-    <Content Include="Scripts\Site\dist\StepFrames.js" />
     <Content Include="Scripts\Site\src\IngredientFrames.ts" />
     <Content Include="Scripts\Site\src\SearchByIngredient.ts" />
     <Content Include="Scripts\Site\src\StepFrames.ts" />
@@ -215,6 +212,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\dist\" />
     <Folder Include="Content\src\Ingredient\" />
+    <Folder Include="Scripts\Site\dist\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708011223440_AllTables.resx">
