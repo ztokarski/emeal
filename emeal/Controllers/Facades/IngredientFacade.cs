@@ -15,7 +15,7 @@ namespace emeal.Controllers.Facades
             _recipesFinder = finder;
         }
 
-        internal List<Recipe> SearchByProducts(List<int> queryArr)
+        internal List<Recipe> SearchByProducts(List<int> queryArr, List<int>queryAllergies)
         {
             return _recipesFinder.GetQueryResult(queryArr);
         }
