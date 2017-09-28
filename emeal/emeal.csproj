@@ -104,10 +104,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\bg.jpg" />
     <Content Include="Content\img\dice.png" />
     <Content Include="Content\img\djkhaled-sm.png" />
@@ -120,89 +116,18 @@
     <Content Include="Content\img\status\420.jpg" />
     <Content Include="Content\img\status\500.jpg" />
     <Content Include="Content\img\status\502.jpg" />
-    <Content Include="Content\select2\select2.css" />
-    <Content Include="Content\select2\select2.min.css" />
-    <Content Include="Content\Site.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include=".stylelintrc.json" />
+    <Content Include="Content\src\Site.sass" />
     <None Include="packages.config" />
-    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.2.1.js" />
-    <Content Include="Scripts\jquery-3.2.1.min.js" />
-    <Content Include="Scripts\jquery-3.2.1.slim.js" />
-    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
-    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.2.1.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\select2\i18n\ar.js" />
-    <Content Include="Scripts\select2\i18n\az.js" />
-    <Content Include="Scripts\select2\i18n\bg.js" />
-    <Content Include="Scripts\select2\i18n\ca.js" />
-    <Content Include="Scripts\select2\i18n\cs.js" />
-    <Content Include="Scripts\select2\i18n\da.js" />
-    <Content Include="Scripts\select2\i18n\de.js" />
-    <Content Include="Scripts\select2\i18n\el.js" />
-    <Content Include="Scripts\select2\i18n\en.js" />
-    <Content Include="Scripts\select2\i18n\es.js" />
-    <Content Include="Scripts\select2\i18n\et.js" />
-    <Content Include="Scripts\select2\i18n\eu.js" />
-    <Content Include="Scripts\select2\i18n\fa.js" />
-    <Content Include="Scripts\select2\i18n\fi.js" />
-    <Content Include="Scripts\select2\i18n\fr.js" />
-    <Content Include="Scripts\select2\i18n\gl.js" />
-    <Content Include="Scripts\select2\i18n\he.js" />
-    <Content Include="Scripts\select2\i18n\hi.js" />
-    <Content Include="Scripts\select2\i18n\hr.js" />
-    <Content Include="Scripts\select2\i18n\hu.js" />
-    <Content Include="Scripts\select2\i18n\id.js" />
-    <Content Include="Scripts\select2\i18n\is.js" />
-    <Content Include="Scripts\select2\i18n\it.js" />
-    <Content Include="Scripts\select2\i18n\ja.js" />
-    <Content Include="Scripts\select2\i18n\km.js" />
-    <Content Include="Scripts\select2\i18n\ko.js" />
-    <Content Include="Scripts\select2\i18n\lt.js" />
-    <Content Include="Scripts\select2\i18n\lv.js" />
-    <Content Include="Scripts\select2\i18n\mk.js" />
-    <Content Include="Scripts\select2\i18n\ms.js" />
-    <Content Include="Scripts\select2\i18n\nb.js" />
-    <Content Include="Scripts\select2\i18n\nl.js" />
-    <Content Include="Scripts\select2\i18n\pl.js" />
-    <Content Include="Scripts\select2\i18n\pt-BR.js" />
-    <Content Include="Scripts\select2\i18n\pt.js" />
-    <Content Include="Scripts\select2\i18n\ro.js" />
-    <Content Include="Scripts\select2\i18n\ru.js" />
-    <Content Include="Scripts\select2\i18n\sk.js" />
-    <Content Include="Scripts\select2\i18n\sr-Cyrl.js" />
-    <Content Include="Scripts\select2\i18n\sr.js" />
-    <Content Include="Scripts\select2\i18n\sv.js" />
-    <Content Include="Scripts\select2\i18n\th.js" />
-    <Content Include="Scripts\select2\i18n\tr.js" />
-    <Content Include="Scripts\select2\i18n\uk.js" />
-    <Content Include="Scripts\select2\i18n\vi.js" />
-    <Content Include="Scripts\select2\i18n\zh-CN.js" />
-    <Content Include="Scripts\select2\i18n\zh-TW.js" />
-    <Content Include="Scripts\select2\select2.full.js" />
-    <Content Include="Scripts\select2\select2.full.min.js" />
-    <Content Include="Scripts\select2\select2.js" />
-    <Content Include="Scripts\select2\select2.min.js" />
-    <Content Include="Scripts\Site\IngredientFrames.js" />
-    <Content Include="Scripts\Site\SearchByIngredient.js" />
-    <Content Include="Scripts\Site\StepFrames.js" />
+    <Content Include="Scripts\Site\dist\IngredientFrames.js" />
+    <Content Include="Scripts\Site\dist\SearchByIngredient.js" />
+    <Content Include="Scripts\Site\dist\StepFrames.js" />
+    <Content Include="Scripts\Site\src\IngredientFrames.ts" />
+    <Content Include="Scripts\Site\src\SearchByIngredient.ts" />
+    <Content Include="Scripts\Site\src\StepFrames.ts" />
     <Content Include="Views\Error\400.cshtml" />
     <Content Include="Views\Error\401.cshtml" />
     <Content Include="Views\Error\403.cshtml" />
@@ -272,6 +197,7 @@
     <Content Include="Views\Recipe\Index.cshtml" />
     <Content Include="Views\Ingredient\PartialSearchResults.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Scripts\Site\tsconfig.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -281,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\dist\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708011223440_AllTables.resx">

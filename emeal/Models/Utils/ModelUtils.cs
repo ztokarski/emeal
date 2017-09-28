@@ -22,9 +22,7 @@ namespace emeal.Models.Utils
 
         internal static bool IsValid(this Recipe recipe)
         {
-            return recipe != null &&
-                   recipe.PathToImage.CheckUrlValid() &&
-                   recipe.EstimatedTime > 0;
+            return recipe != null;
         }
     }
 }

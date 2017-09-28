@@ -82,7 +82,7 @@ namespace emeal.Services
 
         public void Remove(Recipe recipe)
         {
-            if (recipe == null) throw new InvalidRecipeException();
+            if (!recipe.IsValid()) throw new InvalidRecipeException();
 
             Db.Steps.RemoveRange(recipe.Steps);
             Db.Ingredients.RemoveRange(recipe.Ingredients);
