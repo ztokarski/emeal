@@ -14,7 +14,7 @@ $(function (): void {
 
 			stepContainer.append(frame);
 			$(frame).load("/Step/PartialStep",
-				function (response: Response, status: string): void {
+				function (response: string, status: string): void {
 					if (status === "error") {
 						stepWarning.text("You smart, you loyal... but an error occured! Try again.");
 						stepWarning.show(250);

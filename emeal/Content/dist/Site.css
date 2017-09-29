@@ -150,24 +150,27 @@ textarea {
     grid-area: icons-lower-right; }
     #start-page-items #start-page-items-row-right-lower span {
       color: #f8d46f; }
-  @media only screen and (max-width: 500px) {
-    #start-page-items #start-page-items {
-      font-size: 2rem;
-      grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right" ". .";
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 10% repeat(3, 1fr); } }
-  @media only screen and (min-width: 501px) and (max-width: 768px) {
-    #start-page-items #start-page-items {
-      font-size: 3rem;
-      grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right";
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 10% repeat(2, 1fr); } }
-  @media only screen and (min-width: 769px) and (max-width: 1024px) {
-    #start-page-items #start-page-items {
-      font-size: 4rem;
-      grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right";
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 10% repeat(2, 1fr); } }
+
+@media only screen and (max-width: 500px) {
+  #start-page-items {
+    font-size: 2rem;
+    grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right" ". .";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 10% repeat(3, 1fr); } }
+
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+  #start-page-items {
+    font-size: 3rem;
+    grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 10% repeat(2, 1fr); } }
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  #start-page-items {
+    font-size: 4rem;
+    grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 10% repeat(2, 1fr); } }
 
 .user-profile-pic {
   background: #f8d46f;
