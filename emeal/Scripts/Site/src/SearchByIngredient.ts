@@ -1,11 +1,15 @@
 ﻿$(function (): void {
 	var ingredientResults: JQuery<HTMLElement> = $("#ingredient-search-results");
 
-	$("#ingredient-search-input").select2({
-		placeholder: "Enter your ingredients here...",
-		tags: false
-	});
+    $("#ingredient-search-input").select2({
+        placeholder: "Enter your ingredients here...",
+        tags: false
+    });
 
+    $("#my-allergies-input").select2({
+        placeholder: "This products will be excluded from the search...",
+        tags: false
+    });
 	$("#ingredient-search-form").submit(
 		function (this: JQuery<HTMLElement>, event: JQuery.Event<EventTarget, null>): void {
 			event.preventDefault();
