@@ -70,27 +70,6 @@
         </section>
     </div>
 
-
-
-        <div class="dropdown" id="step-dropdown">
-            <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">
-                @Html.DisplayNameFor(modelItem => Model.Steps)
-                <span class="caret"></span>
-            </button>
-            @if (Model.Steps.Count != 0)
-            {
-                <ul class="dropdown-menu dropdown-menu-right step-dropdown-content">
-                    @foreach (var step in Model.Steps)
-                    {
-                        <li>
-                            <span class="font-bold">@Html.DisplayFor(stepItem => step.Name)</span>
-                            <p>@Html.DisplayFor(stepItem => step.Description)</p>
-                        </li>
-                    }
-                </ul>
-            }
-        </div>
-
     </div>
     <br/>
     <div class="btn-group" id="recipe-details-action-buttons">
