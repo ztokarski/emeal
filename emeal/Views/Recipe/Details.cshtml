@@ -30,6 +30,23 @@
         <h4>
             <strong>@Html.ValueFor(model => model.Description)</strong>
         </h4>
+     </div>
+
+    <div id="recipe-details-bottom">
+        <section class="recipe-details-prepare">
+            <p class="reciepe-details-prepare-ingredients">
+
+            </p>
+            <p class="recipe-details-prepare-steps">
+
+
+            </p>
+        </section>
+
+    </div>
+
+
+
         <div class="dropdown" id="ingredient-dropdown">
             <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">
                 @Html.DisplayNameFor(model => model.Ingredients)
@@ -50,6 +67,8 @@
                 </ul>
             }
         </div>
+
+
         <div class="dropdown" id="step-dropdown">
             <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">
                 @Html.DisplayNameFor(modelItem => Model.Steps)
@@ -74,4 +93,3 @@
         @Html.ActionLink("Edit", "Edit", new {id = Model.Id}, new {@class = "btn btn-info"})
         @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-default"})
     </div>
-</div>
