@@ -49,7 +49,6 @@
                             }
                         </ul>
                     }
-
             </p>
 
             <p class="recipe-details-prepare-steps">
@@ -59,27 +58,6 @@
         </section>
     </div>
 
-
-        @*<div class="dropdown" id="ingredient-dropdown">
-            <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">
-                @Html.DisplayNameFor(model => model.Ingredients)
-                <span class="caret"></span>
-            </button>
-            @if (Model.Ingredients.Count != 0)
-            {
-                <ul class="dropdown-menu dropdown-menu-right ingredient-dropdown-content">
-                    @foreach (var ingredient in Model.Ingredients)
-                    {
-                        <li>
-                            <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>
-                            <p>
-                                @Html.DisplayFor(ingredientItem => ingredient.Amount)
-                                @Html.DisplayFor(ingredientItem => ingredient.UnitType)</p>
-                        </li>
-                    }
-                </ul>
-            }
-        </div>
 
 
         <div class="dropdown" id="step-dropdown">
@@ -99,7 +77,7 @@
                     }
                 </ul>
             }
-        </div>*@
+        </div>
 
     </div>
     <br/>
