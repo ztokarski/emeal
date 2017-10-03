@@ -81,6 +81,7 @@ namespace emeal.Migrations
             Product sosSojowy = new Product() { Name = "sos sojowy", PathToImage = "path to image" };
             Product bulkaTarta = new Product() { Name = "bułka tarta", PathToImage = "path to image" };
 
+            User jnowak = new User { Name = "jnowak" };
 
             context.Recipes.AddOrUpdate(p => p.Name,
                 new Recipe
@@ -293,7 +294,7 @@ namespace emeal.Migrations
                  {
                      Name = "Napój marchewkowo-imbirowy z pomarańczą",
                      Description = "Marchewka, imbir i pomarańcza to doskonała kompozycja na zimowe dni. Wypróbuj i zaserwuj swoim domownikom.",
-                     Author = new User { Name = "json" },
+                     Author = jnowak,
                      Ingredients = new List<Ingredient>
                      {
                         new Ingredient { Product = marchew, Amount = 1, UnitType = Unit.kg },
@@ -313,6 +314,39 @@ namespace emeal.Migrations
                      WhenAdded = DateTime.Today,
                      EstimatedTime = 15,
                      Popularity = 4,
+                     Rating = 4
+                 }
+             );
+            context.Recipes.AddOrUpdate(p => p.Name,
+                 new Recipe
+                 {
+                     Name = "Dorsz na kapuście z kremem balsamicznym",
+                     Description = "Spróbuj dorsza z orzeźwiającym aromatem pomarańczy. Podany na podsmażonej kapuście z kremem balsamicznym.",
+                     Author = jnowak,
+                     Ingredients = new List<Ingredient>
+                     {
+                        new Ingredient { Product = dorsz, Amount = 4, UnitType = Unit.szt, Description="mrożone filety"},
+                        new Ingredient { Product = kapustaBiala, Amount = 1, UnitType = Unit.kg, Description="najlepiej o stożkowatym kształcie"},
+                        new Ingredient { Product = cebula, Amount = 1, UnitType = Unit.szt},
+                        new Ingredient { Product = bulionWarzywny, Amount = 2, UnitType = Unit.łyż},
+                        new Ingredient { Product = miod, Amount = 1, UnitType = Unit.łyż, Description="najlepiej spadziowy"},
+                        new Ingredient { Product = pomarancza, Amount = 0.5, UnitType = Unit.szt},
+                        new Ingredient { Product = maslo, Amount = 2, UnitType = Unit.łyż},
+                        new Ingredient { Product = olejRzepakowy, Amount = 2, UnitType = Unit.łyż},
+                        new Ingredient { Product = kremBalsamiczny, Amount = 2, UnitType = Unit.łyż},
+                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.g},
+                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.g},
+                     },
+                     Steps = new List<Step>
+                     {
+                        new Step {Name = "KROK 1: PODSMAŻAMY KAPUSTĘ",Order = 1,Description = "Filety z dorsza rozmrażamy. Kapustę kroimy na pół i usuwamy głąb. Połówki kapusty kroimy w poprzek na paski o szerokości ok. 1 cm, myjemy i dobrze osączamy. Cebulę obieramy i siekamy drobno. Podsmażamy razem z kapustą na gorącym oleju przez ok. 3 minuty. Dodajemy krem balsamiczny, dolewamy bulion, doprawiamy solą, pieprzem i miodem. Dusimy przez 3-5 minut."},
+                        new Step {Name = "KROK 2: SMAŻYMY FILETY Z DORSZA",Order = 2,Description = "Filety z dorsza myjemy i osuszamy. Doprawiamy sokiem wyciśniętym z pomarańczy, solą i pieprzem. Smażymy na gorącym maśle z każdej strony przez 2-3 minuty. Kapustę doprawiamy do smaku i podajemy z rybą."},
+                     },
+                     PathToImage = "https://i.imgur.com/bWCN3wq.png",
+                     DifficultyLevel = Difficulty.Medium,
+                     WhenAdded = DateTime.Today,
+                     EstimatedTime = 25,
+                     Popularity = 2,
                      Rating = 4
                  }
              );
