@@ -37,36 +37,37 @@
             <p class="reciepe-details-prepare-ingredients">
                 <h2>Składniki</h2>
                 @if (Model.Ingredients.Count != 0)
-                    {
-                        <ul>
-                            @foreach (var ingredient in Model.Ingredients)
-                            {
-                                <li>
-                                    <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>,
-                                        @Html.DisplayFor(ingredientItem => ingredient.Amount)
-                                        @Html.DisplayFor(ingredientItem => ingredient.UnitType)
-                                </li>
-                            }
-                        </ul>
-                    }
+                {
+                    <ul>
+                        @foreach (var ingredient in Model.Ingredients)
+                        {
+                            <li>
+                                <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>,
+                                    @Html.DisplayFor(ingredientItem => ingredient.Amount)
+                                    @Html.DisplayFor(ingredientItem => ingredient.UnitType),
+                                    @Html.DisplayFor(ingredientItem => ingredient.Description)
+                            </li>
+                        }
+                    </ul>
+                }
             </p>
 
-            <p class="recipe-details-prepare-steps">
+            <div class="recipe-details-prepare-steps">
                 <h2>Przygotowanie</h2>
                
                 @if (Model.Steps.Count != 0)
+                {
+                    <ul>
+                    @foreach (var step in Model.Steps)
                     {
-                        <ul>
-                        @foreach (var step in Model.Steps)
-                        {
-                            <li>
-                                <span class="font-bold">@Html.DisplayFor(stepItem => step.Name)</span>
-                                <p>@Html.DisplayFor(stepItem => step.Description)</p>
-                            </li>
-                        }
-                        </ul>
+                        <li>
+                            <span class="font-bold">@Html.DisplayFor(stepItem => step.Name)</span>
+                            <p>@Html.DisplayFor(stepItem => step.Description)</p>
+                        </li>
                     }
-            </p>
+                    </ul>
+                }
+            </div>
         </section>
     </div>
 
