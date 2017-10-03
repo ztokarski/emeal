@@ -64,6 +64,22 @@ namespace emeal.Migrations
             Product chlebTostowy = new Product() { Name = "chleb tostowy", PathToImage = "path to image" };
             Product maslo = new Product() { Name = "masło", PathToImage = "path to image" };
             Product kawiorZPstraga = new Product() { Name = "kawior z pstrąga", PathToImage = "path to image" };
+            Product imbir = new Product() { Name = "imbir", PathToImage = "path to image" };
+            Product olejSlonecznikowy = new Product() { Name = "olej słonecznikowy", PathToImage = "path to image" };
+            Product dorsz = new Product() { Name = "dorsz", PathToImage = "path to image" };
+            Product kapustaBiala = new Product() { Name = "kapusta biała", PathToImage = "path to image" };
+            Product olejRzepakowy = new Product() { Name = "olej rzepakowy", PathToImage = "path to image" };
+            Product kremBalsamiczny = new Product() { Name = "krem balsamiczny", PathToImage = "path to image" };
+            Product musztardaDijon = new Product() { Name = "musztarda Dijon", PathToImage = "path to image" };
+            Product maka = new Product() { Name = "mąka", PathToImage = "path to image" };
+            Product serGranaPadano = new Product() { Name = "ser Grana Padano", PathToImage = "path to image" };
+            Product cytryna = new Product() { Name = "cytryna", PathToImage = "path to image" };
+            Product krewetki = new Product() { Name = "krewetki", PathToImage = "path to image" };
+            Product paprykaCzerwona = new Product() { Name = "czerwona papryka", PathToImage = "path to image" };
+            Product natkaPietruszki = new Product() { Name = "natka pietruszki", PathToImage = "path to image" };
+            Product miesoMieloweWieprzowe = new Product() { Name = "mieso mielone wieprzowe", PathToImage = "path to image" };
+            Product sosSojowy = new Product() { Name = "sos sojowy", PathToImage = "path to image" };
+            Product bulkaTarta = new Product() { Name = "bułka tarta", PathToImage = "path to image" };
 
 
             context.Recipes.AddOrUpdate(p => p.Name,
@@ -222,7 +238,6 @@ namespace emeal.Migrations
                         new Ingredient { Product = cebulaCzerwona, Amount = 1, UnitType = Unit.szt },
                         new Ingredient { Product = czosnek, Amount = 2, UnitType = Unit.szt },
                         new Ingredient { Product = awokado, Amount = 1, UnitType = Unit.szt },
-                        new Ingredient { Product = kielbasaGrillowa, Amount = 400, UnitType = Unit.g },
                         new Ingredient { Product = tortillaPszenna, Amount =6, UnitType = Unit.szt },
                         new Ingredient { Product = sol, Amount = 1, UnitType = Unit.g },
                     },
@@ -273,6 +288,7 @@ namespace emeal.Migrations
                     Rating = 1
                 }
             );
+           
         }
     }
 }
