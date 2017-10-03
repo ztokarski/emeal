@@ -24,37 +24,43 @@
     </div>
 
     <div id="recipe-details-middle">
-        <h2>
-            <strong>@Html.ValueFor(model => model.Name)</strong>
-        </h2>
+        <h1>
+            @Html.ValueFor(model => model.Name)
+        </h1>
         <h4>
-            <strong>@Html.ValueFor(model => model.Description)</strong>
+            @Html.ValueFor(model => model.Description)
         </h4>
-     </div>
+    </div>
+    <hr/>
 
     <div id="recipe-details-bottom">
         <section class="recipe-details-prepare">
             <p class="reciepe-details-prepare-ingredients">
-                <h2>Składniki</h2>
+                <h3>Składniki</h3>
                 @if (Model.Ingredients.Count != 0)
                 {
                     <ul>
                         @foreach (var ingredient in Model.Ingredients)
                         {
                             <li>
-                                <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>,
+                                <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>: 
                                     @Html.DisplayFor(ingredientItem => ingredient.Amount)
                                     @Html.DisplayFor(ingredientItem => ingredient.UnitType),
-                                    @Html.DisplayFor(ingredientItem => ingredient.Description)
+                                    @if (ingredient.Description != null)
+                                    {
+                                        <span>(</span>
+                                        @Html.DisplayFor(ingredientItem => ingredient.Description)
+                                        <span>)</span>
+                                    }
                             </li>
                         }
                     </ul>
                 }
             </p>
+            <hr/>
 
             <div class="recipe-details-prepare-steps">
-                <h2>Przygotowanie</h2>
-               
+                <h3>Przygotowanie</h3>
                 @if (Model.Steps.Count != 0)
                 {
                     <ul>
@@ -74,6 +80,6 @@
     </div>
     <br/>
     <div class="btn-group" id="recipe-details-action-buttons">
-        @Html.ActionLink("Edit", "Edit", new {id = Model.Id}, new {@class = "btn btn-info"})
+        
         @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-default"})
     </div>
