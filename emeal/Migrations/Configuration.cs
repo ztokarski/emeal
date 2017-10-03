@@ -309,7 +309,7 @@ namespace emeal.Migrations
                         new Step {Name = "KROK 3: WYCISKAMY SOK Z POMARAŃCZY",Order = 3,Description = "1 pomarańczę kroimy na pół i odcinamy kilka cienkich plastrów (do dekoracji). Wszystkie pomarańcze wyciskamy."},
                         new Step {Name = "KROK 4: MIESZAMY SOKI", Order = 4, Description="Sok z pomarańczy oraz sok z marchwi i imbiru mieszamy z olejem i przelewamy do szklanek. Dekorujemy plasterkami pomarańczy i od razu podajemy ze słomkami."}
                      },
-                     PathToImage = "https://i.imgur.com/bWCN3wq.png",
+                     PathToImage = "https://i.imgur.com/e3UVBzM.png",
                      DifficultyLevel = Difficulty.Easy,
                      WhenAdded = DateTime.Today,
                      EstimatedTime = 15,
@@ -342,7 +342,7 @@ namespace emeal.Migrations
                         new Step {Name = "KROK 1: PODSMAŻAMY KAPUSTĘ",Order = 1,Description = "Filety z dorsza rozmrażamy. Kapustę kroimy na pół i usuwamy głąb. Połówki kapusty kroimy w poprzek na paski o szerokości ok. 1 cm, myjemy i dobrze osączamy. Cebulę obieramy i siekamy drobno. Podsmażamy razem z kapustą na gorącym oleju przez ok. 3 minuty. Dodajemy krem balsamiczny, dolewamy bulion, doprawiamy solą, pieprzem i miodem. Dusimy przez 3-5 minut."},
                         new Step {Name = "KROK 2: SMAŻYMY FILETY Z DORSZA",Order = 2,Description = "Filety z dorsza myjemy i osuszamy. Doprawiamy sokiem wyciśniętym z pomarańczy, solą i pieprzem. Smażymy na gorącym maśle z każdej strony przez 2-3 minuty. Kapustę doprawiamy do smaku i podajemy z rybą."},
                      },
-                     PathToImage = "https://i.imgur.com/bWCN3wq.png",
+                     PathToImage = "https://i.imgur.com/Y7Py9zb.png",
                      DifficultyLevel = Difficulty.Medium,
                      WhenAdded = DateTime.Today,
                      EstimatedTime = 25,
