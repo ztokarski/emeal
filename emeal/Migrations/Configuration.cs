@@ -288,7 +288,34 @@ namespace emeal.Migrations
                     Rating = 1
                 }
             );
-           
+            context.Recipes.AddOrUpdate(p => p.Name,
+                 new Recipe
+                 {
+                     Name = "Napój marchewkowo-imbirowy z pomarańczą",
+                     Description = "Marchewka, imbir i pomarańcza to doskonała kompozycja na zimowe dni. Wypróbuj i zaserwuj swoim domownikom.",
+                     Author = new User { Name = "json" },
+                     Ingredients = new List<Ingredient>
+                     {
+                        new Ingredient { Product = marchew, Amount = 1, UnitType = Unit.kg },
+                        new Ingredient { Product = imbir, Amount = 1, UnitType = Unit.szt, Description="korzeń ok. 50g"},
+                        new Ingredient { Product = pomarancza, Amount = 6, UnitType = Unit.szt, Description="malinowa lub soczysta, ok. 150g"},
+                        new Ingredient { Product = olejSlonecznikowy, Amount = 2, UnitType = Unit.łyż},
+                     },
+                     Steps = new List<Step>
+                     {
+                        new Step {Name = "KROK 1: PRZYGOTUJ",Order = 1,Description = "słomki."},
+                        new Step {Name = "KROK 2: WYCISKAMY SOK Z MARCHEWKI I IMBIRU",Order = 2,Description = "Marchewki i korzeń imbiru obieramy i grubo siekamy. Sok wyciskamy w sokowirówce."},
+                        new Step {Name = "KROK 3: WYCISKAMY SOK Z POMARAŃCZY",Order = 3,Description = "1 pomarańczę kroimy na pół i odcinamy kilka cienkich plastrów (do dekoracji). Wszystkie pomarańcze wyciskamy."},
+                        new Step {Name = "KROK 4: MIESZAMY SOKI", Order = 4, Description="Sok z pomarańczy oraz sok z marchwi i imbiru mieszamy z olejem i przelewamy do szklanek. Dekorujemy plasterkami pomarańczy i od razu podajemy ze słomkami."}
+                     },
+                     PathToImage = "https://i.imgur.com/bWCN3wq.png",
+                     DifficultyLevel = Difficulty.Easy,
+                     WhenAdded = DateTime.Today,
+                     EstimatedTime = 15,
+                     Popularity = 4,
+                     Rating = 4
+                 }
+             );
         }
     }
 }
