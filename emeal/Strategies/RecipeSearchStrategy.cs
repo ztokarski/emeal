@@ -18,7 +18,6 @@ namespace emeal.Strategies
 
             //                                  (recipeID, matchRatio)
             var recipeMatchRatios = new List<Tuple<int, int>>(); //Create Recipe Tuple in order to sort Recipes by Match Ratio
-            ;
             foreach (var recipe in recipeList)
             {
                 var productsIds = GetProductsIdsFromRecipe(recipe);

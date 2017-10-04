@@ -1,6 +1,7 @@
-﻿using emeal.Services;
+﻿using System.Collections.Generic;
+using emeal.Models;
 using emeal.Services.Interfaces;
-using emeal.Strategies;
+using emeal.Strategies.Interfaces;
 using Moq;
 using NUnit.Framework;
 
@@ -10,36 +11,33 @@ namespace emeal.Tests.ServiceTests
     internal class RecipeFinderServiceTests
     {
         private Mock<IRecipeDb> _mockedDb;
-        private Mock<RecipeSearchStrategy> _mockedStrategy;
-        private RecipeFinderService _finderService;
+        private Mock<IRecipeSearchStrategy> _mockedStrategy;
+        private Mock<IRecipeFinder> _finderService;
 
         [SetUp]
         public void Setup()
         {
             _mockedDb = new Mock<IRecipeDb>();
-            _mockedStrategy = new Mock<RecipeSearchStrategy>();
-            _finderService = new RecipeFinderService(_mockedStrategy.Object, _mockedDb.Object);
+            _mockedStrategy = new Mock<IRecipeSearchStrategy>();
+            _finderService = new Mock<IRecipeFinder>();
         }
 
         [Test]
-        public void FindsRelevantRecipeIds()
+        public void FindRelevantRecipeIdsReturnsEmptyList()
         {
-            _finderService;
+            _finderService.Setup(srv => srv.FindRelevantRecipesIds(It.IsAny<List<int>>(), It.IsAny<List<int>>()))
+                .Returns(new List<int>());
+
+            _finderService.Verify();
         }
 
         [Test]
         public void GetsQueryResult()
         {
-        }
+            _finderService.Setup(srv => srv.GetQueryResult(It.IsAny<List<int>>(), It.IsAny<List<int>>()))
+                .Returns(new List<Recipe>());
 
-        [Test]
-        public void FindsMatchedRecipes()
-        {
-        }
-
-        [Test]
-        public void SortsMatchedRecipes()
-        {
+            _finderService.Verify();
         }
     }
 }
