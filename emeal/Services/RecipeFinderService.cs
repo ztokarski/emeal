@@ -27,8 +27,7 @@ namespace emeal.Services
 
         public IList<int> FindRelevantRecipesIds(List<int> queryArr, List<int> queryAllergiesIds)
         {
-            var recipeList = GetAllRecipes();
-            return _strategy.GetRelevantRecipeIds(recipeList, queryArr, queryAllergiesIds);
+            return _strategy.GetRelevantRecipeIds(GetAllRecipes(), queryArr, queryAllergiesIds);
         }
 
         private IEnumerable<Recipe> FindMatchedRecipes(ICollection<int> foundRecipeIds)
@@ -36,7 +35,8 @@ namespace emeal.Services
             return GetAllRecipes().Where(rcp => foundRecipeIds.Contains(rcp.Id)).ToList();
         }
 
-        private static IEnumerable<Recipe> SortMatchedRecipes(IEnumerable<Recipe> matchedRecipes, IList<int> foundRecipeIds)
+        private static IEnumerable<Recipe> SortMatchedRecipes(IEnumerable<Recipe> matchedRecipes,
+            IList<int> foundRecipeIds)
         {
             return matchedRecipes.OrderBy(rcp => foundRecipeIds.IndexOf(rcp.Id)).ToList();
         }
