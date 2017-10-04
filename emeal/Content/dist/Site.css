@@ -64,6 +64,7 @@
   flex-flow: row wrap;
   justify-content: space-around;
   margin: auto;
+  text-align: center;
   padding: 3rem 0; }
 
 #recipe-details-bottom {
