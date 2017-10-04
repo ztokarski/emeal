@@ -48,6 +48,8 @@ namespace emeal.Strategies
 
         private static bool ContainsAllergens(Recipe recipe, ICollection<int> queryAllergiesIds)
         {
+            if (queryAllergiesIds == null) return false;
+
             foreach (var ingredient in recipe.Ingredients)
             {
                 if (queryAllergiesIds.Contains(ingredient.Product.Id)) return true;
