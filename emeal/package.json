@@ -21,7 +21,7 @@
   },
   "homepage": "https://gitlab.com/aesthetix/e-meal#README",
   "devDependencies": {
-    "@types/jquery": "^3.2.12",
+    "@types/jquery": "^3.2.13",
     "@types/select2": "^4.0.41",
     "node-sass": "^4.5.3",
     "stylelint-config-recommended": "^1.0.0",
@@ -34,7 +34,7 @@
     "jquery-validation": "^1.17.0",
     "jquery-validation-unobtrusive": "^3.2.6",
     "modernizr": "^3.5.0",
-    "select2": "^4.0.3",
+    "select2": "^4.0.4",
     "stylelint": "^8.1.1"
   },
   "-vs-binding": {
