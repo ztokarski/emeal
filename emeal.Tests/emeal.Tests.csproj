@@ -76,7 +76,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceTests\RecipeServiceTests.cs" />
     <Compile Include="StrategyTests\RecipeSearchStrategyTests.cs" />
-    <Compile Include="StrategyTests\RecipeFinderServiceTests.cs" />
+    <Compile Include="ServiceTests\RecipeFinderServiceTests.cs" />
     <Compile Include="UtilsTests.cs" />
   </ItemGroup>
   <ItemGroup>
