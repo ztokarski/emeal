@@ -3,7 +3,6 @@ using emeal.Models;
 using emeal.Services.Interfaces;
 using emeal.Strategies.Interfaces;
 using System.Linq;
-using System;
 
 namespace emeal.Services
 {
@@ -17,7 +16,7 @@ namespace emeal.Services
             _strategy = strategy;
         }
 
-        public List<Recipe> GetQueryResult(List<int> queryArr, List<int>queryAllergies)
+        public IEnumerable<Recipe> GetQueryResult(List<int> queryArr, List<int> queryAllergies)
         {
             var foundRecipeIds = FindRelevantRecipesIds(queryArr, queryAllergies);
             var matchedRecipes = FindMatchedRecipes(foundRecipeIds);
@@ -26,18 +25,18 @@ namespace emeal.Services
             return sortedRecipes;
         }
 
-        public List<int> FindRelevantRecipesIds(List<int> queryArr, List<int>queryAllergiesIds)
+        public IList<int> FindRelevantRecipesIds(List<int> queryArr, List<int> queryAllergiesIds)
         {
             var recipeList = GetAllRecipes();
             return _strategy.GetRelevantRecipeIds(recipeList, queryArr, queryAllergiesIds);
         }
 
-        private IEnumerable<Recipe> FindMatchedRecipes(IList<int> foundRecipeIds)
+        private IEnumerable<Recipe> FindMatchedRecipes(ICollection<int> foundRecipeIds)
         {
             return GetAllRecipes().Where(rcp => foundRecipeIds.Contains(rcp.Id)).ToList();
         }
 
-        private static List<Recipe> SortMatchedRecipes(IEnumerable<Recipe> matchedRecipes, IList<int> foundRecipeIds)
+        private static IEnumerable<Recipe> SortMatchedRecipes(IEnumerable<Recipe> matchedRecipes, IList<int> foundRecipeIds)
         {
             return matchedRecipes.OrderBy(rcp => foundRecipeIds.IndexOf(rcp.Id)).ToList();
         }

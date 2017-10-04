@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿$(function (): void {
 	const ingredientContainer: JQuery<HTMLElement> = $("#ingredients");
 	const ingredientWarning: JQuery<HTMLElement> = $("#ingredient-warning");
 	ingredientWarning.hide();
@@ -11,7 +11,7 @@
 
 		ingredientContainer.append(frame);
 		$(frame).load("/Ingredient/PartialIngredient",
-			function (response, status) {
+			function (response: string, status: JQuery.Ajax.TextStatus): void {
 				if (status === "error") {
 					ingredientWarning.text("You smart, you loyal... but an error occured! Try again.");
 					ingredientWarning.show();
@@ -21,7 +21,7 @@
 	});
 
 	ingredientContainer.on("click", ".delete-ingredient-frame",
-		function (this: HTMLElement, event) {
+		function (this: HTMLElement, event: JQuery.Event<EventTarget, null>): void {
 			event.preventDefault();
 			$(this).parent().remove();
 		});

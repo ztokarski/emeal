@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using emeal.Models;
+﻿using emeal.Models;
 using emeal.Strategies;
 using NUnit.Framework;
+using TddEbook.TddToolkit;
 
 namespace emeal.Tests.StrategyTests
 {
@@ -20,13 +16,12 @@ namespace emeal.Tests.StrategyTests
         }
 
         [Test]
-        public void test()
+        public void StrategyReturnsEmptyListIfNullsPassed()
         {
             //Arrange
-            var mockedRecipeList = new List<Recipe>();
-            List<int> actionResult;
+            var mockedRecipeList = Any.List<Recipe>(0);
             //Act
-            actionResult = _recipeSearchStrategy.GetRelevantRecipeIds(null, null);
+            var actionResult = _recipeSearchStrategy.GetRelevantRecipeIds(mockedRecipeList, null, null);
             //Assert
             Assert.That(actionResult.Count == 0);
         }
