@@ -24,7 +24,7 @@ namespace emeal.Tests.ServiceTests
         [Test]
         public void FindsRelevantRecipeIds()
         {
-            
+            _finderService;
         }
 
         [Test]
