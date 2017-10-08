@@ -12,16 +12,12 @@
     @*CUSTOM STYLESHEET*@
     <link type="text/css" rel="stylesheet" href="~/Content/dist/Site.css"/>
     @*JS*@
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    @*CUSTOM SCRIPTS*@
-    <script type="text/javascript" src="~/Scripts/Site/dist/IngredientFrames.js"></script>
-    <script type="text/javascript" src="~/Scripts/Site/dist/StepFrames.js"></script>
-    <script type="text/javascript" src="~/Scripts/Site/dist/SearchByIngredient.js"></script>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -50,13 +46,12 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     @RenderBody()
-    <hr/>
-    <footer>
-        <p>&copy; 2017 - @DateTime.Now.Year ａｅｓｔｈｅｔｉｘ</p>
-    </footer>
 </div>
+@*CUSTOM SCRIPTS*@
+<script type="text/javascript" src="~/Scripts/Site/dist/IngredientFrames.js"></script>
+<script type="text/javascript" src="~/Scripts/Site/dist/StepFrames.js"></script>
+<script type="text/javascript" src="~/Scripts/Site/dist/SearchByIngredient.js"></script>
 </body>
 </html>

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using emeal.Models;
 using emeal.Services.Interfaces;
 
@@ -15,9 +14,9 @@ namespace emeal.Controllers.Facades
             _recipesFinder = finder;
         }
 
-        internal List<Recipe> SearchByProducts(List<int> queryArr)
+        internal IEnumerable<Recipe> SearchByProducts(List<int> queryArr, List<int>queryAllergies)
         {
-            return _recipesFinder.GetQueryResult(queryArr);
+            return _recipesFinder.GetQueryResult(queryArr, queryAllergies);
         }
     }
 }

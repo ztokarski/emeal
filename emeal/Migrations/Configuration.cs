@@ -64,7 +64,24 @@ namespace emeal.Migrations
             Product chlebTostowy = new Product() { Name = "chleb tostowy", PathToImage = "path to image" };
             Product maslo = new Product() { Name = "masło", PathToImage = "path to image" };
             Product kawiorZPstraga = new Product() { Name = "kawior z pstrąga", PathToImage = "path to image" };
+            Product imbir = new Product() { Name = "imbir", PathToImage = "path to image" };
+            Product olejSlonecznikowy = new Product() { Name = "olej słonecznikowy", PathToImage = "path to image" };
+            Product dorsz = new Product() { Name = "dorsz", PathToImage = "path to image" };
+            Product kapustaBiala = new Product() { Name = "kapusta biała", PathToImage = "path to image" };
+            Product olejRzepakowy = new Product() { Name = "olej rzepakowy", PathToImage = "path to image" };
+            Product kremBalsamiczny = new Product() { Name = "krem balsamiczny", PathToImage = "path to image" };
+            Product musztardaDijon = new Product() { Name = "musztarda Dijon", PathToImage = "path to image" };
+            Product maka = new Product() { Name = "mąka", PathToImage = "path to image" };
+            Product serGranaPadano = new Product() { Name = "ser Grana Padano", PathToImage = "path to image" };
+            Product cytryna = new Product() { Name = "cytryna", PathToImage = "path to image" };
+            Product krewetki = new Product() { Name = "krewetki", PathToImage = "path to image" };
+            Product paprykaCzerwona = new Product() { Name = "czerwona papryka", PathToImage = "path to image" };
+            Product natkaPietruszki = new Product() { Name = "natka pietruszki", PathToImage = "path to image" };
+            Product miesoMieloweWieprzowe = new Product() { Name = "mieso mielone wieprzowe", PathToImage = "path to image" };
+            Product sosSojowy = new Product() { Name = "sos sojowy", PathToImage = "path to image" };
+            Product bulkaTarta = new Product() { Name = "bułka tarta", PathToImage = "path to image" };
 
+            User jnowak = new User { Name = "jnowak" };
 
             context.Recipes.AddOrUpdate(p => p.Name,
                 new Recipe
@@ -78,14 +95,14 @@ namespace emeal.Migrations
                         new Ingredient { Product = makaronPenne, Amount = 400, UnitType = Unit.g },
                         new Ingredient { Product = pomarancza, Amount = 1, UnitType = Unit.szt },
                         new Ingredient { Product = serKozi, Amount = 150, UnitType = Unit.g },
-                        new Ingredient { Product = kapar, Amount = 2, UnitType = Unit.łyżeczka },
+                        new Ingredient { Product = kapar, Amount = 2, UnitType = Unit.szt },
                         new Ingredient { Product = cebulaCzerwona, Amount = 2, UnitType = Unit.szt },
-                        new Ingredient { Product = czosnek, Amount = 0.5, UnitType = Unit.główka },
-                        new Ingredient { Product = oliwaZOliwek, Amount = 4, UnitType = Unit.łyżka },
-                        new Ingredient { Product = rozmaryn, Amount = 2, UnitType = Unit.gałązka },
-                        new Ingredient { Product = tymianek, Amount = 1, UnitType = Unit.gałązka },
-                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.szczypta },
-                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.szczypta },
+                        new Ingredient { Product = czosnek, Amount = 0.5, UnitType = Unit.szt },
+                        new Ingredient { Product = oliwaZOliwek, Amount = 4, UnitType = Unit.łyż },
+                        new Ingredient { Product = rozmaryn, Amount = 2, UnitType = Unit.szt },
+                        new Ingredient { Product = tymianek, Amount = 1, UnitType = Unit.szt },
+                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.g },
+                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.g },
                     },
                     Steps = new List<Step>
                     {
@@ -114,19 +131,19 @@ namespace emeal.Migrations
                         new Ingredient { Product = marchew, Amount = 400, UnitType = Unit.g },
                         new Ingredient { Product = cebula, Amount = 2, UnitType = Unit.szt },
                         new Ingredient { Product = selerNaciowy, Amount = 250, UnitType = Unit.g },
-                        new Ingredient { Product = oliwaZOliwek, Amount = 2, UnitType = Unit.łyżka },
+                        new Ingredient { Product = oliwaZOliwek, Amount = 2, UnitType = Unit.łyż },
                         new Ingredient { Product = bulionWarzywny, Amount = 250, UnitType = Unit.ml },
-                        new Ingredient { Product = pomidorBezSkórki, Amount = 2, UnitType = Unit.puszka },
-                        new Ingredient { Product = czosnek, Amount = 2, UnitType = Unit.ząbek },
-                        new Ingredient { Product = przecierPomidorowy, Amount = 1, UnitType = Unit.łyżeczka },
-                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.szczypta },
-                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.szczypta },
-                        new Ingredient { Product = cukier, Amount = 1, UnitType = Unit.szczypta },
-                        new Ingredient { Product = oregano, Amount = 1, UnitType = Unit.łyżeczka },
+                        new Ingredient { Product = pomidorBezSkórki, Amount = 200, UnitType = Unit.g },
+                        new Ingredient { Product = czosnek, Amount = 2, UnitType = Unit.szt },
+                        new Ingredient { Product = przecierPomidorowy, Amount = 1, UnitType = Unit.łyż },
+                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.g },
+                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.g },
+                        new Ingredient { Product = cukier, Amount = 10, UnitType = Unit.g },
+                        new Ingredient { Product = oregano, Amount = 1, UnitType = Unit.łyż },
                         new Ingredient { Product = pomidorKoktajlowy, Amount = 125, UnitType = Unit.g },
                         new Ingredient { Product = czarneOliwki, Amount = 75, UnitType = Unit.g },
                         new Ingredient { Product = makaronPenne, Amount = 600, UnitType = Unit.g },
-                        new Ingredient { Product = bazylia, Amount = 2, UnitType = Unit.gałązka },
+                        new Ingredient { Product = bazylia, Amount = 2, UnitType = Unit.szt },
                         new Ingredient { Product = parmezan, Amount = 80, UnitType = Unit.g },
 
                     },
@@ -157,9 +174,9 @@ namespace emeal.Migrations
                         new Ingredient { Product = oliwkiZCzosnkiem, Amount = 60, UnitType = Unit.g },
                         new Ingredient { Product = serFeta, Amount = 250, UnitType = Unit.g },
                         new Ingredient { Product = jogurtNaturalny, Amount = 100, UnitType = Unit.g },
-                        new Ingredient { Product = oregano, Amount = 0.5, UnitType = Unit.łyżeczka },
-                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.szczypta },
-                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.szczypta },
+                        new Ingredient { Product = oregano, Amount = 0.5, UnitType = Unit.łyż },
+                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.g },
+                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.g },
                     },
                     Steps = new List<Step>
                     {
@@ -185,8 +202,8 @@ namespace emeal.Migrations
                     {
                         new Ingredient { Product = cukierBrazowy, Amount = 25, UnitType = Unit.g },
                         new Ingredient { Product = espressoWProszku, Amount = 50, UnitType = Unit.g },
-                        new Ingredient { Product = cynamonMielony, Amount = 0.25, UnitType = Unit.łyżeczka },
-                        new Ingredient { Product = kolendraMielona, Amount = 0.25, UnitType = Unit.łyżeczka },
+                        new Ingredient { Product = cynamonMielony, Amount = 0.25, UnitType = Unit.łyż },
+                        new Ingredient { Product = kolendraMielona, Amount = 0.25, UnitType = Unit.łyż },
                         new Ingredient { Product = mleko, Amount = 1, UnitType = Unit.l },
                     },
                     Steps = new List<Step>
@@ -214,17 +231,16 @@ namespace emeal.Migrations
                     Ingredients = new List<Ingredient>
                     {
                         new Ingredient { Product = smietana18, Amount = 150, UnitType = Unit.g },
-                        new Ingredient { Product = pieprzCayenne, Amount = 1, UnitType = Unit.szczypta },
+                        new Ingredient { Product = pieprzCayenne, Amount = 1, UnitType = Unit.g },
                         new Ingredient { Product = limonka, Amount = 0.5, UnitType = Unit.szt },
-                        new Ingredient { Product = miod, Amount = 1, UnitType = Unit.łyżeczka },
+                        new Ingredient { Product = miod, Amount = 1, UnitType = Unit.łyż },
                         new Ingredient { Product = kielbasaGrillowa, Amount = 400, UnitType = Unit.g },
                         new Ingredient { Product = fasolaCzerwonaZPuszki, Amount =255, UnitType = Unit.g },
                         new Ingredient { Product = cebulaCzerwona, Amount = 1, UnitType = Unit.szt },
-                        new Ingredient { Product = czosnek, Amount = 2, UnitType = Unit.ząbek },
+                        new Ingredient { Product = czosnek, Amount = 2, UnitType = Unit.szt },
                         new Ingredient { Product = awokado, Amount = 1, UnitType = Unit.szt },
-                        new Ingredient { Product = kielbasaGrillowa, Amount = 400, UnitType = Unit.g },
                         new Ingredient { Product = tortillaPszenna, Amount =6, UnitType = Unit.szt },
-                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.szczypta },
+                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.g },
                     },
                     Steps = new List<Step>
                     {
@@ -250,14 +266,14 @@ namespace emeal.Migrations
                     {
                         new Ingredient { Product = rzezucha, Amount = 1, UnitType = Unit.szt },
                         new Ingredient { Product = serekGrani, Amount = 150, UnitType = Unit.g },
-                        new Ingredient { Product = smietanka30, Amount = 2, UnitType = Unit.łyżka},
+                        new Ingredient { Product = smietanka30, Amount = 2, UnitType = Unit.łyż},
                         new Ingredient { Product = skorkaZCytryny, Amount = 1, UnitType = Unit.szt},
                         new Ingredient { Product = jajko, Amount = 8, UnitType = Unit.szt },
-                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.szczypta },
-                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.szczypta },
-                        new Ingredient { Product = chlebTostowy, Amount = 4, UnitType = Unit.kromka },
-                        new Ingredient { Product = maslo, Amount = 3, UnitType = Unit.łyżka },
-                        new Ingredient { Product = kawiorZPstraga, Amount = 4, UnitType = Unit.łyżeczka, Description = "opcjonalnie" },
+                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.g },
+                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.g },
+                        new Ingredient { Product = chlebTostowy, Amount = 4, UnitType = Unit.szt },
+                        new Ingredient { Product = maslo, Amount = 3, UnitType = Unit.łyż },
+                        new Ingredient { Product = kawiorZPstraga, Amount = 4, UnitType = Unit.łyż, Description = "opcjonalnie" },
                     },
                     Steps = new List<Step>
                     {
@@ -273,6 +289,67 @@ namespace emeal.Migrations
                     Rating = 1
                 }
             );
+            context.Recipes.AddOrUpdate(p => p.Name,
+                 new Recipe
+                 {
+                     Name = "Napój marchewkowo-imbirowy z pomarańczą",
+                     Description = "Marchewka, imbir i pomarańcza to doskonała kompozycja na zimowe dni. Wypróbuj i zaserwuj swoim domownikom.",
+                     Author = jnowak,
+                     Ingredients = new List<Ingredient>
+                     {
+                        new Ingredient { Product = marchew, Amount = 1, UnitType = Unit.kg },
+                        new Ingredient { Product = imbir, Amount = 1, UnitType = Unit.szt, Description="korzeń ok. 50g"},
+                        new Ingredient { Product = pomarancza, Amount = 6, UnitType = Unit.szt, Description="malinowa lub soczysta, ok. 150g"},
+                        new Ingredient { Product = olejSlonecznikowy, Amount = 2, UnitType = Unit.łyż},
+                     },
+                     Steps = new List<Step>
+                     {
+                        new Step {Name = "KROK 1: PRZYGOTUJ",Order = 1,Description = "słomki."},
+                        new Step {Name = "KROK 2: WYCISKAMY SOK Z MARCHEWKI I IMBIRU",Order = 2,Description = "Marchewki i korzeń imbiru obieramy i grubo siekamy. Sok wyciskamy w sokowirówce."},
+                        new Step {Name = "KROK 3: WYCISKAMY SOK Z POMARAŃCZY",Order = 3,Description = "1 pomarańczę kroimy na pół i odcinamy kilka cienkich plastrów (do dekoracji). Wszystkie pomarańcze wyciskamy."},
+                        new Step {Name = "KROK 4: MIESZAMY SOKI", Order = 4, Description="Sok z pomarańczy oraz sok z marchwi i imbiru mieszamy z olejem i przelewamy do szklanek. Dekorujemy plasterkami pomarańczy i od razu podajemy ze słomkami."}
+                     },
+                     PathToImage = "https://i.imgur.com/e3UVBzM.png",
+                     DifficultyLevel = Difficulty.Easy,
+                     WhenAdded = DateTime.Today,
+                     EstimatedTime = 15,
+                     Popularity = 4,
+                     Rating = 4
+                 }
+             );
+            context.Recipes.AddOrUpdate(p => p.Name,
+                 new Recipe
+                 {
+                     Name = "Dorsz na kapuście z kremem balsamicznym",
+                     Description = "Spróbuj dorsza z orzeźwiającym aromatem pomarańczy. Podany na podsmażonej kapuście z kremem balsamicznym.",
+                     Author = jnowak,
+                     Ingredients = new List<Ingredient>
+                     {
+                        new Ingredient { Product = dorsz, Amount = 4, UnitType = Unit.szt, Description="mrożone filety"},
+                        new Ingredient { Product = kapustaBiala, Amount = 1, UnitType = Unit.kg, Description="najlepiej o stożkowatym kształcie"},
+                        new Ingredient { Product = cebula, Amount = 1, UnitType = Unit.szt},
+                        new Ingredient { Product = bulionWarzywny, Amount = 2, UnitType = Unit.łyż},
+                        new Ingredient { Product = miod, Amount = 1, UnitType = Unit.łyż, Description="najlepiej spadziowy"},
+                        new Ingredient { Product = pomarancza, Amount = 0.5, UnitType = Unit.szt},
+                        new Ingredient { Product = maslo, Amount = 2, UnitType = Unit.łyż},
+                        new Ingredient { Product = olejRzepakowy, Amount = 2, UnitType = Unit.łyż},
+                        new Ingredient { Product = kremBalsamiczny, Amount = 2, UnitType = Unit.łyż},
+                        new Ingredient { Product = sol, Amount = 1, UnitType = Unit.g},
+                        new Ingredient { Product = pieprz, Amount = 1, UnitType = Unit.g},
+                     },
+                     Steps = new List<Step>
+                     {
+                        new Step {Name = "KROK 1: PODSMAŻAMY KAPUSTĘ",Order = 1,Description = "Filety z dorsza rozmrażamy. Kapustę kroimy na pół i usuwamy głąb. Połówki kapusty kroimy w poprzek na paski o szerokości ok. 1 cm, myjemy i dobrze osączamy. Cebulę obieramy i siekamy drobno. Podsmażamy razem z kapustą na gorącym oleju przez ok. 3 minuty. Dodajemy krem balsamiczny, dolewamy bulion, doprawiamy solą, pieprzem i miodem. Dusimy przez 3-5 minut."},
+                        new Step {Name = "KROK 2: SMAŻYMY FILETY Z DORSZA",Order = 2,Description = "Filety z dorsza myjemy i osuszamy. Doprawiamy sokiem wyciśniętym z pomarańczy, solą i pieprzem. Smażymy na gorącym maśle z każdej strony przez 2-3 minuty. Kapustę doprawiamy do smaku i podajemy z rybą."},
+                     },
+                     PathToImage = "https://i.imgur.com/Y7Py9zb.png",
+                     DifficultyLevel = Difficulty.Medium,
+                     WhenAdded = DateTime.Today,
+                     EstimatedTime = 25,
+                     Popularity = 2,
+                     Rating = 4
+                 }
+             );
         }
     }
 }

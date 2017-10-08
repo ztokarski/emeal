@@ -24,40 +24,46 @@
     </div>
 
     <div id="recipe-details-middle">
-        <h2>
-            <strong>@Html.ValueFor(model => model.Name)</strong>
-        </h2>
+        <h1>
+            @Html.ValueFor(model => model.Name)
+        </h1>
         <h4>
-            <strong>@Html.ValueFor(model => model.Description)</strong>
+            @Html.ValueFor(model => model.Description)
         </h4>
-        <div class="dropdown" id="ingredient-dropdown">
-            <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">
-                @Html.DisplayNameFor(model => model.Ingredients)
-                <span class="caret"></span>
-            </button>
-            @if (Model.Ingredients.Count != 0)
-            {
-                <ul class="dropdown-menu dropdown-menu-right ingredient-dropdown-content">
-                    @foreach (var ingredient in Model.Ingredients)
-                    {
-                        <li>
-                            <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>
-                            <p>
-                                @Html.DisplayFor(ingredientItem => ingredient.Amount)
-                                @Html.DisplayFor(ingredientItem => ingredient.UnitType)</p>
-                        </li>
-                    }
-                </ul>
-            }
-        </div>
-        <div class="dropdown" id="step-dropdown">
-            <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">
-                @Html.DisplayNameFor(modelItem => Model.Steps)
-                <span class="caret"></span>
-            </button>
-            @if (Model.Steps.Count != 0)
-            {
-                <ul class="dropdown-menu dropdown-menu-right step-dropdown-content">
+    </div>
+    <hr/>
+
+    <div id="recipe-details-bottom">
+        <section class="recipe-details-prepare">
+            <p class="reciepe-details-prepare-ingredients">
+                <h3>Składniki</h3>
+                @if (Model.Ingredients.Count != 0)
+                {
+                    <ul>
+                        @foreach (var ingredient in Model.Ingredients)
+                        {
+                            <li>
+                                <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>: 
+                                    @Html.DisplayFor(ingredientItem => ingredient.Amount)
+                                    @Html.DisplayFor(ingredientItem => ingredient.UnitType),
+                                    @if (ingredient.Description != null)
+                                    {
+                                        <span>(</span>
+                                        @Html.DisplayFor(ingredientItem => ingredient.Description)
+                                        <span>)</span>
+                                    }
+                            </li>
+                        }
+                    </ul>
+                }
+            </p>
+            <hr/>
+
+            <div class="recipe-details-prepare-steps">
+                <h3>Przygotowanie</h3>
+                @if (Model.Steps.Count != 0)
+                {
+                    <ul>
                     @foreach (var step in Model.Steps)
                     {
                         <li>
@@ -65,13 +71,15 @@
                             <p>@Html.DisplayFor(stepItem => step.Description)</p>
                         </li>
                     }
-                </ul>
-            }
-        </div>
+                    </ul>
+                }
+            </div>
+        </section>
+    </div>
+
     </div>
     <br/>
     <div class="btn-group" id="recipe-details-action-buttons">
-        @Html.ActionLink("Edit", "Edit", new {id = Model.Id}, new {@class = "btn btn-info"})
+        
         @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-default"})
     </div>
-</div>
