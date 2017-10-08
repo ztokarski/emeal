@@ -151,8 +151,8 @@ namespace emeal.Controllers
 
         public ActionResult RandomRecipe()
         {
-            // TODO
-            return RedirectToAction("Index");
+            var randomId = _facade.RandomRecipeId();
+            return RedirectToAction("Details", new {id = randomId});
         }
     }
 }
