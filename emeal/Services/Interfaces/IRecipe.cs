@@ -21,5 +21,7 @@ namespace emeal.Services.Interfaces
         void Remove(Recipe recipe);
 
         IEnumerable<Recipe> GetSortedRecipes(string searchName, string sortOrder);
+
+        int GetRandomRecipeId();
     }
 }

@@ -38,5 +38,10 @@ namespace emeal.Controllers.Facades
         {
             return _recipeService.GetSortedRecipes(searchName, sortOrder);
         }
+
+        public int RandomRecipeId()
+        {
+            return _recipeService.GetRandomRecipeId();
+        }
     }
 }

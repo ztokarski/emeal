@@ -118,5 +118,13 @@ namespace emeal.Services
             }
             return recipes;
         }
+
+        public int GetRandomRecipeId()
+        {
+            Random random = new Random();
+            var maxId = Db.Recipes.Count();
+            var id = random.Next(maxId);
+            return id;
+        }
     }
 }
