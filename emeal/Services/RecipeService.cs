@@ -123,7 +123,7 @@ namespace emeal.Services
         {
             Random random = new Random();
             var maxId = Db.Recipes.Count();
-            var id = random.Next(maxId);
+            var id = random.Next(maxId + 1);
             return id;
         }
     }
