@@ -149,8 +149,6 @@ textarea {
     grid-area: icons-upper-right; }
   #start-page-items #start-page-items-row-right-lower {
     grid-area: icons-lower-right; }
-    #start-page-items #start-page-items-row-right-lower span {
-      color: #f8d46f; }
 
 @media only screen and (max-width: 500px) {
   #start-page-items {
