@@ -1,19 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Encode+Sans");
-.gi-2x {
-  font-size: 2em; }
+body {
+  font-family: Encode Sans, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400; }
 
-.gi-3x {
-  font-size: 3em; }
-
-.gi-4x {
-  font-size: 4em; }
-
-.gi-5x {
-  font-size: 5em; }
-
-.navbar,
-#start-page-header {
-  background: #f5a723; }
+.navbar {
+  background: #7bc552; }
+  .navbar .user-avatar {
+    background: #62a441;
+    border-radius: 100%; }
 
 .error-status-content {
   display: grid;
@@ -96,110 +91,37 @@
   .recipe-details-info-bar .recipe-details-info-rating {
     grid-area: rating; }
 
-body {
-  background: #a4a659;
-  color: #212121;
-  font-family: Encode Sans, Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  height: 100%;
-  margin: 0;
-  padding-bottom: 20px;
-  padding-top: 50px; }
-
-input,
-select,
-textarea {
-  max-width: 280px; }
-
-.ingredient-search-dropdown {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  margin: auto;
-  padding: 1%; }
-
-#ingredient-search-input {
-  width: 100%; }
-
-#start-page-items {
-  color: #212121;
-  display: grid;
-  grid-template: "header header header header" ". icons-upper-left icons-upper-right ." ". icons-lower-left icons-lower-right .";
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 3% repeat(2, 1fr);
-  height: 100%;
-  margin: 0; }
-  #start-page-items a {
-    padding: 2em; }
-  #start-page-items #start-page-header {
-    grid-area: header; }
-  #start-page-items #start-page-items-row-left-upper,
-  #start-page-items #start-page-items-row-left-lower,
-  #start-page-items #start-page-items-row-right-upper,
-  #start-page-items #start-page-items-row-right-lower {
-    align-items: center;
-    display: flex;
-    justify-content: center; }
-  #start-page-items #start-page-items-row-left-upper {
-    grid-area: icons-upper-left; }
-  #start-page-items #start-page-items-row-left-lower {
-    grid-area: icons-lower-left; }
-  #start-page-items #start-page-items-row-right-upper {
-    grid-area: icons-upper-right; }
-  #start-page-items #start-page-items-row-right-lower {
-    grid-area: icons-lower-right; }
-    #start-page-items #start-page-items-row-right-lower span {
-      color: #f8d46f; }
-
-@media only screen and (max-width: 500px) {
-  #start-page-items {
-    font-size: 2rem;
-    grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right" ". .";
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 10% repeat(3, 1fr); } }
-
-@media only screen and (min-width: 501px) and (max-width: 768px) {
-  #start-page-items {
-    font-size: 3rem;
-    grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right";
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 10% repeat(2, 1fr); } }
-
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  #start-page-items {
-    font-size: 4rem;
-    grid-template: "header header" "icons-upper-left icons-upper-right" "icons-lower-left icons-lower-right";
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 10% repeat(2, 1fr); } }
-
-.user-profile-pic {
-  background: #f8d46f;
-  border: 2px solid #f8d46f;
-  border-radius: 100%;
-  height: 5rem;
-  width: 5rem; }
-
-#ingredient-search-results {
+.ingredient-search-result-container {
   align-content: flex-start;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   margin: auto; }
-  #ingredient-search-results a {
-    background: #bdbdbd;
+  .ingredient-search-result-container a {
+    background: #f6e673;
     color: #212121;
+    padding: 2%;
     text-decoration: none; }
-    #ingredient-search-results a:hover {
+    .ingredient-search-result-container a:hover {
       box-shadow: 1px 1px 5px 1px #212121; }
 
-.ingredient-search-result {
-  align-items: center;
-  display: flex;
-  flex-flow: column;
-  font-size: smaller;
-  height: 15rem;
-  justify-content: space-around;
-  margin: auto;
-  padding: 5%;
-  width: 12.5rem; }
+html,
+body {
+  background: #fff;
+  color: #212121; }
+
+input,
+select,
+textarea {
+  max-width: 35rem; }
+
+#ingredient-search-input,
+#my-allergies-input {
+  width: 32rem; }
+
+.start-page-items {
+  color: #212121; }
+  .start-page-items a {
+    padding: 2rem; }
+    .start-page-items a:hover {
+      background: #7bc552; }

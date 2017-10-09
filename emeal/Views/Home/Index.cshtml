@@ -1,25 +1,20 @@
-﻿@using emeal.Models
-
-<div class="navbar navbar-fixed-top" id="start-page-header">
-    Hello, @Html.ValueFor(model => (Session["User"] as User).Name)
-</div>
-<div class="container-fluid" id="start-page-items">
-    <div id="start-page-items-row-left-upper">
+﻿<div class="start-page-items">
+    <div class="start-page-item">
         <a href="@Url.Action("SearchByIngredients", "Ingredient")" title="Find recipes by ingredients">
             <span class="glyphicon glyphicon-search gi-5x"></span>
         </a>
     </div>
-    <div id="start-page-items-row-left-lower">
+    <div class="start-page-item">
         <a href="@Url.Action("RandomRecipe", "Recipe")" title="Random recipe">
-            <img alt="Random" src="~/Content/img/square.svg"/>
+@*            <img alt="Random" src="~/Content/img/square.svg" />*@
         </a>
     </div>
-    <div id="start-page-items-row-right-upper">
+    <div class="start-page-item">
         <a href="@Url.Action("Index", "User")" title="Profile">
             <span class="glyphicon glyphicon-user gi-5x"></span>
         </a>
     </div>
-    <div id="start-page-items-row-right-lower">
+    <div class="start-page-item">
         <a href="@Url.Action("Index", "Recipe")" title="Look up recipes by name">
             <span class="glyphicon glyphicon-book gi-5x"></span>
         </a>

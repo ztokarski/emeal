@@ -2,7 +2,7 @@
 
 @foreach (var recipe in Model)
 {
-    <a href="@Url.Action("Details", "Recipe", new {id = Html.ValueFor(rcp => recipe.Id)})">
+    <a class="tile" href="@Url.Action("Details", "Recipe", new {id = Html.ValueFor(rcp => recipe.Id)})">
         <div class="ingredient-search-result">
             <img src="@Html.ValueFor(rcp => recipe.PathToImage)" alt="Meal image" width="100" height="100"/>
             <p>@Html.ValueFor(rcp => recipe.Name)</p>

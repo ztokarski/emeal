@@ -8,50 +8,84 @@
     @*CSS*@
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans"/>
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"/>
-    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    @*CUSTOM STYLESHEET*@
-    <link type="text/css" rel="stylesheet" href="~/Content/dist/Site.css"/>
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
     @*JS*@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    @*    $1$FALLBACK#1#*@
+    @*    <link type="text/css" rel="stylesheet" href="~/node_modules/select2/dist/css/select2.min.css"/>*@
+    @**@
+    @*    <script type="text/javascript" src="~/node_modules/jquery/dist/jquery.min.js"></script>*@
+    @*    <script type="text/javascript" src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>*@
+    @*    <script type="text/javascript" src="~/node_modules/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
+    @*    <script type="text/javascript" src="~/node_modules/select2/dist/js/select2.min.js"></script>*@
+    @*    <script type="text/javascript" src="~/node_modules/font-awesome/css/font-awesome.min.css"></script>*@
+    @*    <script type="text/javascript" src="~/node_modules/bulma/css/bulma.css"></script>*@
+    @*CUSTOM STYLESHEET*@
+    <link type="text/css" rel="stylesheet" href="~/Content/dist/Site.css"/>
+
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <a href="@Url.Action("Index", "User")" class="pull-left">
-            <img class="user-profile-pic" src="@Html.ValueFor(user => (Session["User"] as User).PathToImage)" alt="User avatar"/>
+<div class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="@Url.Action("Index", "User")">
+            <img class="user-avatar" src="@Html.ValueFor(user => (Session["User"] as User).PathToImage)" alt="User avatar"/>
         </a>
-        <div class="navbar-header">
-            @Html.ActionLink("e-meal", "Index", "Home", null, new {@class = "navbar-brand"})
-        </div>
 
-        <a class="btn btn-success navbar-btn pull-right" href="@Url.Action("SearchByIngredients", "Ingredient")"><span class="glyphicon glyphicon-search"></span> Ingredients</a>
-        <div class="pull-right navbar-btn dropdown" id="searchDropdownMenu">
-            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" id="searchDropdown"><span class="glyphicon glyphicon-search"></span> Name</button>
-            <div class="dropdown-menu" id="ingredient-search-dropdown">
-                @using (Html.BeginForm("Index", "Recipe", FormMethod.Get, new {id = "ingredient-search-dropdown-content"}))
-                {
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter recipe name..." name="searchName" value=@ViewBag.SearchName>
-                    </div>
-                    <button type="submit" class="btn btn-default">
-                        <span class="glyphicon glyphicon-search"></span>
+        @Html.ActionLink("e-meal", "Index", "Home", null, new {@class = "navbar-item"})
+
+        <button class="button navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start"></div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <a class="button" href="@Url.Action("SearchByIngredients", "Ingredient")">
+                    <span class="glyphicon glyphicon-search"></span> Ingredients
+                </a>
+            </div>
+
+            <div class="navbar-item dropdown">
+                <div class="dropdown-trigger">
+                    <button class="button">
+                        <span class="glyphicon glyphicon-search"></span> Name
                     </button>
-                }
+                </div>
+                <div class="dropdown-menu">
+                    @using (Html.BeginForm("Index", "Recipe", FormMethod.Get, new {@class = "dropdown-content"}))
+                    {
+                        <input class="dropdown-item" name="searchName" placeholder="Enter recipe name..." type="text" value=@ViewBag.SearchName>
+                        <button class="button dropdown-item" type="submit">
+                            <span class="glyphicon glyphicon-search"></span> Search
+                        </button>
+                    }
+                </div>
+
             </div>
         </div>
+
     </div>
+
 </div>
-<div class="container">
-    @RenderBody()
-</div>
+<section class="section">
+    <div class="container">
+        @RenderBody()
+    </div>
+</section>
+
 @*CUSTOM SCRIPTS*@
 <script type="text/javascript" src="~/Scripts/Site/dist/IngredientFrames.js"></script>
 <script type="text/javascript" src="~/Scripts/Site/dist/StepFrames.js"></script>
 <script type="text/javascript" src="~/Scripts/Site/dist/SearchByIngredient.js"></script>
+<script type="text/javascript" src="~/Scripts/Site/dist/Utilities.js"></script>
 </body>
 </html>

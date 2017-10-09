@@ -1,30 +1,35 @@
 ﻿@model IEnumerable<emeal.Models.Product>
 @{ ViewBag.Title = "Search by ingredients"; }
 
-<div class="jumbotron">
+<div class="container">
     @using (Html.BeginForm("SearchByIngredientsResult", "Ingredient", FormMethod.Post, new {id = "ingredient-search-form"}))
     {
-        <select id="ingredient-search-input" multiple="multiple" name="selectedProductIds">
-            @foreach (var product in Model)
-            {
-                <option value="@Html.ValueFor(prod => product.Id)">
-                    @Html.ValueFor(prod => product.Name)
-                </option>
-            }
-        </select>
-
-        <select id="my-allergies-input" multiple="multiple" name="selectedAllergiesIds">
-            @foreach (var product in Model)
-            {
-                <option value="@Html.ValueFor(allergen => product.Id)">
-                    @Html.ValueFor(allergen => product.Name)
-                </option>
-            }
-        </select>
-        <input class="btn btn-success" id="ingredient-search-submit" type="submit" value="Search"/>
+        <div class="level">
+            <div class="level-left">
+                <select class="level-item" id="ingredient-search-input" multiple="multiple" name="selectedProductIds">
+                    @foreach (var product in Model)
+                    {
+                        <option value="@Html.ValueFor(prod => product.Id)">
+                            @Html.ValueFor(prod => product.Name)
+                        </option>
+                    }
+                </select>
+            </div>
+            <input class="button button-success" id="ingredient-search-submit" type="submit" value="Search"/>
+            <div class="level-right">
+                <select class="level-item" id="my-allergies-input" multiple="multiple" name="selectedAllergiesIds">
+                    @foreach (var product in Model)
+                    {
+                        <option value="@Html.ValueFor(allergen => product.Id)">
+                            @Html.ValueFor(allergen => product.Name)
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
     }
 </div>
 <hr/>
-<div id="ingredient-search-results">
-    <p>The recipes will appear here...</p>
+<div class="container ingredient-search-result-container">
+    <p>Recipes appear here...</p>
 </div>

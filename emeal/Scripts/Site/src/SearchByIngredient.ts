@@ -1,5 +1,5 @@
 ﻿$(function (): void {
-	var ingredientResults: JQuery<HTMLElement> = $("#ingredient-search-results");
+	var ingredientResults: JQuery<HTMLElement> = $(".ingredient-search-result-container");
 
 	$("#ingredient-search-input").select2({
 		placeholder: "Enter your ingredients here...",
@@ -7,7 +7,7 @@
 	});
 
 	$("#my-allergies-input").select2({
-		placeholder: "This products will be excluded from the search...",
+		placeholder: "These products will be excluded from the search...",
 		tags: false
 	});
 

@@ -30,12 +30,14 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "bulma": "^0.5.3",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "jquery-validation": "^1.17.0",
     "jquery-validation-unobtrusive": "^3.2.6",
     "modernizr": "^3.5.0",
     "select2": "^4.0.4",
-    "stylelint": "^8.1.1"
+    "stylelint": "^8.2.0"
   },
   "-vs-binding": {
     "BeforeBuild": [
