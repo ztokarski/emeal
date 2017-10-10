@@ -3,69 +3,83 @@
 
 <div id="recipe-details">
     <div id="recipe-details-top">
-            <a><img src="@Html.ValueFor(model => model.PathToImage)" width="650" image" /></a>
-            <h1>@Html.ValueFor(model => model.Name)</h1>
-            <p>@Html.ValueFor(model => model.Description)</p>
-</div>
+        <img class="img-responsive" src="@Html.ValueFor(model => model.PathToImage)" alt="Meal image"/>
+        <section class="recipe-details-info-bar">
+            <p class="recipe-details-info-bar-author">
+                <span class="glyphicon glyphicon-user"></span> @Html.ValueFor(model => model.Author.Name)
+            </p>
+            <p class="recipe-details-info-bar-difficulty">
+                <span class="glyphicon glyphicon-stats"></span> @Html.ValueFor(model => model.DifficultyLevel)
+            </p>
+            <p class="recipe-details-info-bar-time">
+                <span class="glyphicon glyphicon-time"></span> @Html.ValueFor(model => model.EstimatedTime)
+            </p>
+            <p class="recipe-details-info-bar-popularity">
+                <span class="glyphicon glyphicon-thumbs-up"></span> @Html.ValueFor(model => model.Popularity)
+            </p>
+            <p class="recipe-details-info-bar-rating">
+                <span class="glyphicon glyphicon-star"></span> @Html.ValueFor(model => model.Rating)
+            </p>
+        </section>
+    </div>
+
     <div id="recipe-details-middle">
-        <div class="dropdown" id="ingredient-dropdown">
-            <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">
-                @Html.DisplayNameFor(model => model.Ingredients)
-                <span class="caret"></span>
-            </button>
-            @if (Model.Ingredients.Count != 0)
-            {
-                <ul class="dropdown-menu dropdown-menu-right ingredient-dropdown-content">
-                    @foreach (var ingredient in Model.Ingredients)
-                    {
-                        <li>
-                            <strong>@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</strong>
-                            <p>
-                                @Html.DisplayFor(ingredientItem => ingredient.Amount)
-                                @Html.DisplayFor(ingredientItem => ingredient.UnitType)</p>
-                        </li>
-                    }
-                </ul>
-            }
-        </div>
-        <div class="dropdown" id="step-dropdown">
-            <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">
-                @Html.DisplayNameFor(modelItem => Model.Steps)
-                <span class="caret"></span>
-            </button>
-            @if (Model.Steps.Count != 0)
-            {
-                <ul class="dropdown-menu dropdown-menu-right step-dropdown-content">
+        <h1>
+            @Html.ValueFor(model => model.Name)
+        </h1>
+        <h4>
+            @Html.ValueFor(model => model.Description)
+        </h4>
+    </div>
+    <hr/>
+
+    <div id="recipe-details-bottom">
+        <section class="recipe-details-prepare">
+            <p class="reciepe-details-prepare-ingredients">
+                <h3>Składniki</h3>
+                @if (Model.Ingredients.Count != 0)
+                {
+                    <ul>
+                        @foreach (var ingredient in Model.Ingredients)
+                        {
+                            <li>
+                                <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>: 
+                                    @Html.DisplayFor(ingredientItem => ingredient.Amount)
+                                    @Html.DisplayFor(ingredientItem => ingredient.UnitType),
+                                    @if (ingredient.Description != null)
+                                    {
+                                        <span>(</span>
+                                        @Html.DisplayFor(ingredientItem => ingredient.Description)
+                                        <span>)</span>
+                                    }
+                            </li>
+                        }
+                    </ul>
+                }
+            </p>
+            <hr/>
+
+            <div class="recipe-details-prepare-steps">
+                <h3>Przygotowanie</h3>
+                @if (Model.Steps.Count != 0)
+                {
+                    <ul>
                     @foreach (var step in Model.Steps)
                     {
                         <li>
-                            <strong>@Html.DisplayFor(stepItem => step.Name)</strong>
-                            <p>@Html.DisplayFor(stepstepItem => step.Description)</p>
+                            <span class="font-bold">@Html.DisplayFor(stepItem => step.Name)</span>
+                            <p>@Html.DisplayFor(stepItem => step.Description)</p>
                         </li>
                     }
-                </ul>
-            }
-        </div>
+                    </ul>
+                }
+            </div>
+        </section>
     </div>
-    <div id="recipe-details-bottom">
-        <div id="recipe-details-bottom-left">
-            <h5>@Html.DisplayNameFor(model => model.Author)</h5>
-            <p>@Html.ValueFor(model => model.Author.Name)</p>
-            <hr/>
-            <h5>@Html.DisplayNameFor(model => model.DifficultyLevel)</h5>
-            <p>@Html.ValueFor(model => model.DifficultyLevel)</p>
-        </div>
-        <div id="recipe-details-bottom-right">
-            <h5>@Html.DisplayNameFor(model => model.Popularity)</h5>
-            @Html.ValueFor(model => model.Popularity)
-            <hr/>
-            <h5>@Html.DisplayNameFor(model => model.Rating)</h5>
-            <p>@Html.ValueFor(model => model.Rating)</p>
-        </div>
+
     </div>
     <br/>
     <div class="btn-group" id="recipe-details-action-buttons">
-        @Html.ActionLink("Edit", "Edit", new {id = Model.Id}, new {@class = "btn btn-info"})
+        
         @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-default"})
     </div>
-</div>

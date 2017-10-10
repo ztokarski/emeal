@@ -5,7 +5,7 @@ namespace emeal.Services.Interfaces
 {
     public interface IRecipeFinder
     {
-        List<int> FindRelevantRecipesIds(List<int> queryArr);
-        List<Recipe> GetQueryResult(List<int> queryArr);
+        IList<int> FindRelevantRecipesIds(List<int> queryArr, List<int> queryAllergies);
+        IEnumerable<Recipe> GetQueryResult(List<int> queryArr, List<int> queryAllergies);
     }
 }

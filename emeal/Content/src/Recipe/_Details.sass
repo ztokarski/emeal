@@ -1,0 +1,73 @@
+#steps > div,
+#ingredients > div
+  background: rgba(255, 255, 255, .15)
+  border: 1px solid rgb(195, 195, 195)
+  border-radius: 10px
+  margin: 2%
+  padding: 2%
+
+#steps,
+#ingredients
+  display: flex
+  flex-flow: row wrap
+  margin: 0 auto
+
+.ingredient-dropdown-content,
+.step-dropdown-content
+  padding: 5%
+
+#recipe-details
+  background: rgba(255, 255, 255, .15)
+  margin: auto
+  padding: 2%
+
+#recipe-details-top
+  align-content: center
+  display: flex
+  flex-flow: column wrap
+  justify-content: center
+  margin: auto
+  text-align: center
+
+#recipe-details-middle
+  align-content: space-around
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-around
+  margin: auto
+  text-align: center
+  padding: 3rem 0
+
+#recipe-details-bottom
+  align-content: space-around
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-around
+  margin: auto
+
+#recipe-details-action-buttons
+  align-content: center
+  display: flex
+  flex-flow: row wrap
+  justify-content: center
+  margin: auto
+
+.recipe-details-info-bar
+  display: inline-grid;
+  background: rgba(200, 200, 200, .8)
+  grid-template: "author difficulty time popularity rating"
+
+  .recipe-details-info-author
+    grid-area: author
+
+  .recipe-details-info-difficulty
+    grid-area: difficulty
+
+  .recipe-details-info-time
+    grid-area: time
+
+  .recipe-details-info-popularity
+    grid-area: popularity
+
+  .recipe-details-info-rating
+    grid-area: rating

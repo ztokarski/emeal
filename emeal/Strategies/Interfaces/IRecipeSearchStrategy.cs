@@ -5,6 +5,6 @@ namespace emeal.Strategies.Interfaces
 {
     public interface IRecipeSearchStrategy
     {
-        List<int> GetRelevantRecipeIds(IEnumerable<Recipe> recipeList, List<int> queryProductIds);
+        List<int> GetRelevantRecipeIds(IEnumerable<Recipe> recipeList, List<int> queryProductIds, List<int>queryAllergiesIds);
     }
 }

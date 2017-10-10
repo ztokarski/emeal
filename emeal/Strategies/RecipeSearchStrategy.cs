@@ -9,8 +9,8 @@ namespace emeal.Strategies
     // ReSharper disable once ClassNeverInstantiated.Global
     internal class RecipeSearchStrategy : IRecipeSearchStrategy
     {
-        
-        public List<int> GetRelevantRecipeIds(IEnumerable<Recipe> recipeList, List<int> queryProductIds)
+
+        public List<int> GetRelevantRecipeIds(IEnumerable<Recipe> recipeList, List<int> queryProductIds, List<int>queryAllergiesIds)
         {
             if (recipeList == null || queryProductIds == null) return new List<int>();
 
@@ -18,7 +18,6 @@ namespace emeal.Strategies
 
             //                                  (recipeID, matchRatio)
             var recipeMatchRatios = new List<Tuple<int, int>>(); //Create Recipe Tuple in order to sort Recipes by Match Ratio
-            ;
             foreach (var recipe in recipeList)
             {
                 var productsIds = GetProductsIdsFromRecipe(recipe);
@@ -30,7 +29,8 @@ namespace emeal.Strategies
                 var recipeCount = productsIds.Count;
                 
                 if (queryRecipeDifference == queryCount) continue; // matching 0%  e.g. query=[1,2,3] & recipe=[4,5,6] 
-                else if (queryRecipeDifference >= 0 && recipeQueryDifference > 0) // e.g. query=[1,2,3] & recipe=[2,3,4]
+                if (ContainsAllergens(recipe, queryAllergiesIds)) continue;
+                if (queryRecipeDifference >= 0 && recipeQueryDifference > 0) // e.g. query=[1,2,3] & recipe=[2,3,4]
                     recipeMatchRatios.Add(Tuple.Create(recipe.Id, recipeQueryDifference + 30));
                 else if (queryRecipeDifference >= 0 && queryCount >= recipeCount) // matching 100% or e.g. query=[1,2,3] & recipe=[1,2]
                     recipeMatchRatios.Add(Tuple.Create(recipe.Id, queryRecipeDifference));
@@ -43,6 +43,17 @@ namespace emeal.Strategies
             return recipeMatchRatios.Select(tuple => tuple.Item1).ToList();
 
             #endregion
+        }
+
+        private static bool ContainsAllergens(Recipe recipe, ICollection<int> queryAllergiesIds)
+        {
+            if (queryAllergiesIds == null) return false;
+
+            foreach (var ingredient in recipe.Ingredients)
+            {
+                if (queryAllergiesIds.Contains(ingredient.Product.Id)) return true;
+            }
+            return false;
         }
 
         private static List<int> GetProductsIdsFromRecipe(Recipe recipe)

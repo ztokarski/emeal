@@ -12,6 +12,15 @@
                 </option>
             }
         </select>
+
+        <select id="my-allergies-input" multiple="multiple" name="selectedAllergiesIds">
+            @foreach (var product in Model)
+            {
+                <option value="@Html.ValueFor(allergen => product.Id)">
+                    @Html.ValueFor(allergen => product.Name)
+                </option>
+            }
+        </select>
         <input class="btn btn-success" id="ingredient-search-submit" type="submit" value="Search"/>
     }
 </div>

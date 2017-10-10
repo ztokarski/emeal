@@ -82,7 +82,7 @@ namespace emeal.Services
 
         public void Remove(Recipe recipe)
         {
-            if (recipe == null) throw new InvalidRecipeException();
+            if (!recipe.IsValid()) throw new InvalidRecipeException();
 
             Db.Steps.RemoveRange(recipe.Steps);
             Db.Ingredients.RemoveRange(recipe.Ingredients);
@@ -117,6 +117,14 @@ namespace emeal.Services
                     break;
             }
             return recipes;
+        }
+
+        public int GetRandomRecipeId()
+        {
+            Random random = new Random();
+            var maxId = Db.Recipes.Count();
+            var id = random.Next(maxId + 1);
+            return id;
         }
     }
 }
