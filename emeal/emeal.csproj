@@ -108,7 +108,6 @@
     <Content Include="Content\img\dice.png" />
     <Content Include="Content\img\djkhaled-sm.png" />
     <Content Include="Content\img\djkhaled.png" />
-    <Content Include="Content\img\square.svg" />
     <Content Include="Content\img\status\400.jpg" />
     <Content Include="Content\img\status\401.jpg" />
     <Content Include="Content\img\status\403.jpg" />

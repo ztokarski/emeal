@@ -35,7 +35,7 @@
     "jquery-validation-unobtrusive": "^3.2.6",
     "modernizr": "^3.5.0",
     "select2": "^4.0.4",
-    "stylelint": "^8.1.1"
+    "stylelint": "^8.2.0"
   },
   "-vs-binding": {
     "BeforeBuild": [
