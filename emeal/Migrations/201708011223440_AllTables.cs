@@ -58,6 +58,8 @@ namespace emeal.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         PathToImage = c.String(),
+                        Email = c.String(),
+                        Password = c.String()
                     })
                 .PrimaryKey(t => t.Id);
 
