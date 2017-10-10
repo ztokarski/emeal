@@ -23,3 +23,5 @@ rules:
   placeholder-name-format: 1
   variable-name-format: 1
 
+  color-hex-length: 0
+
