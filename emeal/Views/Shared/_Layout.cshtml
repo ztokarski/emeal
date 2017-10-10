@@ -1,9 +1,9 @@
 ﻿@using emeal.Models
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>@ViewBag.Title</title>
     @*CSS*@
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans"/>
@@ -12,41 +12,48 @@
     @*CUSTOM STYLESHEET*@
     <link type="text/css" rel="stylesheet" href="~/Content/dist/Site.css"/>
     @*JS*@
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <a href="@Url.Action("Index", "User")" class="pull-left">
-            <img class="user-profile-pic" src="@Html.ValueFor(user => (Session["User"] as User).PathToImage)" alt="User avatar"/>
-        </a>
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
         <div class="navbar-header">
-            @Html.ActionLink("e-meal", "Index", "Home", null, new {@class = "navbar-brand"})
+            <a class="navbar-left navbar-btn" href="@Url.Action("Index", "User")">
+                <img class="user-profile-pic" src="@Html.ValueFor(user => (Session["User"] as User).PathToImage)" alt="User avatar"/>
+            </a>
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">e-meal</a>
         </div>
 
-        <a class="btn btn-success navbar-btn pull-right" href="@Url.Action("SearchByIngredients", "Ingredient")"><span class="glyphicon glyphicon-search"></span> Ingredients</a>
-        <div class="pull-right navbar-btn dropdown" id="searchDropdownMenu">
-            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" id="searchDropdown"><span class="glyphicon glyphicon-search"></span> Name</button>
-            <div class="dropdown-menu" id="ingredient-search-dropdown">
-                @using (Html.BeginForm("Index", "Recipe", FormMethod.Get, new {id = "ingredient-search-dropdown-content"}))
-                {
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter recipe name..." name="searchName" value=@ViewBag.SearchName>
-                    </div>
-                    <button type="submit" class="btn btn-default">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                }
+        <div class="btn-group navbar-btn navbar-right">
+            <a class="btn btn-adaptive" href="@Url.Action("SearchByIngredients", "Ingredient")">
+                <span class="glyphicon glyphicon-search"></span> Ingredients
+            </a>
+            <div class="btn-group dropdown" id="searchDropdownMenu">
+                <button class="btn btn-adaptive dropdown-toggle" data-toggle="dropdown" id="searchDropdown">
+                    <span class="glyphicon glyphicon-search"></span> Name <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    @using (Html.BeginForm("Index", "Recipe", FormMethod.Get, new {@class = ""}))
+                    {
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter recipe name..." name="searchName" value=@ViewBag.SearchName>
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-adaptive form-control">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container">
+</nav>
+<div class="container-fluid">
     @RenderBody()
 </div>
 @*CUSTOM SCRIPTS*@
