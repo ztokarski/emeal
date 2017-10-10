@@ -1,10 +1,21 @@
 .btn-accent {
-  background-color: $primary-accent;
-  border-color: $primary-accent;
-  color: $primary-background;
+  background-color: $red;
+  border-color: $red;
+  color: $text-lightest;
 
   &:hover {
-    background: darken($primary-accent, 10%);
-    color: $primary-background;
+    background: $red-dark;
+    color: $text-lighter;
+  }
+}
+
+.btn-adaptive {
+  background-color: inherit;
+  border-color: none;
+  color: inherit;
+
+  &:hover {
+    background: inherit;
+    color: inherit + (inherit / 2);
   }
 }

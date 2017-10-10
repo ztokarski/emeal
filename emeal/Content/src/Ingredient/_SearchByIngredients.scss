@@ -1,13 +1,15 @@
 #ingredient-search-results {
+  @include flex;
+  @include flex-row(true);
   align-content: flex-start;
-  display: flex;
-  flex-flow: row wrap;
   justify-content: flex-start;
   margin: auto;
+
   a {
-    background: darken($primary, 25%);
+    background: $green-light;
     color: $text-primary;
     text-decoration: none;
+
     &:hover {
       box-shadow: 1px 1px 5px 1px $text-primary;
     }
@@ -15,9 +17,9 @@
 }
 
 .ingredient-search-result {
+  @include flex;
+  @include flex-column(false);
   align-items: center;
-  display: flex;
-  flex-flow: column;
   font-size: smaller;
   height: 15rem;
   justify-content: space-around;
@@ -27,8 +29,8 @@
 }
 
 .ingredient-search-dropdown {
-  display: flex;
-  flex-flow: row nowrap;
+  @include flex;
+  @include flex-row(false);
   justify-content: space-around;
   margin: auto;
   padding: 1%;

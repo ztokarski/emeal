@@ -1,66 +1,36 @@
-#recipe-details {
-  background: transparentize($primary, .15);
-  margin: auto;
-  padding: 2%;
-}
+.recipe-details {
+  background: $red-lighter;
 
-#recipe-details-top {
-  align-content: center;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  margin: auto;
-  text-align: center;
-}
-
-#recipe-details-middle {
-  align-content: space-around;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  margin: auto;
-  padding: 3rem 0;
-  text-align: center;
-}
-
-#recipe-details-bottom {
-  align-content: space-around;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  margin: auto;
-}
-
-#recipe-details-action-buttons {
-  align-content: center;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin: auto;
-}
-
-.recipe-details-info-bar {
-  background: transparentize($primary, .1);
-  display: inline-grid;
-  grid-template: "author difficulty time popularity rating";
-
-  .recipe-details-info-author {
-    grid-area: author;
+  .recipe-details-top {
+    @include text-centered;
+    background: linear-gradient(to bottom, $background 0%, $red-lighter 100%);
   }
 
-  .recipe-details-info-difficulty {
-    grid-area: difficulty;
-  }
+  .recipe-details-info-bar {
+    @include grid-inline;
+    @include grid-items-centered;
+    grid-template: "author difficulty time popularity rating";
+    margin: auto;
+    width: 100%;
 
-  .recipe-details-info-time {
-    grid-area: time;
-  }
+    .info-bar-author {
+      grid-area: author;
+    }
 
-  .recipe-details-info-popularity {
-    grid-area: popularity;
-  }
+    .info-bar-difficulty {
+      grid-area: difficulty;
+    }
 
-  .recipe-details-info-rating {
-    grid-area: rating;
+    .info-bar-time {
+      grid-area: time;
+    }
+
+    .info-bar-popularity {
+      grid-area: popularity;
+    }
+
+    .-info-bar-rating {
+      grid-area: rating;
+    }
   }
 }

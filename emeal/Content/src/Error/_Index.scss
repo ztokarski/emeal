@@ -5,10 +5,10 @@
   grid-template-rows: 2fr;
 
   .error-status-content-img {
-    grid-area: status-img;
+    grid-area: "status-img";
   }
 
   .error-status-content-info {
-    grid-area: status-info;
+    grid-area: "status-info";
   }
 }

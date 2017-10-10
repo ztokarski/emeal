@@ -1,1 +1,6 @@
-//
+.start-page-row {
+  @include flex;
+  @include flex-row(false);
+  @include flex-center-total
+
+}

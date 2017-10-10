@@ -1,8 +1,13 @@
+// SHARED IN STYLING
 @import "Shared/Colours";
 @import "Shared/Buttons";
 @import "Shared/Fonts";
 @import "Shared/Glyphicons";
 @import "Shared/Navbar";
+@import "Shared/Mixins/Flex";
+@import "Shared/Mixins/Grid";
+@import "Shared/Mixins/Text";
+// STYLING
 @import "Error/Index";
 @import "Home/Index";
 @import "Ingredient/SearchByIngredients";
@@ -11,7 +16,7 @@
 
 html,
 body {
-  background: $primary-background;
+  background: $background;
   color: $text-primary;
   font-family: $font-stack;
   font-style: normal;
