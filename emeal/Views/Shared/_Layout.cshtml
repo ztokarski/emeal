@@ -29,11 +29,11 @@
         </div>
         <div class="btn-group navbar-btn navbar-right">
             <a class="btn btn-adaptive" href="@Url.Action("SearchByIngredients", "Ingredient")">
-                <span class="glyphicon glyphicon-search"></span> Ingredients
+                <span class="glyphicon glyphicon-search"></span> Składniki
             </a>
             <div class="btn-group dropdown" id="searchDropdownMenu">
                 <button class="btn btn-adaptive dropdown-toggle" data-toggle="dropdown" id="searchDropdown">
-                    <span class="glyphicon glyphicon-search"></span> Name <span class="caret"></span>
+                    <span class="glyphicon glyphicon-search"></span> Nazwa <span class="caret"></span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     @using (Html.BeginForm("Index", "Recipe", FormMethod.Get, new {@class = ""}))
