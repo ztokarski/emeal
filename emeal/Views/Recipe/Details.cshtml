@@ -2,72 +2,65 @@
 @{ ViewBag.Title = Html.DisplayFor(model => model.Name); }
 
 <div class="recipe-details">
-    <section class="recipe-details-top">
+    <div class="details-image-info">
         <img class="img-responsive" src="@Html.ValueFor(model => model.PathToImage)" alt="Meal image"/>
-        <div>
-            <h1>@Html.ValueFor(model => model.Name)</h1>
-            <h4>@Html.ValueFor(model => model.Description)</h4>
+        <div class="details-info-bar">
+            <p class="info-bar-author">
+                <span class="glyphicon glyphicon-user"></span> @Html.ValueFor(model => model.Author.Name)
+            </p>
+            <p class="info-bar-difficulty">
+                <span class="glyphicon glyphicon-stats"></span> @Html.ValueFor(model => model.DifficultyLevel)
+            </p>
+            <p class="info-bar-time">
+                <span class="glyphicon glyphicon-time"></span> @Html.ValueFor(model => model.EstimatedTime)
+            </p>
+            <p class="info-bar-popularity">
+                <span class="glyphicon glyphicon-thumbs-up"></span> @Html.ValueFor(model => model.Popularity)
+            </p>
+            <p class="info-bar-rating">
+                <span class="glyphicon glyphicon-star"></span> @Html.ValueFor(model => model.Rating)
+            </p>
         </div>
-    </section>
-    <section class="recipe-details-info-bar">
-        <p class="info-bar-author">
-            <span class="glyphicon glyphicon-user"></span> @Html.ValueFor(model => model.Author.Name)
-        </p>
-        <p class="info-bar-difficulty">
-            <span class="glyphicon glyphicon-stats"></span> @Html.ValueFor(model => model.DifficultyLevel)
-        </p>
-        <p class="info-bar-time">
-            <span class="glyphicon glyphicon-time"></span> @Html.ValueFor(model => model.EstimatedTime)
-        </p>
-        <p class="info-bar-popularity">
-            <span class="glyphicon glyphicon-thumbs-up"></span> @Html.ValueFor(model => model.Popularity)
-        </p>
-        <p class="info-bar-rating">
-            <span class="glyphicon glyphicon-star"></span> @Html.ValueFor(model => model.Rating)
-        </p>
-    </section>
-    <hr/>
-
-    <section class="recipe-details-prepare">
-        <p class="recipe-details-prepare-ingredients">
-            <h3>Ingredients</h3>
-            @if (Model.Ingredients.Count != 0)
-            {
-                <ul>
-                    @foreach (var ingredient in Model.Ingredients)
-                    {
-                        <li>
-                            <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>:
-                            @Html.DisplayFor(ingredientItem => ingredient.Amount)
-                            @Html.DisplayFor(ingredientItem => ingredient.UnitType),
-                            @if (ingredient.Description != null)
-                            {
-                                <span>(</span>
-                                @Html.DisplayFor(ingredientItem => ingredient.Description)
-                                <span>)</span>
-                            }
-                        </li>
-                    }
-                </ul>
-            }
-        </p>
-        <hr/>
-        <div class="recipe-details-prepare-steps">
-            <h3>Steps</h3>
-            @if (Model.Steps.Count != 0)
-            {
-                <ul>
-                    @foreach (var step in Model.Steps)
-                    {
-                        <li>
-                            <span class="font-bold">@Html.DisplayFor(stepItem => step.Name)</span>
-                            <p>@Html.DisplayFor(stepItem => step.Description)</p>
-                        </li>
-                    }
-                </ul>
-            }
-        </div>
-    </section>
+    </div>
+    <div class="preparation-steps">
+        <h3>Steps</h3>
+        @if (Model.Steps != null && Model.Steps.Count > 0)
+        {
+            <ul>
+                @foreach (var step in Model.Steps)
+                {
+                    <li>
+                        <span class="font-bold">@Html.DisplayFor(stepItem => step.Name)</span>
+                        <p>@Html.DisplayFor(stepItem => step.Description)</p>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+    <div class="details-title">
+        <h1 class="text-uppercase">@Html.ValueFor(model => model.Name)</h1>
+        <h4>@Html.ValueFor(model => model.Description)</h4>
+    </div>
+    <div class="preparation-ingredients">
+        <h3>Ingredients</h3>
+        @if (Model.Ingredients != null && Model.Ingredients.Count > 0)
+        {
+            <ul>
+                @foreach (var ingredient in Model.Ingredients)
+                {
+                    <li>
+                        <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>:
+                        @Html.DisplayFor(ingredientItem => ingredient.Amount)
+                        @Html.DisplayFor(ingredientItem => ingredient.UnitType),
+                        @if (ingredient.Description != null)
+                        {
+                            <span>(</span>
+                            @Html.DisplayFor(ingredientItem => ingredient.Description)
+                            <span>)</span>
+                        }
+                    </li>
+                }
+            </ul>
+        }
+    </div>
 </div>
-<hr/>
-@Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-accent"})
