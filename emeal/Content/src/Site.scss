@@ -1,6 +1,7 @@
 // SHARED IN STYLING
 @import "Shared/Colours";
 @import "Shared/Buttons";
+@import "Shared/Breakpoints";
 @import "Shared/Fonts";
 @import "Shared/Glyphicons";
 @import "Shared/Navbar";
@@ -25,10 +26,12 @@ body {
   margin: 0;
   padding-bottom: 20px;
   padding-top: 50px;
-}
-
-input,
-select,
-textarea {
-  max-width: 280px;
+  input,
+  select,
+  textarea {
+    max-width: 280px;
+  }
+  .container {
+    height: 100%;
+  }
 }

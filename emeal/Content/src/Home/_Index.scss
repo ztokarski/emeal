@@ -1,6 +1,10 @@
 .start-page-row {
   @include flex;
   @include flex-row(false);
-  @include flex-center-total
+  align-content: space-around;
+  justify-content: space-around;
 
+  a {
+    padding: 3rem;
+  }
 }
