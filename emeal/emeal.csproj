@@ -137,6 +137,7 @@
     <Content Include="Content\src\Shared\Mixins\_Grid.scss" />
     <Content Include="Content\src\Shared\Mixins\_Text.scss" />
     <None Include="packages.config" />
+    <Content Include="Scripts\Site\src\HomeIndex.ts" />
     <Content Include="Scripts\Site\src\IngredientFrames.ts" />
     <Content Include="Scripts\Site\src\SearchByIngredient.ts" />
     <Content Include="Scripts\Site\src\StepFrames.ts" />
@@ -210,6 +211,7 @@
     <Content Include="Views\Ingredient\PartialSearchResults.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Scripts\Site\tsconfig.json" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
