@@ -1,5 +1,4 @@
 #ingredient-search-results {
-  @include flex;
   @include flex-row(true);
   align-content: flex-start;
   justify-content: flex-start;
@@ -17,7 +16,6 @@
 }
 
 .ingredient-search-result {
-  @include flex;
   @include flex-column(false);
   align-items: center;
   font-size: smaller;
@@ -29,7 +27,6 @@
 }
 
 .ingredient-search-dropdown {
-  @include flex;
   @include flex-row(false);
   justify-content: space-around;
   margin: auto;
@@ -38,5 +35,5 @@
 
 #ingredient-search-input,
 #my-allergies-input {
-  width: 100%;
+  width: 20rem;
 }

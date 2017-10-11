@@ -1,36 +1,26 @@
-@mixin flex {
+@mixin flex-row($wrap: true) {
   display: flex;
-}
-
-@mixin flex-wrap {
-  flex-wrap: wrap;
-}
-
-@mixin flex-nowrap {
-  flex-wrap: nowrap;
-}
-
-@mixin flex-row($wrap) {
   flex-flow: row;
   @if $wrap {
-    @include flex-wrap;
-  } @else {
-    @include flex-nowrap;
+    flex-wrap: wrap;
+  }
+  @else {
+    flex-wrap: nowrap;
   }
 }
 
-@mixin flex-column($wrap) {
+@mixin flex-column($wrap: true) {
+  display: flex;
   flex-flow: column;
   @if $wrap {
-    @include flex-wrap;
-  } @else {
-    @include flex-nowrap;
+    flex-wrap: wrap;
+  }
+  @else {
+    flex-wrap: nowrap;
   }
 }
 
 @mixin flex-center-total {
   align-content: center;
-  align-items: center;
   justify-content: center;
-  justify-items: center;
 }

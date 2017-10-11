@@ -10,7 +10,6 @@
     padding: 10rem 0;
   }
   .details-image-info {
-    @include flex;
     @include flex-column(false);
     grid-area: right-up;
     .details-info-bar {
