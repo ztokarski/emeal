@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="preparation-steps">
-        <h3>Steps</h3>
+        <h3>Przygotowanie</h3>
         @if (Model.Steps != null && Model.Steps.Count > 0)
         {
             <ul>
@@ -42,7 +42,7 @@
         <h4>@Html.ValueFor(model => model.Description)</h4>
     </div>
     <div class="preparation-ingredients">
-        <h3>Ingredients</h3>
+        <h3>Składniki</h3>
         @if (Model.Ingredients != null && Model.Ingredients.Count > 0)
         {
             <ul>
@@ -51,7 +51,7 @@
                     <li>
                         <span class="font-bold">@Html.DisplayFor(ingredientItem => ingredient.Product.Name)</span>:
                         @Html.DisplayFor(ingredientItem => ingredient.Amount)
-                        @Html.DisplayFor(ingredientItem => ingredient.UnitType),
+                        @Html.DisplayFor(ingredientItem => ingredient.UnitType)
                         @if (ingredient.Description != null)
                         {
                             <span>(</span>
