@@ -1,5 +1,4 @@
-﻿@using emeal.Models
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -19,39 +18,7 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-left navbar-btn" href="@Url.Action("Index", "User")">
-                <img class="user-profile-pic" src="@Html.ValueFor(user => (Session["User"] as User).PathToImage)" alt="User avatar"/>
-            </a>
-            <a class="navbar-brand" href="@Url.Action("Index", "Home")">e-meal</a>
-        </div>
-        <div class="btn-group navbar-btn navbar-right">
-            <a class="btn btn-adaptive" href="@Url.Action("SearchByIngredients", "Ingredient")">
-                <span class="glyphicon glyphicon-search"></span> Składniki
-            </a>
-            <div class="btn-group dropdown" id="searchDropdownMenu">
-                <button class="btn btn-adaptive dropdown-toggle" data-toggle="dropdown" id="searchDropdown">
-                    <span class="glyphicon glyphicon-search"></span> Nazwa <span class="caret"></span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    @using (Html.BeginForm("Index", "Recipe", FormMethod.Get, new {@class = ""}))
-                    {
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter recipe name..." name="searchName" value=@ViewBag.SearchName>
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-adaptive form-control">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
+@Html.Partial("_Navbar")
 <div class="container">
     @RenderBody()
 </div>
