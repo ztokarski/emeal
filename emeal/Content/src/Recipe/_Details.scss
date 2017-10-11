@@ -1,36 +1,57 @@
 .recipe-details {
-  background: $red-lighter;
-
-  .recipe-details-top {
-    @include text-centered;
-    background: linear-gradient(to bottom, $background 0%, $red-lighter 100%);
+  @include grid;
+  background: lighten($green-lightest, 15%);
+  grid-gap: 3rem;
+  grid-template: "left-up right-up" "left-down right-down";
+  grid-template-columns: 1fr 2fr;
+  padding: 5%;
+  .details-title {
+    grid-area: left-up;
+    padding: 10rem 0;
   }
-
-  .recipe-details-info-bar {
-    @include grid-inline;
-    @include grid-items-centered;
-    grid-template: "author difficulty time popularity rating";
-    margin: auto;
-    width: 100%;
-
-    .info-bar-author {
-      grid-area: author;
+  .details-image-info {
+    @include flex;
+    @include flex-column(false);
+    grid-area: right-up;
+    .details-info-bar {
+      @include grid-inline;
+      @include grid-items-centered;
+      background: $yellow;
+      grid-template: "author difficulty time popularity rating";
+      padding: 1rem;
+      >p {
+        margin: auto;
+      }
+      .info-bar-author {
+        grid-area: author;
+      }
+      .info-bar-difficulty {
+        grid-area: difficulty;
+      }
+      .info-bar-time {
+        grid-area: time;
+      }
+      .info-bar-popularity {
+        grid-area: popularity;
+      }
+      .-info-bar-rating {
+        grid-area: rating;
+      }
     }
+  }
+  .preparation-ingredients {
+    grid-area: left-down;
+  }
+  .preparation-steps {
+    grid-area: right-down;
+  }
+}
 
-    .info-bar-difficulty {
-      grid-area: difficulty;
-    }
-
-    .info-bar-time {
-      grid-area: time;
-    }
-
-    .info-bar-popularity {
-      grid-area: popularity;
-    }
-
-    .-info-bar-rating {
-      grid-area: rating;
+@media screen and (max-width: $breakpoint-mobile) {
+  .recipe-details {
+    grid-template: "right-up" "left-up" "left-down" "right-down";
+    .details-title {
+      padding: 1rem;
     }
   }
 }
