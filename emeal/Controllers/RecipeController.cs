@@ -149,10 +149,10 @@ namespace emeal.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult RandomRecipe()
+        public ActionResult Random()
         {
             var randomId = _facade.RandomRecipeId();
-            return RedirectToAction("Details", new {id = randomId});
+            return RedirectToAction("Details", new { id = randomId });
         }
     }
 }
