@@ -9,8 +9,33 @@
     justify-content: space-evenly;
     a {
       padding: 5rem;
+    }
+    .start-search {
+      color: $yellow;
+      &:hover {
+        background: $yellow;
+        color: $background;
+      }
+    }
+    .start-profile {
+      color: $blue;
+      &:hover {
+        background: $blue;
+        color: $background;
+      }
+    }
+    .start-random {
+      color: $green;
+      &:hover {
+        background: $green;
+        color: $background;
+      }
+    }
+    .start-recipes {
+      color: $red;
       &:hover {
         background: $red;
+        color: $background;
       }
     }
   }
